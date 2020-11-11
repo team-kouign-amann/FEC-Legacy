@@ -20,5 +20,6 @@ module.exports = {
   ],
   rules: {
     'no-console': 0,
+    'import/extensions': ['warn', 'ignorePackages'],
   },
 };
