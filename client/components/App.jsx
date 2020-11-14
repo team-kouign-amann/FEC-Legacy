@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React from "react";
 import RelatedContainer from "../containers/RelatedContainer.js";
 import QuestionsContainer from "../containers/QuestionsContainer.js";
@@ -17,14 +16,5 @@ const App = () => {
 
   )
 }
-=======
-import React from 'react';
-
-const App = () => (
-  <h1>
-    Hello World!
-  </h1>
-);
->>>>>>> master
 
 export default App;
