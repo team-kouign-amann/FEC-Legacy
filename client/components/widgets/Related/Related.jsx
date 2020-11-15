@@ -6,7 +6,6 @@ const Related = () => {
   return (
     <div>
         <RelatedCard />
-        <br/>
         <OutfitCard />
     </div>
   )
