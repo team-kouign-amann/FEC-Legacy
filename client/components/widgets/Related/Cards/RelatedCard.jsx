@@ -40,7 +40,7 @@ function RelatedCard() {
         <h9 className='relatedTitle'>RELATED PRODUCTS</h9>
       </div>
       <br/>
-      <CardDeck className='container'>
+      <CardDeck className='relatedContainer'>
           {cardInfo.map(renderCard)}
       </CardDeck>
     </div>

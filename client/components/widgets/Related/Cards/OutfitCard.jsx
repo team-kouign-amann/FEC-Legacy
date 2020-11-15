@@ -39,7 +39,7 @@ function OutfitCard() {
         <h9 className='outfitTitle'>YOUR OUTFITS</h9>
       </div>
       <br/>
-      <CardDeck className='container'>
+      <CardDeck className='relatedContainer'>
           {cardInfo.map(renderCard)}
       </CardDeck>
     </div>
