@@ -1,7 +1,7 @@
 import React from "react";
 
 const Rating = (props) => (
-
+ 
   <div>
     <div>
       <div>
@@ -85,7 +85,7 @@ const Rating = (props) => (
           <div class="bars-container"> 
           <h5>Comfort</h5>
             <ul class="bv-content-slider-bar">
-              <li class="rating-stats-50"></li>
+              <li class="rating-stats-50" ></li>
               <li class="rating-stats-50"></li>
             </ul>
             <span class="bv-content-slider-halfway"></span> 
@@ -123,8 +123,8 @@ const Rating = (props) => (
     </div>
 
     <div>
-      <button type="more_reviews">MORE REVIEWS</button>
-      <button type="add_a_review">ADD A REVIEW</button>
+      <button type="more-reviews">MORE REVIEWS</button>
+      <button type="add-a-review">ADD A REVIEW</button>
     </div>
 
   </div>
