@@ -2,7 +2,9 @@ import React from "react";
 
 const Related = () => {
   return(
-    <div><h1>Related</h1></div>
+    <div>
+      <h1>Related - Testing Testing</h1>
+    </div>
   )
 }
 
