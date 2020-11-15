@@ -5,6 +5,10 @@
   padding: 30px;
 }
 
+.container::-webkit-scrollbar {
+  display: none;
+}
+
 .individualCard {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   max-width: 15rem;
@@ -29,6 +33,7 @@
 .cardImg {
   max-width: 100%;
   max-height: 300px;
+  object-fit: cover;
 }
 
 .cardBody {
