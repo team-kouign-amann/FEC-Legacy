@@ -1,0 +1,48 @@
+.container {
+  display: flex;
+  overflow: scroll;
+}
+
+.individualCard {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  width: 15rem;
+  height: 20rem;
+  display: inline-block;
+}
+
+.individualCard + .individualCard {
+  margin-left: 2%;
+}
+
+.relatedTitle {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.outfitTitle {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.cardImg {
+  max-width: 100%;
+  max-height: 300px;
+}
+
+.cardBody {
+  margin-left: 5px;
+}
+
+.cardText {
+  text-align: left;
+  color: rgb(109, 109, 109);
+  font-family: 'Open Sans', sans-serif;
+}
+
+.cardTitle {
+  text-align: left;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.cardPrice {
+  text-align: left; 
+  font-family: 'Open Sans', sans-serif;
+}

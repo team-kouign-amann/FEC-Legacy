@@ -1,9 +1,13 @@
 import React from "react";
+import RelatedCard from './Cards/RelatedCard.jsx';
+import OutfitCard from './Cards/OutfitCard.jsx';
 
 const Related = () => {
-  return(
+  return (
     <div>
-      <h1>Related - Testing Testing</h1>
+        <RelatedCard />
+        <br/>
+        <OutfitCard />
     </div>
   )
 }
