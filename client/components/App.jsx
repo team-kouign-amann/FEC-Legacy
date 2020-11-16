@@ -11,6 +11,7 @@ const App = () => (
     <QuestionsContainer />
     <RatingsContainer />
     <RelatedContainer />
+
   </div>
 
 );
