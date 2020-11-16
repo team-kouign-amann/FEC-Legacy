@@ -5,19 +5,14 @@ module.exports = {
     es2021: true,
     node: true,
   },
-  extends: [
-    'plugin:react/recommended',
-    'airbnb',
-  ],
+  extends: ['plugin:react/recommended', 'airbnb'],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
     },
     ecmaVersion: 12,
   },
-  plugins: [
-    'react',
-  ],
+  plugins: ['react', 'jest'],
   rules: {
     'no-console': 0,
     'import/extensions': ['warn', 'ignorePackages'],
