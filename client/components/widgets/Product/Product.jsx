@@ -17,7 +17,13 @@ const Product = () => (
           <img className="center-image" src="http://placecorgi.com/450" alt="" />
           <button className="right-button" type="submit"> Right </button>
         </div>
-        <div className="item2">Category</div>
+        <div className="item2">
+          <span className="category-name-font">Category </span>
+          <span className="product-name-font">Expanded Product </span>
+          <span className="product-name-font">Name </span>
+          <span className="price-font">$369 </span>
+
+        </div>
         <div className="item3">Style</div>
         <div className="item4">Bag</div>
         <div className="item5">Size</div>
