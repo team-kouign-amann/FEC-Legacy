@@ -46,7 +46,7 @@ RATINGS AND REVIEWS
     width: 10px;
     overflow: hidden;
 }
-
+/**
 .ratings-container-five {
   position: absolute;
   left: 60px;
@@ -89,6 +89,7 @@ RATINGS AND REVIEWS
   display:block;
   height:8px;
 }
+**/
 
 .black{ background:rgb(73, 73, 73); }
 
@@ -117,11 +118,16 @@ PRODUCT OVERVIEW
 }
 
 .container {
-  padding: 0px 150px;
+  padding: 0px 50px;
 }
 
-.item1 { grid-area: carousel; }
-.item2 { grid-area: category; }
+.item1 { grid-area: carousel;
+         grid-template-columns: 25% 10% auto 1fr;
+         grid-template-rows: 10% 25% 25% 20% 10%;
+}
+.item2 { grid-area: category;
+         grid-template-rows: 1fr 1fr 1fr;
+        }
 .item3 { grid-area: style; }
 .item4 { grid-area: size; }
 .item5 { grid-area: bag; }
@@ -131,13 +137,13 @@ PRODUCT OVERVIEW
 .grid-container {
   display: grid;
   grid-template-areas:
-    'carousel carousel carousel category'
-    'carousel carousel carousel category'
-    'carousel carousel carousel style'
-    'carousel carousel carousel style'
-    'carousel carousel carousel size'
-    'carousel carousel carousel bag'
-    'slogan slogan slogan guarantee' ;
+    'carousel carousel category category'
+    'carousel carousel category category'
+    'carousel carousel style style'
+    'carousel carousel style style'
+    'carousel carousel size size'
+    'slogan slogan bag bag'
+    'slogan slogan guarantee guarantee' ;
   grid-gap: 10px;
   background-color:black;
   padding: 10px;
@@ -146,7 +152,62 @@ PRODUCT OVERVIEW
 
 .grid-container > div {
   background-color: rgba(255, 255, 255, 0.8);
-  text-align: center;
+  display: grid;
   padding: 20px 0;
   font-size: 30px;
 }
+
+/*********
+
+Product overview: Carousel (item1)
+
+********/
+
+.carousel-position {
+  position: relative;
+}
+
+.preview_list {
+  justify-self: center;
+  align-self: center;
+  list-style-type: none;
+  margin: 0;
+  grid-column:1;
+  grid-row:2 / span 3;
+}
+
+.left-button {
+  height:15%;
+  justify-self: end;
+  align-self: center;
+  grid-column: 2;
+  grid-row: 3;
+}
+
+.right-button {
+  height:15%;
+  justify-self: start;
+  align-self: center;
+  grid-column:4;
+  grid-row:3;
+}
+
+.up-button {
+  grid-row:1;
+  justify-self:center;
+  align-self: center;
+}
+
+.down-button {
+  grid-column: 1;
+  grid-row: 5;
+  justify-self:center;
+  align-self:center;
+}
+
+.center-image {
+  grid-column:3;
+  grid-row:2 / span 3;
+  justify-self: center;
+}
+
