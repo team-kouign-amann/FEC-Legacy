@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /***
 
 RATINGS AND REVIEWS
@@ -36,74 +37,250 @@ RATINGS AND REVIEWS
     width: 20px;
     display: inline-block;
     color: gray;
+=======
+/* RELATED PRODUCTS */
+.relatedContainer {
+  display: flex;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  padding: 30px;
+}
+
+.relatedContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.individualCard {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  max-width: 15rem;
+  min-width: 15rem;
+  min-height: 20rem;
+  max-height: 20rem;
+  display: inline-block;
+}
+
+.individualCard + .individualCard {
+  margin-left: 2%;
+}
+
+.relatedTitle {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.outfitTitle {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.cardImg {
+  max-width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+}
+
+.cardBody {
+  margin-left: 5px;
+}
+
+.cardText {
+  text-align: left;
+  color: rgb(109, 109, 109);
+  font-family: 'Open Sans', sans-serif;
+}
+
+.cardTitle {
+  text-align: left;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.cardPrice {
+  text-align: left;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.outfitDeleteButton {
+  background: transparent;
+  box-shadow: 0px 0px 0px transparent;
+  border: 0px solid transparent;
+  text-shadow: 0px 0px 0px transparent;
+  position: relative;
+  transition: 0.5s ease;
+  top: -290px;
+  left: 210px;
+  color: white;
+  font-size: 15px;
+}
+
+/* END OF RELATED PRODUCTS */
+
+/* RATINGS AND REVIEWS */
+.column_one {
+  float: left;
+  width: 30%;
+}
+
+.column_two {
+  float: left;
+  width: 70%;
+}
+
+.row:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.rating {
+  font-size: 50px;
+  font-style: normal;
+}
+
+.full-star {
+  font-size: 20px;
+  width: 20px;
+  color: rgb(0, 0, 0);
+}
+
+.star {
+  font-size: 20px;
+  width: 20px;
+  display: inline-block;
+  color: gray;
+>>>>>>> master
 }
 
 .star.half:after {
-    content:'\2605';
-    color: rgb(0, 0, 0);
-    position: absolute;
-    margin-left: -20px;
-    width: 10px;
-    overflow: hidden;
+  content: '\2605';
+  color: rgb(0, 0, 0);
+  position: absolute;
+  margin-left: -20px;
+  width: 10px;
+  overflow: hidden;
 }
+<<<<<<< HEAD
 /**
 .ratings-container-five {
+=======
+
+/* FIX ME: make sure to change absolute to relative positioning */
+
+/* .ratings-container-five {
+>>>>>>> master
   position: absolute;
   left: 60px;
   top: 382px;
-  width:200px;
-  margin:0 auto;
+  width: 200px;
+  margin: 0 auto;
 }
 .ratings-container-four {
   position: absolute;
   left: 60px;
   top: 418px;
-  width:200px;
-  margin:0 auto;
+  width: 200px;
+  margin: 0 auto;
 }
 .ratings-container-three {
   position: absolute;
   left: 60px;
   top: 455px;
-  width:200px;
-  margin:0 auto;
+  width: 200px;
+  margin: 0 auto;
 }
 .ratings-container-two {
   position: absolute;
   left: 60px;
   top: 492px;
-  width:200px;
-  margin:0 auto;
+  width: 200px;
+  margin: 0 auto;
 }
 .ratings-container-one {
   position: absolute;
   left: 60px;
   top: 531px;
-  width:200px;
-  margin:0 auto;
+  width: 200px;
+  margin: 0 auto;
+} */
+.rating-bar {
+  background: rgb(223, 223, 223);
 }
-.rating-bar{
-  background:rgb(223, 223, 223);
+.rating-bar span {
+  display: block;
+  height: 8px;
 }
-.rating-bar span{
-  display:block;
-  height:8px;
+
+.black {
+  background: rgb(73, 73, 73);
 }
 **/
 
-.black{ background:rgb(73, 73, 73); }
+.rate-1 {
+  width: 10%;
+}
+.rate-2 {
+  width: 20%;
+}
+.rate-3 {
+  width: 30%;
+}
+.rate-4 {
+  width: 40%;
+}
+.rate-5 {
+  width: 50%;
+}
+.rate-6 {
+  width: 60%;
+}
+.rate-7 {
+  width: 70%;
+}
+.rate-8 {
+  width: 80%;
+}
+.rate-9 {
+  width: 90%;
+}
+.rate-10 {
+  width: 100%;
+}
 
-.rate-1{ width:10%; }
-.rate-2{ width:20%; }
-.rate-3{ width:30%; }
-.rate-4{ width:40%; }
-.rate-5{ width:50%; }
-.rate-6{ width:60%; }
-.rate-7{ width:70%; }
-.rate-8{ width:80%; }
-.rate-9{ width:90%; }
-.rate-10{ width:100%; }
+/* Questions and Answers css */
 
+.search {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 3px solid #000000;
+  border-right: none;
+  padding: 5px;
+  height: 40px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  font-size: larger;
+}
+
+.searchButton {
+  width: 60px;
+  border: 3px solid #000000;
+  background: #ffffff;
+  text-align: center;
+  color: #000000;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 18px;
+  border-left: none;
+}
+
+.question_column_one {
+  float: left;
+  width: 80%;
+  margin-top: 15px;
+}
+
+<<<<<<< HEAD
 /**************
 
 
@@ -254,3 +431,18 @@ Category Styling
 .remove-bullet {
   list-style-type: none;
 }
+=======
+.question_column_two {
+  float: left;
+  width: 20%;
+}
+
+.btn_words {
+  border: none;
+  background-color: inherit;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+}
+/* END OF RATINGS AND REVIEWS */
+>>>>>>> master
