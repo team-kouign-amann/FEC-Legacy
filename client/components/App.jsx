@@ -1,20 +1,19 @@
-import React from "react";
-import RelatedContainer from "../containers/RelatedContainer.js";
-import QuestionsContainer from "../containers/QuestionsContainer.js";
-import RatingsContainer from "../containers/RatingsContainer.js";
-import ProductContainer from "../containers/ProductContainer.js";
+import React from 'react';
+import RelatedContainer from '../containers/RelatedContainer.js';
+import QuestionsContainer from '../containers/QuestionsContainer.js';
+import RatingsContainer from '../containers/RatingsContainer.js';
+import ProductContainer from '../containers/ProductContainer.js';
 
-const App = () => {
-  return (
-    <div>
-   <h1>Hello World!</h1>
+const App = () => (
+  <div>
+    <h1>Hello World!</h1>
     <ProductContainer />
     <QuestionsContainer />
     <RatingsContainer />
     <RelatedContainer />
-    </div>
 
-  )
-}
+  </div>
+
+);
 
 export default App;
