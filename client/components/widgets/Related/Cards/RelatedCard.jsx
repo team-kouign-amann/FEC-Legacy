@@ -1,51 +1,56 @@
 import React from 'react';
 import { Card, CardDeck } from 'react-bootstrap';
+import axios from 'axios';
+import store from '../../../../store/store.js';
+import action from '../../../../actions/RelatedInfo.js'
 
-function RelatedCard() {
-  const cardInfo = [
-    {category: 'Sweater', title: 'Supreme Sweater', price: '$40', img: 'http://placecorgi.com/260/180'},
-    {category: 'Jacket', title: 'Supreme Jacket', price: '$60', img: 'http://placecorgi.com/260/180'},
-    {category: 'Pants', title: 'Supreme Pants', price: '$30', img: 'http://placecorgi.com/260/180'},
-    {category: 'Socks', title: 'Supreme Socks', price: '$10', img: 'http://placecorgi.com/260/180'},
-    {category: 'Shoes', title: 'Supreme Shoes', price: '$100', img: 'http://placecorgi.com/260/180'},
-    {category: 'Sweater', title: 'Supreme Sweater', price: '$40', img: 'http://placecorgi.com/260/180'},
-    {category: 'Jacket', title: 'Supreme Jacket', price: '$60', img: 'http://placecorgi.com/260/180'},
-    {category: 'Pants', title: 'Supreme Pants', price: '$30', img: 'http://placecorgi.com/260/180'},
-    {category: 'Socks', title: 'Supreme Socks', price: '$10', img: 'http://placecorgi.com/260/180'},
-    {category: 'Shoes', title: 'Supreme Shoes', price: '$100', img: 'http://placecorgi.com/260/180'}
-  ];
+class RelatedCard extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {}
+    this.renderCard = this.renderCard.bind(this);
 
-  const renderCard = (card, index) => {
+  }
+
+  componentDidMount() {
+    axios.get('http://3.21.164.220/products/')
+      .then(({data}) => {
+        store.dispatch(action.relatedInfo(data));
+      })
+      .catch((error) => {console.log('Error with GET request: ', error)});
+  }
+
+  renderCard(card, index) {
     return (
         <Card key={index} className='individualCard'>
-          <Card.Img variant="top" src={card.img} className='cardImg'/>
+          <Card.Img variant="top" src='http://placecorgi.com/260/180' className='cardImg'/>
           <Card.Body className='cardBody'>
             <Card.Text className='cardText'>
               {card.category}
             </Card.Text>
             <Card.Title className='cardTitle'>
-                <b>{card.title}</b>
+                <b>{card.name}</b>
             </Card.Title>
             <Card.Text className='cardPrice'>
-              {card.price}
+              {card.default_price}
             </Card.Text>
           </Card.Body>
         </Card>
     );
   }
-
-  return (
-    <div className='entireContainer'>
-      <div>
-        <h9 className='relatedTitle'>RELATED PRODUCTS</h9>
+  render() {
+    return (
+      <div className='entireContainer'>
+        <div>
+          <h9 className='relatedTitle'>RELATED PRODUCTS</h9>
+        </div>
+        <br/>
+        <CardDeck className='relatedContainer'>
+            {this.props.relatedInfo.map(this.renderCard)}
+        </CardDeck>
       </div>
-      <br/>
-      <CardDeck className='relatedContainer'>
-          {cardInfo.map(renderCard)}
-      </CardDeck>
-    </div>
-
-  )
+    )
+  }
 }
 
 export default RelatedCard;
