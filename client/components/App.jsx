@@ -9,10 +9,9 @@ const App = () => (
   <div>
     <h1>Hello World!</h1>
     <ProductContainer />
+    <RelatedContainer />
     <QuestionsContainer />
     <RatingsContainer />
-    <RelatedContainer />
-
   </div>
 
 );
