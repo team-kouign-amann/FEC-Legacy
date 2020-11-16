@@ -129,7 +129,7 @@ PRODUCT OVERVIEW
          grid-template-rows: 25% 25% 25% 25%;
         }
 .item3 { grid-area: style;
-         grid-template-rows: 10% 45% 45%}
+         grid-template-rows: 20% 40% 40%}
 .item4 { grid-area: size; }
 .item5 { grid-area: bag; }
 .item6 { grid-area: slogan}
@@ -241,3 +241,16 @@ Category Styling
 
 *********/
 
+.selected-font {
+  font-size: 1.5em;
+}
+
+.horizontal-list {
+  float: left;
+  padding: 10px;
+  border-radius: 25px;
+}
+
+.remove-bullet {
+  list-style-type: none;
+}
