@@ -23,10 +23,10 @@ const Rating = (props) => (
 
           </div>
 
-          <div>
-            <h5>100% of reviews recommend this product</h5>
+          {/* <div>
+            <h5>100% of reviews recommend this product</h5> */}
 
-            <div>
+            {/* <div>
               <h5><u>5 stars</u></h5>
               <div className="ratings-container-five">
                 <div className="rating-bar">
@@ -77,11 +77,8 @@ const Rating = (props) => (
                 </div>
               </div>
             </div>
-
-          </div>
-
+          </div> */}
           <div>
-
             <div>
               <div className="bars-container">
                 <h5>Size</h5>
