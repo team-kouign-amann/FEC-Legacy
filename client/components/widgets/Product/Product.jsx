@@ -24,7 +24,21 @@ const Product = () => (
           <span className="price-font">$369 </span>
 
         </div>
-        <div className="item3">Style</div>
+        <div className="item3">
+          <span className="selected-font"><b>Style ></b> Selected Style... </span>
+          <ul className="remove-bullet">
+            <li className="horizontal-list"><img style={{"border-radius": "25px"}} src="http://placecorgi.com/50" /></li>
+            <li className="horizontal-list"><img style={{"border-radius": "25px"}} src="http://placecorgi.com/50" /></li>
+            <li className="horizontal-list"><img style={{"border-radius": "25px"}} src="http://placecorgi.com/50" /></li>
+            <li className="horizontal-list"><img style={{"border-radius": "25px"}} src="http://placecorgi.com/50" /></li>
+          </ul>
+          <ul className="remove-bullet">
+            <li className="horizontal-list"><img style={{"border-radius": "25px"}} src="http://placecorgi.com/50" /></li>
+            <li className="horizontal-list"><img style={{"border-radius": "25px"}} src="http://placecorgi.com/50" /></li>
+            <li className="horizontal-list"><img style={{"border-radius": "25px"}} src="http://placecorgi.com/50" /></li>
+            <li className="horizontal-list"><img style={{"border-radius": "25px"}} src="http://placecorgi.com/50" /></li>
+          </ul>
+        </div>
         <div className="item4">Bag</div>
         <div className="item5">Size</div>
         <div className="item6">Slogan</div>
