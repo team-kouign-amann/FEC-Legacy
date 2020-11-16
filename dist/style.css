@@ -1,3 +1,43 @@
+<<<<<<< HEAD
+/***
+
+RATINGS AND REVIEWS
+
+
+****/
+.column_one {
+    float: left;
+    width: 30%;
+  }
+
+.column_two {
+    float: left;
+    width: 70%;
+  }
+
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .rating {
+    font-size: 50px;
+    font-style: normal;
+  }
+
+  .full-star{
+    font-size: 20px;
+    width: 20px;
+    color: rgb(0, 0, 0);
+}
+
+  .star {
+    font-size: 20px;
+    width: 20px;
+    display: inline-block;
+    color: gray;
+=======
 /* RELATED PRODUCTS */
 .relatedContainer {
   display: flex;
@@ -105,6 +145,7 @@
   width: 20px;
   display: inline-block;
   color: gray;
+>>>>>>> master
 }
 
 .star.half:after {
@@ -115,10 +156,15 @@
   width: 10px;
   overflow: hidden;
 }
+<<<<<<< HEAD
+/**
+.ratings-container-five {
+=======
 
 /* FIX ME: make sure to change absolute to relative positioning */
 
 /* .ratings-container-five {
+>>>>>>> master
   position: absolute;
   left: 60px;
   top: 382px;
@@ -164,6 +210,7 @@
 .black {
   background: rgb(73, 73, 73);
 }
+**/
 
 .rate-1 {
   width: 10%;
@@ -233,6 +280,158 @@
   margin-top: 15px;
 }
 
+<<<<<<< HEAD
+/**************
+
+
+PRODUCT OVERVIEW
+
+
+***************/
+
+
+.red {
+  color: red;
+}
+
+.container {
+  padding: 0px 50px;
+}
+
+.item1 { grid-area: carousel;
+         grid-template-columns: 25% 10% auto 1fr;
+         grid-template-rows: 10% 25% 25% 20% 10%;
+}
+.item2 { grid-area: category;
+         grid-template-rows: 25% 25% 25% 25%;
+        }
+.item3 { grid-area: style;
+         grid-template-rows: 20% 40% 40%}
+.item4 { grid-area: size; }
+.item5 { grid-area: bag; }
+.item6 { grid-area: slogan}
+.item7 { grid-area: guarantee}
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'carousel carousel category category'
+    'carousel carousel category category'
+    'carousel carousel style style'
+    'carousel carousel style style'
+    'carousel carousel size size'
+    'slogan slogan bag bag'
+    'slogan slogan guarantee guarantee' ;
+  grid-gap: 10px;
+  background-color:black;
+  padding: 10px;
+  height: 80vh;
+}
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  display: grid;
+  padding: 20px 0;
+}
+
+/*********
+
+Product overview: Carousel (item1)
+
+********/
+
+.carousel-position {
+  position: relative;
+}
+
+.preview_list {
+  justify-self: center;
+  align-self: center;
+  list-style-type: none;
+  margin: 0;
+  grid-column:1;
+  grid-row:2 / span 3;
+}
+
+.left-button {
+  height:15%;
+  justify-self: end;
+  align-self: center;
+  grid-column: 2;
+  grid-row: 3;
+}
+
+.right-button {
+  height:15%;
+  justify-self: start;
+  align-self: center;
+  grid-column:4;
+  grid-row:3;
+}
+
+.up-button {
+  grid-row:1;
+  justify-self:center;
+  align-self: center;
+}
+
+.down-button {
+  grid-column: 1;
+  grid-row: 5;
+  justify-self:center;
+  align-self:center;
+}
+
+.center-image {
+  grid-column:3;
+  grid-row:2 / span 3;
+  justify-self: center;
+}
+
+/***********
+
+Category Styling
+
+***********/
+
+.product-name-font {
+  font-weight: 900;
+  font-size: 3em;
+}
+
+.category-name-font {
+  font-weight: 200;
+  font-size: 1.5em;
+  align-self: end;
+
+}
+
+.price-font {
+  font-weight: 200;
+  font-size: 1em;
+  align-self: end;
+}
+
+/*********
+
+'Style' styling
+
+*********/
+
+.selected-font {
+  font-size: 1.5em;
+}
+
+.horizontal-list {
+  float: left;
+  padding: 10px;
+  border-radius: 25px;
+}
+
+.remove-bullet {
+  list-style-type: none;
+}
+=======
 .question_column_two {
   float: left;
   width: 20%;
@@ -246,3 +445,4 @@
   display: inline-block;
 }
 /* END OF RATINGS AND REVIEWS */
+>>>>>>> master
