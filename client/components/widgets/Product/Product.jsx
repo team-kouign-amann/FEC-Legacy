@@ -25,7 +25,7 @@ const Product = () => (
 
         </div>
         <div className="item3">
-          <span className="selected-font"><b>Style ></b> Selected Style... </span>
+          <span className="selected-font"><b>Style</b> Selected Style... </span>
           <ul className="remove-bullet">
             <li className="horizontal-list"><img style={{"border-radius": "25px"}} src="http://placecorgi.com/50" /></li>
             <li className="horizontal-list"><img style={{"border-radius": "25px"}} src="http://placecorgi.com/50" /></li>
