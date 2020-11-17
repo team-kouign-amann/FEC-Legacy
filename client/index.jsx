@@ -7,11 +7,16 @@ import getProduct from './actions/productOverview/getProduct.js'
 import getStyles from './actions/productOverview/getStyles.js';
 
 
-store.dispatch(getProduct(2));
-store.dispatch(getStyles(3));
+store.dispatch(getProduct(2))
+.then(() => {
+  return store.dispatch(getStyles(2));
+})
+.then(() => {
+  ReactDOM.render(
+    <Provider store={store}>
+      <App />
+    </Provider>, document.getElementById('app'),
+  );
+})
 
-ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>, document.getElementById('app'),
-);
+
