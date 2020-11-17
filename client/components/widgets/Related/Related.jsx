@@ -2,10 +2,10 @@ import React from "react";
 import RelatedCard from './Cards/RelatedCard.jsx';
 import OutfitCard from './Cards/OutfitCard.jsx';
 
-const Related = ({relatedInfo}) => {
+const Related = ({ relatedInfo, getProducts}) => {
   return (
     <div>
-        <RelatedCard relatedInfo={relatedInfo}  />
+        <RelatedCard relatedInfo={relatedInfo} getProducts={getProducts} />
         <OutfitCard />
     </div>
   )
