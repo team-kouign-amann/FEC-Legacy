@@ -1,42 +1,3 @@
-/***
-
-RATINGS AND REVIEWS
-
-
-****/
-.column_one {
-    float: left;
-    width: 30%;
-  }
-
-.column_two {
-    float: left;
-    width: 70%;
-  }
-
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-
-  .rating {
-    font-size: 50px;
-    font-style: normal;
-  }
-
-  .full-star{
-    font-size: 20px;
-    width: 20px;
-    color: rgb(0, 0, 0);
-}
-
-  .star {
-    font-size: 20px;
-    width: 20px;
-    display: inline-block;
-    color: gray;
-  }
 /* RELATED PRODUCTS */
 .relatedContainer {
   display: flex;
@@ -108,8 +69,6 @@ RATINGS AND REVIEWS
   color: white;
   font-size: 15px;
 }
-
-/* END OF RELATED PRODUCTS */
 
 /* RATINGS AND REVIEWS */
 .column_one {
@@ -203,7 +162,6 @@ RATINGS AND REVIEWS
 .black {
   background: rgb(73, 73, 73);
 }
-**/
 
 .rate-1 {
   width: 10%;
@@ -271,6 +229,19 @@ RATINGS AND REVIEWS
   float: left;
   width: 80%;
   margin-top: 15px;
+}
+
+.question_column_two {
+  float: left;
+  width: 20%;
+}
+
+.btn_words {
+  border: none;
+  background-color: inherit;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
 }
 
 /**************
