@@ -7,9 +7,9 @@ import getProduct from './actions/productOverview/getProduct.js'
 import getStyles from './actions/productOverview/getStyles.js';
 
 
-store.dispatch(getProduct(2))
+store.dispatch(getProduct(1))
 .then(() => {
-  return store.dispatch(getStyles(2));
+  return store.dispatch(getStyles(1));
 })
 .then(() => {
   ReactDOM.render(
