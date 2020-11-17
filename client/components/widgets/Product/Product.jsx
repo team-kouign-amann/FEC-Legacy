@@ -18,7 +18,7 @@ const Product = ({product, currentStyle,styles}) => (
           <button className="right-button" type="submit"> Right </button>
         </div>
         <div className="item2">
-          <span className="category-name-font">{product.category} {currentStyle.photos[0].url}</span>
+          <span className="category-name-font"></span>
           <span className="product-name-font">{product.name}</span>
           <span className="price-font">{product.default_price}</span>
 
