@@ -6,17 +6,14 @@ import store from './store/store.js';
 import getProduct from './actions/productOverview/getProduct.js'
 import getStyles from './actions/productOverview/getStyles.js';
 
-
 store.dispatch(getProduct(1))
-.then(() => {
-  return store.dispatch(getStyles(1));
-})
+  .then(() => (
+    store.dispatch(getStyles(1));
+  )
 .then(() => {
   ReactDOM.render(
     <Provider store={store}>
       <App />
     </Provider>, document.getElementById('app'),
   );
-})
-
-
+});
