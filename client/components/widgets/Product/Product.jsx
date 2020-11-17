@@ -1,6 +1,6 @@
 import React from "react";
 
-const Product = () => (
+const Product = ({product, currentStyle,styles}) => (
   <div>
     <div><h1>Product</h1></div>
     <div className="container">
@@ -14,14 +14,13 @@ const Product = () => (
           </ul>
           <button className="down-button" type="submit"> down </button>
           <button className="left-button" type="submit"> Left </button>
-          <img className="center-image" src="http://placecorgi.com/450" alt="" />
+          <img className="center-image" src={currentStyle.photos[0].url} alt="" />
           <button className="right-button" type="submit"> Right </button>
         </div>
         <div className="item2">
-          <span className="category-name-font">Category </span>
-          <span className="product-name-font">Expanded Product </span>
-          <span className="product-name-font">Name </span>
-          <span className="price-font">$369 </span>
+          <span className="category-name-font">{product.category} {currentStyle.photos[0].url}</span>
+          <span className="product-name-font">{product.name}</span>
+          <span className="price-font">{product.default_price}</span>
 
         </div>
         <div className="item3">
