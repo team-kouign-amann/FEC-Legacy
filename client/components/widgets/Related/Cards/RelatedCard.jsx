@@ -1,8 +1,5 @@
 import React from 'react';
 import { Card, CardDeck } from 'react-bootstrap';
-import axios from 'axios';
-import store from '../../../../store/store.js';
-import action from '../../../../actions/RelatedInfo.js'
 
 class RelatedCard extends React.Component {
   constructor(props) {
@@ -13,11 +10,7 @@ class RelatedCard extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('http://3.21.164.220/products/')
-      .then(({data}) => {
-        store.dispatch(action.relatedInfo(data));
-      })
-      .catch((error) => {console.log('Error with GET request: ', error)});
+    this.props.getRelatedProducts();
   }
 
   renderCard(card, index) {
