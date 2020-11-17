@@ -2,7 +2,7 @@ import React from "react";
 // import InputGroup from 'react-bootstrap/InputGroup';
 // import FormControl from 'react-bootstrap/FormControl';
 
-const Questions = () => {
+const Questions = (props) => {
   return(
     <div className="row">
       <div>
@@ -18,27 +18,7 @@ const Questions = () => {
       </div>
         <div>
           <div className="question_column_one">
-            <div><span>Q: This a filler question where we will map props?</span></div>
-            <div><span>A:</span><span className="indiv_answers">This is a filler answer that we will also map over the props and return the exact repsonse.</span></div>
-            <div><span>by (User), (Date)</span> | Helpful? <span className="btn_words">Yes</ span>(Count) | <span className="btn_words">Report</span></div>
-          </div>
-          <div className="question_column_two">
-            <div>Helpful? <span className="btn_words">Yes</span> (count) | <span className="btn_words">Add Answer</span></div>
-          </div>
-        </div>
-        <div>
-          <div className="question_column_one">
-            <div><span>Q: This a filler question where we will map props?</span></div>
-            <div><span>A:</span><span className="indiv_answers">This is a filler answer that we will also map over the props and return the exact repsonse.</span></div>
-            <div><span>by (User), (Date)</span> | Helpful? <span className="btn_words">Yes</ span>(Count) | <span className="btn_words">Report</span></div>
-          </div>
-          <div className="question_column_two">
-            <div>Helpful? <span className="btn_words">Yes</span> (count) | <span className="btn_words">Add Answer</span></div>
-          </div>
-        </div>
-        <div>
-          <div className="question_column_one">
-            <span><div><span>Q: This is a filler question where we will map props?</span></div>
+            <span><div><span>Q: {props.data}</span></div>
             <div><span>A:</span><span className="indiv_answers">This is a filler answer that we will also map over the props and return the exact repsonse.</span></div>
             <div><span>by (User), (Date)</span> | Helpful? <span className="btn_words">Yes</ span>(Count) | <span className="btn_words">Report</span></div>
             <div><span>Any additional comments that will be associated with the below pictures</span></div>
