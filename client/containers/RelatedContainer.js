@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Related from '../components/widgets/Related/Related.jsx';
-import { relatedInfo, getProducts } from '../actions/RelatedInfo.js';
+import { relatedInfo, getRelatedProducts } from '../actions/RelatedInfo.js';
 
 var mapStateToProps = (state) => ({
   relatedInfo: state.relatedInfo.relatedProducts,
@@ -9,7 +9,7 @@ var mapStateToProps = (state) => ({
 
 var mapDispatchToProps = dispatch => {
   return {
-    getProducts: () => dispatch(getProducts())
+    getRelatedProducts: () => dispatch(getRelatedProducts())
   }
 }
 

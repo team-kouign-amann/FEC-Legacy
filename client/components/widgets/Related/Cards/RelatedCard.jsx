@@ -10,7 +10,7 @@ class RelatedCard extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getProducts();
+    this.props.getRelatedProducts();
   }
 
   renderCard(card, index) {

@@ -14,12 +14,6 @@ const relatedInfoReducer = (state = initialState, action) => {
     default:
       return state;
   }  
-
-  // if (action.type === 'FETCH_RELATED_SUCCESS') {
-  //   return action.payload;
-  // } else {
-  //   return state;
-  // }
 };
 
 export default relatedInfoReducer;

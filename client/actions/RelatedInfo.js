@@ -1,13 +1,11 @@
 import axios from 'axios';
 
-export function getProducts() {
+export function getRelatedProducts() {
   console.log('getproducts function is running')
   return (dispatch) => {
     dispatch(fetchRelatedProducts())
-    console.log('Dispatch is being fired')
     axios.get('http://3.21.164.220/products/')
     .then((response) => {
-      console.log('data is being used')
       dispatch(fetchRelatedProductsSuccess(response.data));
     })
     .catch((error) => {
