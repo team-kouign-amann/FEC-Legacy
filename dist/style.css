@@ -297,11 +297,7 @@
 }
 
 /**************
-
-
 PRODUCT OVERVIEW
-
-
 ***************/
 
 
@@ -350,9 +346,7 @@ PRODUCT OVERVIEW
 }
 
 /*********
-
 Product overview: Carousel (item1)
-
 ********/
 
 .carousel-position {
@@ -404,9 +398,7 @@ Product overview: Carousel (item1)
 }
 
 /***********
-
 Category Styling
-
 ***********/
 
 .product-name-font {
@@ -428,9 +420,7 @@ Category Styling
 }
 
 /*********
-
 'Style' styling
-
 *********/
 
 .selected-font {
@@ -446,3 +436,16 @@ Category Styling
 .remove-bullet {
   list-style-type: none;
 }
+.question_column_two {
+  float: left;
+  width: 20%;
+}
+
+.btn_words {
+  border: none;
+  background-color: inherit;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+}
+/* END OF RATINGS AND REVIEWS */
