@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
 
-class OutfitCard extends React.Component {
+class OutfitCarousel extends React.Component {
   outfitRef = React.createRef();
 
   constructor(props) {
@@ -76,4 +76,4 @@ class OutfitCard extends React.Component {
   }
 }
 
-export default OutfitCard;
+export default OutfitCarousel;
