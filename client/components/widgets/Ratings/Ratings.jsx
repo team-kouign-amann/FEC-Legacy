@@ -1,5 +1,4 @@
 import React from 'react';
-import '../../../styles/style.css';
 
 const Rating = ({ product_id, handleAddReviewClick }) => (
 
@@ -9,7 +8,7 @@ const Rating = ({ product_id, handleAddReviewClick }) => (
       <span className="rating"> 3.4 </span>
 
       <div className="star-ratings-css">
-        <div className="star-ratings-css-top" style={{ width:`${percentage}%`}}>
+        <div className="star-ratings-css-top" style={{ width:'84%'}}>
           <span>★</span>
           <span>★</span>
           <span>★</span>
@@ -25,6 +24,7 @@ const Rating = ({ product_id, handleAddReviewClick }) => (
  
         </div>
       </div>
+{/* {
         <div className = "starts-Bars">
           {[1,2,3,4,5].map(number => {
             <StartsBar starsNumber={number} percentage = {(data)=>{
@@ -35,7 +35,8 @@ const Rating = ({ product_id, handleAddReviewClick }) => (
               return percentage;
             }} />
           })}  
-        </div>
+        </div>} */}
+        
     </div>
 
     <div className="column_two">
