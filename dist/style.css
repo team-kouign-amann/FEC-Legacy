@@ -262,14 +262,13 @@ PRODUCT OVERVIEW
 }
 
 .item1 { grid-area: carousel;
-         grid-template-columns: 25% 10% auto 1fr;
-         grid-template-rows: 10% 25% 25% 20% 10%;
+         align-items: center;
+         justify-content: space-around;
 }
-.item2 { grid-area: category;
-         grid-template-rows: 25% 25% 25% 25%;
-        }
+.item2 { grid-area: category;}
 .item3 { grid-area: style;
-         grid-template-rows: 20% 40% 40%}
+         flex-direction: column;
+        justify-content: space-around;}
 .item4 { grid-area: size; }
 .item5 { grid-area: bag; }
 .item6 { grid-area: slogan}
@@ -293,7 +292,7 @@ PRODUCT OVERVIEW
 
 .grid-container > div {
   background-color: rgba(255, 255, 255, 0.8);
-  display: grid;
+  display: flex;
   padding: 20px 0;
 }
 
@@ -308,12 +307,14 @@ Product overview: Carousel (item1)
 }
 
 .preview_list {
-  justify-self: center;
-  align-self: center;
   list-style-type: none;
-  margin: 0;
-  grid-column:1;
-  grid-row:2 / span 3;
+  padding: 0;
+}
+
+.flex-preview-list {
+  flex-direction: column;
+  display:flex;
+  align-self: flex-start;
 }
 
 .left-button {
@@ -333,22 +334,19 @@ Product overview: Carousel (item1)
 }
 
 .up-button {
-  grid-row:1;
-  justify-self:center;
   align-self: center;
 }
 
 .down-button {
-  grid-column: 1;
-  grid-row: 5;
-  justify-self:center;
   align-self:center;
 }
 
 .center-image {
   grid-column:3;
-  grid-row:2 / span 3;
+  grid-row: 2 / span 3;
   justify-self: center;
+  max-width:50%;
+  height:auto;
 }
 
 /***********
@@ -389,21 +387,24 @@ Category Styling
   float: left;
   padding: 10px;
   border-radius: 25px;
+  width:20%;
 }
 
 .remove-bullet {
   list-style-type: none;
-}
-.question_column_two {
-  float: left;
-  width: 20%;
+  padding: 0;
+  margin: 0;
 }
 
-.btn_words {
-  border: none;
-  background-color: inherit;
-  font-size: 16px;
-  cursor: pointer;
-  display: inline-block;
+.style-select-img {
+  float: left;
+  padding: 10px;
+  width: 75px;
+  height: 75px;
+  object-fit: cover;
+  background-color: #bbb;
+  border-radius: 50%;
+  margin: 10px 50px;
 }
+
 /* END OF RATINGS AND REVIEWS */
