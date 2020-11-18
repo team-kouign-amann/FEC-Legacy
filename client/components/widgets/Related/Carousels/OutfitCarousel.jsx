@@ -46,13 +46,13 @@ class OutfitCard extends React.Component {
   // moves carousel forward by 1 card
   nextClick() {
     const slide = this.outfitRef.current;
-    slide.scrollLeft += 200;
+    slide.scrollLeft += 260;
   }
 
   // moves carousel backward by 1 card
   prevClick() {
     const slide = this.outfitRef.current;
-    slide.scrollLeft -= 200;
+    slide.scrollLeft -= 260;
   }
 
   render() {

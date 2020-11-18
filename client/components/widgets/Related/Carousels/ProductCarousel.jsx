@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card } from 'react-bootstrap';
+import { Card, Button } from 'react-bootstrap';
 
 class ProductCarousel extends React.Component {
   myRef = React.createRef();
@@ -33,6 +33,7 @@ class ProductCarousel extends React.Component {
             ${card.default_price}
           </Card.Text>
         </Card.Body>
+        <Button variant="primary" className='productCompare'>★</Button>
       </Card>
     );
   }
@@ -40,13 +41,13 @@ class ProductCarousel extends React.Component {
   // moves carousel forward by 1 card
   nextClick() {
     const slide = this.myRef.current;
-    slide.scrollLeft += 200;
+    slide.scrollLeft += 260;
   }
 
   // moves carousel backward by 1 card
   prevClick() {
     const slide = this.myRef.current;
-    slide.scrollLeft -= 200;
+    slide.scrollLeft -= 260;
   }
 
   // // moves carousel forward by 1 card
