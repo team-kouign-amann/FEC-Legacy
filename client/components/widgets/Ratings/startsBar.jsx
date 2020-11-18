@@ -5,7 +5,7 @@ const StartsBar = ({starsNumber,percentage}) => (
       <h5><u>{`${starsNumber}`} stars</u></h5>
       <span className="ratings-container">
       <span className="rating-bar">
-          <span className="rating-bar-filler" style={{ width: `${percentage}%`}}>
+          <span className="rating-bar-fill" style={{ width: `${percentage}%`}}>
           <span className="black"> </span>
           </span>
       </span>
@@ -13,4 +13,4 @@ const StartsBar = ({starsNumber,percentage}) => (
   </div>
 );
 
-export default RatingBar;
+export default StartsBar;

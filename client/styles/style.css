@@ -108,23 +108,13 @@
 .rating-bar{
   background:rgb(223, 223, 223);
 }
-.rating-bar span{
+.rating-bar-fill{
   display:block;
   height:8px;
 }
 
 .black{ background:rgb(73, 73, 73); }
 
-.rate-1{ width:10%; }
-.rate-2{ width:20%; }
-.rate-3{ width:30%; }
-.rate-4{ width:40%; }
-.rate-5{ width:50%; }
-.rate-6{ width:60%; }
-.rate-7{ width:70%; }
-.rate-8{ width:80%; }
-.rate-9{ width:90%; }
-.rate-10{ width:100%; }
 
 .perfect-rating-text {
   top:630px;
