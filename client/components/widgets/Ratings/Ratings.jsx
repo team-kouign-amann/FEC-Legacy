@@ -9,7 +9,7 @@ const Rating = ({ product_id, handleAddReviewClick }) => (
       <span className="rating"> 3.4 </span>
 
       <div className="star-ratings-css">
-        <div className="star-ratings-css-top" style={{ width: '86%' }}>
+        <div className="star-ratings-css-top" style={{ width:`${percentage}%`}}>
           <span>★</span>
           <span>★</span>
           <span>★</span>
@@ -26,18 +26,11 @@ const Rating = ({ product_id, handleAddReviewClick }) => (
         </div>
       </div>
 
-      <div>
-        <h5>100% of reviews recommend this product</h5>
-        <h5><u>5 stars</u></h5>
-        <div className="ratings-container-five">
-          <div className="rating-bar">
-            <div className="rate-8">
-              <span className="black"> </span>
-            </div>
-          </div>
+        <div className = "starts-Bars">
+          {[1,2,3,4,5].map(number => {
+            <StartsBar starsNumber={number} percentage = {percentage} />
+          })}  
         </div>
-      </div>
-
     </div>
 
     <div className="column_two">
@@ -48,6 +41,7 @@ const Rating = ({ product_id, handleAddReviewClick }) => (
     </div>
 
   </div>
+  
 
 );
 

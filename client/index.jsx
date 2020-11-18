@@ -10,8 +10,8 @@ import getStyles from './actions/productOverview/getStyles.js';
 
 store.dispatch(getProduct(1))
   .then(() => (
-    store.dispatch(getStyles(1))
-    store.dispatch(getReview(2))
+    store.dispatch(getStyles(1)),
+    store.dispatch(getReview(1))
   ))
   .then(() => {
     ReactDOM.render(
