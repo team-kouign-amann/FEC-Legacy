@@ -5,9 +5,9 @@ const Carousel = ({currentStyle}) => (
     <div className="flex-preview-list">
       <button className="up-button" type="submit"> Up </button>
       <ul className="preview_list">
-        <li><img src='http://placecorgi.com/100' /></li>
-        <li><img src='http://placecorgi.com/100' /></li>
-        <li><img src='http://placecorgi.com/100' /></li>
+        {currentStyle.photos.map((photo) => (
+          <li><img src={photo.thumbnail_url} className="thumbnail-img" /></li>
+        ))}
       </ul>
       <button className="down-button" type="submit"> Down </button>
     </div>
