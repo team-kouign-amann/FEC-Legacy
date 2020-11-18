@@ -311,6 +311,11 @@ Product overview: Carousel (item1)
   padding: 0;
 }
 
+.thumbnail-img {
+  width: 75px;
+  height: 75px;
+}
+
 .flex-preview-list {
   flex-direction: column;
   display:flex;
