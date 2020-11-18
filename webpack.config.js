@@ -13,7 +13,7 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.jsx/,
+        test: /\.js$|jsx/,
         use: {
           loader: 'babel-loader',
           options: {

@@ -1,30 +1,24 @@
 import React from 'react';
+import StartsBar from './startsBar.jsx';
+import AvarageStars from './avarageStars.jsx';
 
-const Rating = ({ product_id, handleAddReviewClick }) => (
+const Rating = ({ reviews, rating, changeReviewsOrder }) => (
 
   <div className="row">
     <div className="column_one">
       <h3>RATING &amp; REVIEWS</h3>
-      <span className="rating"> 3.4 </span>
-
+      <div className="rating"> 3.4 </div>
       <div className="star-ratings-css">
-        <div className="star-ratings-css-top" style={{ width:'84%'}}>
-          <span>★</span>
-          <span>★</span>
-          <span>★</span>
-          <span>★</span>
-          <span>★</span>
-        </div>
-        <div className="star-ratings-css-bottom">
-          <span>★</span>
-          <span>★</span>
-          <span>★</span>
-          <span>★</span>
-          <span>★</span>
- 
-        </div>
+        <AvarageStars percentage={{ width: '57%' }} />
       </div>
-{/* {
+
+      <div className="starts-Bars">
+        {[1, 2, 3, 4, 5].map((number) => (
+          <StartsBar starsNumber={number} percentage={{ width: '57%' }} />
+        ))}
+      </div>
+
+      {/* {
         <div className = "starts-Bars">
           {[1,2,3,4,5].map(number => {
             <StartsBar starsNumber={number} percentage = {(data)=>{
@@ -34,9 +28,9 @@ const Rating = ({ product_id, handleAddReviewClick }) => (
               percentage = rating[number]/max;
               return percentage;
             }} />
-          })}  
+          })}
         </div>} */}
-        
+
     </div>
 
     <div className="column_two">
@@ -47,7 +41,6 @@ const Rating = ({ product_id, handleAddReviewClick }) => (
     </div>
 
   </div>
-  
 
 );
 
