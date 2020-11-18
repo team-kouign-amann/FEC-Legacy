@@ -25,10 +25,15 @@ const Rating = ({ product_id, handleAddReviewClick }) => (
  
         </div>
       </div>
-
         <div className = "starts-Bars">
           {[1,2,3,4,5].map(number => {
-            <StartsBar starsNumber={number} percentage = {percentage} />
+            <StartsBar starsNumber={number} percentage = {(data)=>{
+              let max = 0;
+              let rating = data.ratings;
+              rating.forEach(num => {if(max < rating[num]) {max = rating[num];}});
+              percentage = rating[number]/max;
+              return percentage;
+            }} />
           })}  
         </div>
     </div>
