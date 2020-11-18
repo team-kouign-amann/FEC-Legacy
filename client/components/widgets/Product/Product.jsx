@@ -1,8 +1,9 @@
 import React from "react";
 import Carousel from "./productComponents/Carousel.jsx";
 import StyleSelector from "./productComponents/styleSelector.jsx";
+import StyleSelectorContainer from '../../../containers/productContainers/styleSelectorContainer.js';
 
-const Product = ({product, currentStyle,styles}) => (
+const Product = ({product, currentStyle, styles}) => (
   <div>
     <div><h1>Product</h1></div>
     <div className="container">
@@ -13,7 +14,7 @@ const Product = ({product, currentStyle,styles}) => (
           <span className="product-name-font">{product.name}</span>
           <span className="price-font">{product.default_price}</span>
         </div>
-        <StyleSelector styles={styles} />
+        <StyleSelectorContainer />
         <div className="item4">Bag</div>
         <div className="item5">Size</div>
         <div className="item6">Slogan</div>
