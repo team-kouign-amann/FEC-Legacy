@@ -22,6 +22,7 @@ const Rating = ({ product_id, handleAddReviewClick }) => (
           <span>★</span>
           <span>★</span>
           <span>★</span>
+ 
         </div>
       </div>
 

@@ -1,10 +1,14 @@
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import rootReducer from '../reducers/main.js';
-import getReview from '../actions/RatingsOverview/getReviews.js';
+ 
+
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 export default createStore(
   rootReducer,
-  {reviews:getReview(productId)},
-  applyMiddleware(thunk),
+  {/* write your initial states here */},
+  composeWithDevTools(applyMiddleware(thunk))
+  
 );
+
