@@ -1,15 +1,18 @@
 import React from 'react';
+import PreviewListEntry from './PreviewListEntry.jsx';
 
-const PreviewList = ({currentStyle}) => (
-  <div className="flex-preview-list">
-    <button className="up-button" type="submit"> Up </button>
-    <ul className="preview_list">
-      {currentStyle.photos.map((photo) => (
-        <li><img src={photo.thumbnail_url} className="thumbnail-img" alt="" /></li>
-      ))}
-    </ul>
-    <button className="down-button" type="submit"> Down </button>
-  </div>
-);
+const PreviewList = ({currentStyle}) => {
+return (
+    <div className="flex-preview-list">
+      <button className="up-button" type="submit"> Up </button>
+      <ul className="preview_list">
+        {currentStyle.photos.map((item, index) => (
+          <PreviewListEntry  currentStyle={currentStyle} index={index}/>
+        ))}
+      </ul>
+      <button className="down-button" type="submit"> Down </button>
+    </div>
+  );
+};
 
 export default PreviewList;
