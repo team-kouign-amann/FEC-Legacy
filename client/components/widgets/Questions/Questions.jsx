@@ -1,8 +1,20 @@
 import React from "react";
-// import InputGroup from 'react-bootstrap/InputGroup';
-// import FormControl from 'react-bootstrap/FormControl';
+import moment from 'moment';
+
+
 
 const Questions = (props) => {
+  
+  let getAnswers = (answers) => {
+    console.log('here:', answers)
+    return Object.values(answers);
+  }
+
+  // let questions = props.data.results;
+  {console.log('TESTING1!:', props)}
+  {console.log('TESTING2!:', props.data)}
+  {console.log('TESTING3!:', props.id)}
+  
   return(
     <div className="row">
       <div>
@@ -16,21 +28,34 @@ const Questions = (props) => {
           </button>
         </div>
       </div>
-        <div>
-          <div className="question_column_one">
-            <span><div><span>Q: {props.data}</span></div>
-            <div><span>A:</span><span className="indiv_answers">This is a filler answer that we will also map over the props and return the exact repsonse.</span></div>
-            <div><span>by (User), (Date)</span> | Helpful? <span className="btn_words">Yes</ span>(Count) | <span className="btn_words">Report</span></div>
-            <div><span>Any additional comments that will be associated with the below pictures</span></div>
-            <div><span><img src="http://placecorgi.com/100" /></span><span><img src="http://placecorgi.com/100" /></span><span><img src="http://placecorgi.com/100" /></span></div>
-            <div><span>by (User), (Date)</ span> | Helpful?<button className="btn_words">Yes</button>(Count)  | <span className="btn_words">Report</span></div>
-            <div><button className="btn_words">LOAD MORE ANSWERS</button></div>
-            <div><span><button>MORE ANSWERED QUESTION</button></span><span><button>ADD A QUESTION  +</button></span></div></span>
+        {props.data.map((question) => (
+          <div>
+            <div className="question_column_one">
+                    <div>
+                    <div><span>Q: {question.question_body}</span></div>
+                    {getAnswers(question.answers).map((answer) => (
+                      <div>
+                        <div><span>A:</span><span className="indiv_answers">{answer.body}</span></div>
+                        <div><span>by {answer.answerer_name}, {moment(answer.date).format('MMMM Do, YYYY')}</span> | Helpful? <span className="btn_words">Yes</ span>  ({answer.helpfulness}) | <span className="btn_words">Report</span></div>
+                        <div><span>Any additional comments that will be associated with the below pictures</span></div>
+                        <div>{answer.photos.map((photo) => (
+                            <span><img src={photo} width="75" height="50"/></span>
+                            ))}
+                        </div>
+                        <div><span>by {answer.answerer_name}, {moment(answer.date).format('MMMM Do, YYYY')}</ span> | Helpful?<button className="btn_words">Yes</button>({answer.helpfulness})  | <span className="btn_words">Report</span></div>
+                      </div> 
+                    ))}
+                  </div>
+            </div>
+            <div className="question_column_two">
+                <div>Helpful? <span className="btn_words">Yes</span> ({question.question_helpfulness}) | <span className="btn_words">Add Answer</span></div>
+            </div>
           </div>
-          <div className="question_column_two">
-              <div>Helpful? <span className="btn_words">Yes</span> (count) | <span className="btn_words">Add Answer</span></div>
-          </div>
-        </div>
+                ))}
+            <div className="question_column_one">
+              <div><button className="btn_words">LOAD MORE ANSWERS</button></div>
+              <div><span><button onClick={() => allQuestions(props.id)}>MORE ANSWERED QUESTION</button></span><span><button>ADD A QUESTION  +</button></span></div>
+            </div>
     </div>
   )
 }

@@ -7,6 +7,7 @@ import relatedInfoReducer from './relatedProdReducer.js';
 import currentProductReducer from './productOverview/currentProductReducer.js';
 import currentStyleReducer from './productOverview/currentStyleReducer.js';
 import allStylesReducer from './productOverview/allStylesReducer.js';
+
 var rootReducer = combineReducers({
   test1: testReducer,
   test2: testReducer2,
@@ -14,7 +15,7 @@ var rootReducer = combineReducers({
   currentProduct: currentProductReducer,
   currentStyle: currentStyleReducer,
   styles: allStylesReducer,
-  questionsReducer,
+  currentQuestions: questionsReducer,
 });
 
 export default rootReducer;
