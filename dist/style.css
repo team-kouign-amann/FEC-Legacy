@@ -1,18 +1,9 @@
 /* RELATED PRODUCTS */
-.wrapper {
-  max-width: 900px;
-  width: 100%;
-}
-
 .relatedContainer {
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  margin: 0 auto;
   overflow-x: scroll;
   scroll-behavior: smooth;
   padding: 30px;
-  width: 100%;
 }
 
 .relatedContainer::-webkit-scrollbar {
@@ -20,15 +11,12 @@
 }
 
 .individualCard {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   max-width: 15rem;
   min-width: 15rem;
   min-height: 20rem;
   max-height: 20rem;
-  border: 0.5px solid rgb(56, 56, 56);
-}
-
-.individualCard:hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  display: inline-block;
 }
 
 .individualCard + .individualCard {
@@ -45,8 +33,7 @@
 
 .cardImg {
   max-width: 100%;
-  max-height: 200px;
-  display: block;
+  max-height: 300px;
   object-fit: cover;
 }
 
@@ -70,54 +57,10 @@
   font-family: 'Open Sans', sans-serif;
 }
 
-.arrow {
-  border: solid black;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 3px;
-  background: transparent;
-  box-shadow: 0px 0px 0px transparent;
-  background: linear-gradient(
-    to left,
-    rgba(255, 255, 255, 1) 60%,
-    rgba(255, 255, 255, 0)
-  );
-}
-
-.right {
-  transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
-  background: transparent;
-}
-
-.left {
-  transform: rotate(135deg);
-  -webkit-transform: rotate(135deg);
-  background: transparent;
-}
-
-.nextarrow,
-.previousarrow {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-  cursor: pointer;
-}
-
-.previousarrow {
-  top: -200px;
-}
-
-.nextarrow {
-  left: 1000px;
-  top: -200px;
-}
-
-.productCompare,
 .outfitDeleteButton {
   background: transparent;
   box-shadow: 0px 0px 0px transparent;
-  border: 0px none transparent;
+  border: 0px solid transparent;
   text-shadow: 0px 0px 0px transparent;
   position: relative;
   transition: 0.5s ease;
@@ -302,7 +245,11 @@
 }
 
 /**************
+
+
 PRODUCT OVERVIEW
+
+
 ***************/
 
 .red {
@@ -315,16 +262,16 @@ PRODUCT OVERVIEW
 
 .item1 {
   grid-area: carousel;
-  align-items: center;
-  justify-content: space-around;
+  grid-template-columns: 25% 10% auto 1fr;
+  grid-template-rows: 10% 25% 25% 20% 10%;
 }
 .item2 {
   grid-area: category;
+  grid-template-rows: 25% 25% 25% 25%;
 }
 .item3 {
   grid-area: style;
-  flex-direction: column;
-  justify-content: space-around;
+  grid-template-rows: 20% 40% 40%;
 }
 .item4 {
   grid-area: size;
@@ -377,12 +324,14 @@ PRODUCT OVERVIEW
 
 .grid-container > div {
   background-color: rgba(255, 255, 255, 0.8);
-  display: flex;
+  display: grid;
   padding: 20px 0;
 }
 
 /*********
+
 Product overview: Carousel (item1)
+
 ********/
 
 .carousel-position {
@@ -390,44 +339,53 @@ Product overview: Carousel (item1)
 }
 
 .preview_list {
-  list-style-type: none;
-  padding: 0;
-}
-
-.thumbnail-img {
-  width: 75px;
-  height: 75px;
-}
-
-.flex-preview-list {
-  flex-direction: column;
-  display: flex;
-  align-self: flex-start;
-}
-
-.button {
+  justify-self: center;
   align-self: center;
+  list-style-type: none;
+  margin: 0;
+  grid-column: 1;
+  grid-row: 2 / span 3;
 }
 
-.hidden {
-  visibility: hidden;
+.left-button {
+  height: 15%;
+  justify-self: end;
+  align-self: center;
+  grid-column: 2;
+  grid-row: 3;
+}
+
+.right-button {
+  height: 15%;
+  justify-self: start;
+  align-self: center;
+  grid-column: 4;
+  grid-row: 3;
 }
 
 .up-button {
+  grid-row: 1;
+  justify-self: center;
   align-self: center;
 }
 
 .down-button {
+  grid-column: 1;
+  grid-row: 5;
+  justify-self: center;
   align-self: center;
 }
 
 .center-image {
-  width: 450px;
-  height: 450px;
+  grid-column: 3;
+  grid-row: 2 / span 3;
+  justify-self: center;
 }
 
 /***********
+
 Category Styling
+
 ***********/
 
 .product-name-font {
@@ -448,7 +406,9 @@ Category Styling
 }
 
 /*********
+
 'Style' styling
+
 *********/
 
 .selected-font {
@@ -459,40 +419,21 @@ Category Styling
   float: left;
   padding: 10px;
   border-radius: 25px;
-  width: 20%;
 }
 
 .remove-bullet {
   list-style-type: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-wrap: wrap;
 }
-
-.selected-style:after {
-  content: '✔';
-  position: relative;
-  left: 80px;
-  top: 35px;
-  color: black;
-}
-
-.style-select-img {
+.question_column_two {
   float: left;
-  padding: 10px;
-  width: 25px;
-  height: 50px;
-  object-fit: cover;
-  background-color: #bbb;
-  border-radius: 50%;
-  margin: 10px 10px;
-  border: 1px solid black;
-  flex: 0 0 15%;
+  width: 20%;
 }
 
-.style-select-img-select-border {
-  border: 5px solid black;
+.btn_words {
+  border: none;
+  background-color: inherit;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
 }
-
 /* END OF RATINGS AND REVIEWS */
