@@ -24,7 +24,5 @@ store.dispatch(getProduct(1))
       <Provider store={store}>
         <App />
       </Provider>, document.getElementById('app'),
-        () => getQuestions(5)(store.dispatch),
-        // () => getProduct(1)(store.dispatch)
     );
   });

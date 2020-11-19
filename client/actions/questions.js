@@ -1,19 +1,11 @@
 import axios from 'axios';
 
-function getQuestions(productId) {
+function getQuestions() {
   return (dispatch) => {
     return axios
-      .get(`http://3.21.164.220/qa/questions?product_id=${productId}&count=2`)
-      .then(({ data }) => {
-        console.log('Questions:', data);
-        dispatch({
-          type: 'RELATED_QUESTION',
-          data: data.results,
-          id: data.product_id,
-        });
-      })
-      .catch((error) => {
-        console.log('Error with GET questions: ', error);
+      .get('http://3.21.164.220/qa/questions?product_id=5')
+      .then(({ results }) => {
+        dispatch({ type: 'RELATED_QUESTION', data: results });
       });
   };
 }
