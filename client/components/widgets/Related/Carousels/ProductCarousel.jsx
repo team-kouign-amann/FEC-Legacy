@@ -2,12 +2,10 @@ import React from 'react';
 import { Card, Button } from 'react-bootstrap';
 
 class ProductCarousel extends React.Component {
-  myRef = React.createRef();
-
   constructor(props) {
     super(props)
     this.state = {
-      leftarrow: true,
+      leftarrow: false,
       rightarrow: true,
       scroll: 0
     }
@@ -15,9 +13,11 @@ class ProductCarousel extends React.Component {
     this.renderCard = this.renderCard.bind(this);
     this.nextClick = this.nextClick.bind(this);
     this.prevClick = this.prevClick.bind(this);
+    this.updateScroll = this.updateScroll.bind(this);
   }
 
-  // rendering each related product card 
+  myRef = React.createRef();
+
   renderCard(card, index) {
     return (
       <Card key={index} index={index} className='individualCard'>
@@ -38,60 +38,65 @@ class ProductCarousel extends React.Component {
     );
   }
 
-  // moves carousel forward by 1 card
   nextClick() {
     const slide = this.myRef.current;
     slide.scrollLeft += 260;
-    console.log(slide.scrollLeft);
-    // this.setState({scroll: this.state.scroll + 260});
+    let scrollPositionNext = this.state.scroll + 260;
+    let totalWidth = this.props.relatedInfo.length * 70.4;
+    if (scrollPositionNext > totalWidth) {
+      this.setState({scroll: totalWidth}, this.updateScroll);
+    } else {
+      this.setState({scroll: this.state.scroll + 260}, this.updateScroll);
+    }
   }
 
-  // moves carousel backward by 1 card
   prevClick() {
     const slide = this.myRef.current;
     slide.scrollLeft -= 260;
-    console.log(slide.scrollLeft);
-    // this.setState({scroll: this.state.scroll - 260});
+    let scrollPositionPrev = this.state.scroll - 260;
+    if (scrollPositionPrev < 0 || scrollPositionPrev === 0) {
+      this.setState({scroll: 0}, this.updateScroll);
+    } else {
+      this.setState({scroll: this.state.scroll - 260}, this.updateScroll);
+    }
   }
 
-  // // moves carousel forward by 1 card
-  // nextClick() {
-  //   const slide = this.myRef.current;
-  //   slide.scrollLeft += slide.offsetWidth;
-  //   if (slide.scrollLeft >= (slide.scrollWidth - slide.offsetWidth)) {
-  //     slide.scrollLeft = 0;
-  //   }
-  // }
-
-  // // moves carousel backward by 1 card
-  // prevClick() {
-  //   const slide = this.myRef.current;
-  //   slide.scrollLeft -= slide.offsetWidth;
-  //   if (slide.scrollLeft <= 0) {
-  //     slide.scrollLeft = slide.scrollWidth;
-  //   }
-  // }
-  
+  updateScroll() {
+    console.log(this.state.scroll)
+    if (this.state.scroll === this.props.relatedInfo.length * 70.4) {
+      this.setState({rightarrow: false})
+    } else {
+      this.setState({rightarrow: true})
+    }
+    if (this.state.scroll === 0) {
+      this.setState({leftarrow: false})
+    } else {
+      this.setState({leftarrow: true})
+    }
+  }
 
   render() {
+    // console.log(this.props.relatedInfo.length * 70.4)
     return (
       <>
         <h9 className='relatedTitle'>Related Products</h9>
         <div className='wrapper'>
+          
           <div className='relatedContainer' ref={this.myRef}>
             {this.props.relatedInfo.map(this.renderCard)}
           </div>
 
-          {this.state.leftarrow ? 
-            <div className='previousarrow'>
-              <button className='arrow left' onClick={() => this.prevClick()}></button>
-            </div> : <></>
-          }
-          {this.state.rightarrow ?
-            <div className='nextarrow'>
-              <button className='arrow right' onClick={() => this.nextClick()}></button>
-            </div> : <></>
-          }
+          <div className='arrows'>
+            {!this.state.leftarrow ? 
+            <button className='hidearrow left'></button> :  
+            <button className='arrow left' onClick={() => this.prevClick()}></button>          
+            }
+            {!this.state.rightarrow ? 
+            <button className='hidearrow right'></button> :
+            <button className='arrow right' onClick={() => this.nextClick()}></button>
+            }
+          </div>
+          
         </div>
       </>
     )

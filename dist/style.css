@@ -1,4 +1,6 @@
-/* RELATED PRODUCTS */
+/* Related Products */
+
+/* Related Products Container */
 .wrapper {
   max-width: 900px;
   width: 100%;
@@ -18,6 +20,8 @@
 .relatedContainer::-webkit-scrollbar {
   display: none;
 }
+
+/* Related Product Cards */
 
 .individualCard {
   max-width: 15rem;
@@ -70,21 +74,39 @@
   font-family: 'Open Sans', sans-serif;
 }
 
+/* Related Product Carousel Arrows */
+
 .arrow {
   border: solid black;
   border-width: 0 3px 3px 0;
   display: inline-block;
   padding: 3px;
   background: transparent;
-  box-shadow: 0px 0px 0px transparent;
-  /* background: linear-gradient(to left,rgba(255,255,255,1)60%,
-    rgba(255,255,255,0)); */
+  box-shadow: 0px 0px 0px transparent;  
+  position: relative;
+  top: -200px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.hidearrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  background: transparent;
+  box-shadow: 0px 0px 0px transparent;  
+  position: relative;
+  top: -200px;
+  transform: translateY(-50%);
+  visibility: hidden;
 }
 
 .right {
   transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
   background: transparent;
+  left: 1000px;
 }
 
 .left {
@@ -93,21 +115,7 @@
   background: transparent;
 }
 
-.nextarrow, .previousarrow {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-  cursor: pointer;
-}
-
-.previousarrow {
-  top: -200px;
-}
-
-.nextarrow {
- left: 1000px;
- top: -200px;
-}
+/* Related Products Compare and Delete Button */
 
 .productCompare, .outfitDeleteButton {
   background: transparent;

@@ -7,6 +7,9 @@ class OutfitCarousel extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      leftarrow: false,
+      rightarrow: true,
+      scroll: 0,
       cardInfo: [
         {category: 'Sweater', title: 'Supreme Sweater', price: '$40', img: 'http://placecorgi.com/260/180'},
         {category: 'Jacket', title: 'Supreme Jacket', price: '$60', img: 'http://placecorgi.com/260/180'},
@@ -20,9 +23,11 @@ class OutfitCarousel extends React.Component {
         {category: 'Shoes', title: 'Supreme Shoes', price: '$100', img: 'http://placecorgi.com/260/180'}
       ]
     }
+
     this.renderCard = this.renderCard.bind(this);
     this.nextClick = this.nextClick.bind(this);
     this.prevClick = this.prevClick.bind(this);
+    this.updateScroll = this.updateScroll.bind(this);
   }
 
   renderCard = (card, index) => {
@@ -35,7 +40,7 @@ class OutfitCarousel extends React.Component {
           </Card.Text>
           <Card.Title className='cardTitle'>{card.title}</Card.Title>
           <Card.Text className='cardPrice'>
-            ${card.price}
+            {card.price}
           </Card.Text>
         </Card.Body>
         <Button variant="primary" className='outfitDeleteButton'>X</Button>
@@ -43,16 +48,41 @@ class OutfitCarousel extends React.Component {
     );
   }
 
-  // moves carousel forward by 1 card
   nextClick() {
     const slide = this.outfitRef.current;
     slide.scrollLeft += 260;
+    let scrollPositionNext = this.state.scroll + 260;
+    let totalWidth = this.state.cardInfo.length * 70.4;
+    if (scrollPositionNext > totalWidth) {
+      this.setState({scroll: totalWidth}, this.updateScroll);
+    } else {
+      this.setState({scroll: this.state.scroll + 260}, this.updateScroll);
+    }
   }
 
-  // moves carousel backward by 1 card
   prevClick() {
     const slide = this.outfitRef.current;
     slide.scrollLeft -= 260;
+    let scrollPositionPrev = this.state.scroll - 260;
+    if (scrollPositionPrev < 0 || scrollPositionPrev === 0) {
+      this.setState({scroll: 0}, this.updateScroll);
+    } else {
+      this.setState({scroll: this.state.scroll - 260}, this.updateScroll);
+    }
+  }
+
+  updateScroll() {
+    console.log(this.state.scroll)
+    if (this.state.scroll === this.state.cardInfo.length * 70.4) {
+      this.setState({rightarrow: false})
+    } else {
+      this.setState({rightarrow: true})
+    }
+    if (this.state.scroll === 0) {
+      this.setState({leftarrow: false})
+    } else {
+      this.setState({leftarrow: true})
+    }
   }
 
   render() {
@@ -60,16 +90,22 @@ class OutfitCarousel extends React.Component {
       <>
         <h9 className='outfitTitle'>Your Outfits</h9>
         <div className='wrapper'>
+
           <div className='relatedContainer' ref={this.outfitRef}>
               {this.state.cardInfo.map(this.renderCard)}
           </div>
 
-          <div className='previousarrow'>
-              <button className='arrow left' onClick={() => this.prevClick()}></button>
+          <div className='arrows'>
+            {!this.state.leftarrow ? 
+            <button className='hidearrow left'></button> :  
+            <button className='arrow left' onClick={() => this.prevClick()}></button>          
+            }
+            {!this.state.rightarrow ? 
+            <button className='hidearrow right'></button> :
+            <button className='arrow right' onClick={() => this.nextClick()}></button>
+            }
           </div>
-          <div className='nextarrow'>
-              <button className='arrow right' onClick={() => this.nextClick()}></button>
-          </div>
+
         </div>
       </>
     )
