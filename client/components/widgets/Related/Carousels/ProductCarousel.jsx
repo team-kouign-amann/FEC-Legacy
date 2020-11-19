@@ -42,6 +42,7 @@ class ProductCarousel extends React.Component {
   nextClick() {
     const slide = this.myRef.current;
     slide.scrollLeft += 260;
+    console.log(slide.scrollLeft);
     this.setState({scroll: this.state.scroll + 260});
   }
 
@@ -49,6 +50,7 @@ class ProductCarousel extends React.Component {
   prevClick() {
     const slide = this.myRef.current;
     slide.scrollLeft -= 260;
+    console.log(slide.scrollLeft);
     this.setState({scroll: this.state.scroll - 260});
   }
 

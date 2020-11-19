@@ -14,7 +14,7 @@ const Product = ({product, currentStyle,styles}) => (
           </ul>
           <button className="down-button" type="submit"> down </button>
           <button className="left-button" type="submit"> Left </button>
-          <img className="center-image" src={currentStyle.photos[0].url} alt="" />
+          {/* <img className="center-image" src={currentStyle.photos[0].url} alt="" /> */}
           <button className="right-button" type="submit"> Right </button>
         </div>
         <div className="item2">
@@ -24,7 +24,7 @@ const Product = ({product, currentStyle,styles}) => (
 
         </div>
         <div className="item3">
-          <span className="selected-font"><b>Style ></b> Selected Style... </span>
+          <span className="selected-font"><b>Style</b> Selected Style... </span>
           <ul className="remove-bullet">
             <li className="horizontal-list"><img style={{"border-radius": "25px"}} src="http://placecorgi.com/50" /></li>
             <li className="horizontal-list"><img style={{"border-radius": "25px"}} src="http://placecorgi.com/50" /></li>
