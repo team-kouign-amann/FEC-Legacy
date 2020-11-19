@@ -7,9 +7,8 @@ import currentProductReducer from './productOverview/currentProductReducer.js';
 import currentStyleReducer from './productOverview/currentStyleReducer.js';
 import allStylesReducer from './productOverview/allStylesReducer.js';
 import carouselPositionReducer from './productOverview/carouselPositionReducer.js';
-import ratingReducer from './ratingReducer.js'
 
-var rootReducer = combineReducers({
+const rootReducer = combineReducers({
   relatedInfo: relatedInfoReducer,
   currentProduct: currentProductReducer,
   currentStyle: currentStyleReducer,
@@ -17,7 +16,6 @@ var rootReducer = combineReducers({
   carouselPosition: carouselPositionReducer,
   showReviews: currentReviewsReducer,
   currentQuestions: questionsReducer,
-  ratingReducer,
 });
 
 export default rootReducer;
