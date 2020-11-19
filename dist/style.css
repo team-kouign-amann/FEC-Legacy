@@ -244,6 +244,24 @@
   display: inline-block;
 }
 
+/*////////////*/
+
+div.gallery {
+  margin: 5px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 180px;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
 /**************
 
 
@@ -264,26 +282,6 @@ PRODUCT OVERVIEW
   grid-area: carousel;
   grid-template-columns: 25% 10% auto 1fr;
   grid-template-rows: 10% 25% 25% 20% 10%;
-}
-.item2 {
-  grid-area: category;
-  grid-template-rows: 25% 25% 25% 25%;
-}
-.item3 {
-  grid-area: style;
-  grid-template-rows: 20% 40% 40%;
-}
-.item4 {
-  grid-area: size;
-}
-.item5 {
-  grid-area: bag;
-}
-.item6 {
-  grid-area: slogan;
-}
-.item7 {
-  grid-area: guarantee;
 }
 .item2 {
   grid-area: category;
