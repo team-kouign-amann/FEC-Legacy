@@ -11,3 +11,5 @@ function allQuestions(productId) {
       });
   };
 }
+
+export default allQuestions;

@@ -18,14 +18,14 @@ store.dispatch(getProduct(1))
     store.dispatch(getStyles(1));
     store.dispatch(getReview(1));
     store.dispatch(getMeta(1));
-    // store.dispatch(getQuestions(5))
+    store.dispatch(getQuestions(5))
   })
   .then(() => {
     ReactDOM.render(
       <Provider store={store}>
         <App />
       </Provider>, document.getElementById('app'),
-        () => getQuestions(5)(store.dispatch),
+        // () => getQuestions(5)(store.dispatch),
         // () => getProduct(1)(store.dispatch)
     );
   });

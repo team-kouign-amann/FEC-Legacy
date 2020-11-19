@@ -15,6 +15,7 @@ const Questions = (props) => {
   {console.log('TESTING3!:', props.id)}
   
   return(
+  <div className="quest-wrap">
     <div className="row">
       <div>
         <h3>QUESTIONS &amp; ANSWERS</h3>
@@ -27,11 +28,12 @@ const Questions = (props) => {
           </button>
         </div>
       </div>
-  
+    </div>
+    <div className="row">
         {props.data.map((question) => (
           <div>
             <div className="question_column_one">
-                    <div>
+                <div>
                     <div><span>Q: {question.question_body}</span></div>
                     {getAnswers(question.answers).map((answer) => (
                       <div>
@@ -45,18 +47,21 @@ const Questions = (props) => {
                         <div><span>by {answer.answerer_name}, {moment(answer.date).format('MMMM Do, YYYY')}</ span> | Helpful?<button className="btn_words">Yes</button>({answer.helpfulness})  | <span className="btn_words">Report</span></div>
                       </div> 
                     ))}
-                  </div>
-              </div>
+                </div>
+            </div>
               <div className="question_column_two">
                   <div>Helpful? <span className="btn_words">Yes</span> ({question.question_helpfulness}) | <span className="btn_words">Add Answer</span></div>
               </div>
           </div>
                 ))}
+          <div className="row">
             <div className="question_column_one">
               <div><button className="btn_words">LOAD MORE ANSWERS</button></div>
               <div><span><button onClick={() => allQuestions(props.id)}>MORE ANSWERED QUESTION</button></span><span><button>ADD A QUESTION  +</button></span></div>
             </div>
-      </div>
+          </div>
+    </div>
+  </div>
   );
 }
 
