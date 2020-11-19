@@ -2,12 +2,12 @@
   float: left;
   width: 30%;
 }
-  
+
 .column_two {
     float: left;
     width: 70%;
 }
- 
+
   .row:after {
     content: "";
     display: table;
@@ -20,7 +20,7 @@
   }
 
 
- 
+
 .star-ratings-css {
   unicode-bidi: bidi-override;
   color: #c5c5c5;
@@ -64,6 +64,7 @@
 
 .black{ background:rgb(73, 73, 73); }
 
+
 .bars-container{
   position: relative;
   width:320px;
@@ -90,57 +91,177 @@
 
 .perfect-rating-poor {
   position: relative;
-  font-size: 12px;
-  margin-left:10px;
 }
-.perfect-rating-perfect {
+/**************
+PRODUCT OVERVIEW
+***************/
+
+
+.red {
+  color: red;
+}
+
+.container {
+  padding: 0px 50px;
+}
+
+.item1 { grid-area: carousel;
+         align-items: center;
+         justify-content: space-around;
+}
+.item2 { grid-area: category;}
+.item3 { grid-area: style;
+         flex-direction: column;
+        justify-content: space-around;}
+.item4 { grid-area: size; }
+.item5 { grid-area: bag; }
+.item6 { grid-area: slogan}
+.item7 { grid-area: guarantee}
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'carousel carousel category category'
+    'carousel carousel category category'
+    'carousel carousel style style'
+    'carousel carousel style style'
+    'carousel carousel size size'
+    'slogan slogan bag bag'
+    'slogan slogan guarantee guarantee' ;
+  grid-gap: 10px;
+  background-color:black;
+  padding: 10px;
+  height: 80vh;
+}
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  padding: 20px 0;
+}
+
+/*********
+Product overview: Carousel (item1)
+********/
+
+.carousel-position {
   position: relative;
-  font-size: 12px;
-  margin-left:170px;
 }
 
-/* 
-
-.comfort-rating-text{
-  top:670px;
-  font-size: 12px;
-  width:320px;
-  margin-right:80px;
+.preview_list {
+  list-style-type: none;
+  padding: 0;
 }
 
-.perfect-rating-space-size {
+.thumbnail-img {
+  width: 75px;
+  height: 75px;
+}
+
+.flex-preview-list {
+  flex-direction: column;
+  display:flex;
+  align-self: flex-start;
+}
+
+.button {
+  align-self: center;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.up-button {
+  align-self: center;
+}
+
+.down-button {
+  align-self:center;
+}
+
+.center-image {
+  width: 450px;
+  height: 450px;
+}
+
+/***********
+Category Styling
+***********/
+
+.product-name-font {
+  font-weight: 900;
+  font-size: 3em;
+}
+
+.category-name-font {
+  font-weight: 200;
+  font-size: 1.5em;
+  align-self: end;
+
+}
+
+.price-font {
+  font-weight: 200;
+  font-size: 1em;
+  align-self: end;
+}
+
+
+
+/*********
+'Style' styling
+*********/
+
+.selected-font {
+  font-size: 1.5em;
+}
+
+.horizontal-list {
+  float: left;
+  padding: 10px;
+  border-radius: 25px;
+  width:20%;
+}
+
+.remove-bullet {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.selected-style:after {
+  content: '✔';
   position: relative;
-  top: 588px;
-  width:250px;
-  margin:0 auto;
+  left: 80px;
+  top: 35px;
+  color: black;
+
+
 }
 
-.perfect-rating-space-comfort {
-  position: relative;
-  top: 650px;
-  width:250px;
-  margin:0 auto;
+.style-select-img {
+  float: left;
+  padding: 10px;
+  width: 25px;
+  height: 50px;
+  object-fit: cover;
+  background-color: #bbb;
+  border-radius: 50%;
+  margin: 10px 10px;
+  border: 1px solid black;
+  flex: 0 0 15%;
 }
 
-.space-one{
-  display:inline-table;
-  height:8px;
-  width: 33%;
-  margin-right:2px;
-  background:rgb(223, 223, 223); 
+.style-select-img-select-border {
+  border: 5px solid black;
 }
 
-.space-two{
-  display:inline-table;
-  height:8px;
-  width: 33%;
-  margin-right:2px;
-  background:rgb(223, 223, 223); 
-}
-.space-three{
-  display:inline-table;
-  height:8px;
-  width: 33%;
-  background:rgb(223, 223, 223); 
-}
-  */
+/********
+
+END OF PRODUCT OVERVIEW
+
+********/

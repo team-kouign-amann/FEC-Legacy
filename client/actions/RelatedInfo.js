@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export function getRelatedProducts() {
-  console.log('getproducts function is running')
+  // console.log('getproducts function is running')
   return (dispatch) => {
     dispatch(fetchRelatedProducts())
     axios.get('http://3.21.164.220/products/')
