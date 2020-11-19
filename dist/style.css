@@ -1,9 +1,18 @@
 /* RELATED PRODUCTS */
+.wrapper {
+  max-width: 900px;
+  width: 100%;
+}
+
 .relatedContainer {
   display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0 auto;
   overflow-x: scroll;
   scroll-behavior: smooth;
   padding: 30px;
+  width: 100%;
 }
 
 .relatedContainer::-webkit-scrollbar {
@@ -11,12 +20,15 @@
 }
 
 .individualCard {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   max-width: 15rem;
   min-width: 15rem;
   min-height: 20rem;
   max-height: 20rem;
-  display: inline-block;
+  border: 0.5px solid rgb(56, 56, 56);
+}
+
+.individualCard:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  
 }
 
 .individualCard + .individualCard {
@@ -33,7 +45,8 @@
 
 .cardImg {
   max-width: 100%;
-  max-height: 300px;
+  max-height: 200px;
+  display: block;
   object-fit: cover;
 }
 
@@ -57,10 +70,49 @@
   font-family: 'Open Sans', sans-serif;
 }
 
-.outfitDeleteButton {
+.arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
   background: transparent;
   box-shadow: 0px 0px 0px transparent;
-  border: 0px solid transparent;
+  background: linear-gradient(to left,rgba(255,255,255,1)60%,
+    rgba(255,255,255,0));
+}
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  background: transparent;
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+  background: transparent;
+}
+
+.nextarrow, .previousarrow {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.previousarrow {
+  top: -200px;
+}
+
+.nextarrow {
+ left: 1000px;
+ top: -200px;
+}
+
+.productCompare, .outfitDeleteButton {
+  background: transparent;
+  box-shadow: 0px 0px 0px transparent;
+  border: 0px none transparent;
   text-shadow: 0px 0px 0px transparent;
   position: relative;
   transition: 0.5s ease;
