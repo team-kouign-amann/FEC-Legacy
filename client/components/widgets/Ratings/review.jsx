@@ -21,8 +21,8 @@ const Review = ({review}) => {
         <a href="/about/report.htm">Report</a>
       </div>
     </div>
-);
-}
+  );
+};
 
 export default Review;
 

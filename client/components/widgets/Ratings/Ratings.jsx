@@ -54,6 +54,9 @@ const Rating = ({ reviews, rating, changeReviewsOrder }) => {
       photos: [],
     },
   ];
+  const ratingsMeta = {
+    1: 1, 2: 2, 3: 22, 4: 7, 5: 7,
+  }; // data should come from meta
 
   return (
     <div className="row">
@@ -72,9 +75,7 @@ const Rating = ({ reviews, rating, changeReviewsOrder }) => {
         </div>
 
         <div className="starts-Bars">
-          {[1, 2, 3, 4, 5].map((number) => (
-            <StartsBar starsNumber={number} percentage={{ width: '57%' }} />
-          ))}
+          <StartsBar ratingsMeta={ratingsMeta} />
         </div>
 
         <div className="size-comfort">

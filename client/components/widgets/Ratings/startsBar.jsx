@@ -1,21 +1,29 @@
 import React from 'react';
 
-const StartsBar = ({ starsNumber, percentage }) => (
-  <div>
-    <h5>
-      <u>
-        {`${starsNumber} `}
-        stars
-      </u>
-    </h5>
-    <div className="ratings-container">
-      <div className="rating-bar">
-        <div className="rating-bar-fill" style={percentage}>
-          <span className="black"> </span>
+const StartsBar = ({ ratingsMeta }) => {
+  let sum = 0;
+  Object.values(ratingsMeta).map((value) => { sum += value; });
+  return Object.keys(ratingsMeta).map((key) => {
+    const temp = Math.floor((ratingsMeta[key] * 100) / sum);
+    const percentage = `${temp}%`;
+    return (
+      <div>
+        <h5>
+          <u>
+            {`${key} `}
+            stars
+          </u>
+        </h5>
+        <div className="ratings-container">
+          <div className="rating-bar">
+            <div className="rating-bar-fill" style={{ width: percentage }}>
+              <span className="black"> </span>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-);
+    );
+  });
+};
 
 export default StartsBar;
