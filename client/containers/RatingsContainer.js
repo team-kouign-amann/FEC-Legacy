@@ -1,17 +1,16 @@
 import { connect } from 'react-redux';
 import Ratings from '../components/widgets/Ratings/Ratings.jsx';
 
-
-var mapStateToProps = (state) => ({
-
-
-
-
-//<Ratings props = {}>
-//rating
-
+const mapStateToProps = (state) => ({
+  reviews: state.reviews,
 });
 
-var RatingsContainer = connect(mapStateToProps, null)(Ratings);
+const mapDispatchToProps = (dispatch) => ({
+  changeReviewsOrder: (reviews) => {
+    dispatch(changeReviewsOrder(reviews));
+  },
+});
+
+const RatingsContainer = connect(mapStateToProps, mapDispatchToProps)(Ratings);
 
 export default RatingsContainer;

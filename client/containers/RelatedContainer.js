@@ -4,16 +4,14 @@ import { relatedInfo, getRelatedProducts } from '../actions/RelatedInfo.js';
 
 var mapStateToProps = (state) => ({
   relatedInfo: state.relatedInfo.relatedProducts,
-  loading: state.relatedInfo.loading
+  loading: state.relatedInfo.loading,
 });
 
-var mapDispatchToProps = dispatch => {
+var mapDispatchToProps = (dispatch) => {
   return {
-    getRelatedProducts: () => dispatch(getRelatedProducts())
-  }
-}
-
-
+    getRelatedProducts: () => dispatch(getRelatedProducts()),
+  };
+};
 
 var RelatedContainer = connect(mapStateToProps, mapDispatchToProps)(Related);
 
