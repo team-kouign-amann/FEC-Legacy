@@ -42,12 +42,14 @@ class ProductCarousel extends React.Component {
   nextClick() {
     const slide = this.myRef.current;
     slide.scrollLeft += 260;
+    this.setState({scroll: this.state.scroll + 260});
   }
 
   // moves carousel backward by 1 card
   prevClick() {
     const slide = this.myRef.current;
     slide.scrollLeft -= 260;
+    this.setState({scroll: this.state.scroll - 260});
   }
 
   // // moves carousel forward by 1 card
