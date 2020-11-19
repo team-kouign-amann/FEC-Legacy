@@ -1,0 +1,347 @@
+.column_one {
+  float: left;
+  width: 30%;
+}
+
+.column_two {
+    float: left;
+    width: 70%;
+}
+
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .rating {
+    font-size: 50px;
+    font-style: bold;
+  }
+
+
+
+.star-ratings-css {
+  unicode-bidi: bidi-override;
+  color: #c5c5c5;
+  font-size: 25px;
+  height: 25px;
+  width: 100px;
+  position: relative;
+  padding: 0;
+}
+
+.star-ratings-css > .star-ratings-css-top {
+  color: #0e0e0e;
+  padding: 0;
+  position: absolute;
+  z-index: 1;
+  display: block;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.star-ratings-css > .star-ratings-css-bottom {
+  padding: 0;
+  display: block;
+  z-index: 0;
+}
+/*
+  .full-star{
+    font-size: 20px;
+    width: 20px;
+    color: rgb(0, 0, 0);
+}
+
+  .star {
+    font-size: 20px;
+    width: 20px;
+    display: inline-block;
+    color: gray;
+}
+
+.star.half:after {
+    content:'\2605';
+    color: rgb(0, 0, 0);
+    position: absolute;
+    margin-left: -20px;
+    width: 10px;
+    overflow: hidden;
+} */
+/*
+.ratings-container-five {
+  position: relative;
+  top:0px;
+  left: 10px;
+  width:200px;
+  margin:0 auto;
+}
+.ratings-container-four {
+  position: relative;
+  left: 10px;
+  top: 0px;
+  width:200px;
+  margin:0 auto;
+}
+.ratings-container-three {
+  position: relative;
+  left: 10px;
+  top: 0px;
+  width:200px;
+  margin:0 auto;
+}
+.ratings-container-two {
+  position: relative;
+  left: 10px;
+  top:0px;
+  width:200px;
+  margin:0 auto;
+}
+.ratings-container-one {
+  position: relative;
+  left: 10px;
+  top: 20px;
+  width:200px;
+  margin:0 auto;
+} */
+
+.ratings-container {
+  position: relative;
+  top:1px;
+  width:200px;
+  margin:0 auto;
+}
+.rating-bar{
+  background:rgb(223, 223, 223);
+}
+.rating-bar-fill{
+  display:block;
+  height:8px;
+}
+
+.black{ background:rgb(73, 73, 73); }
+
+/*
+.perfect-rating-text {
+  top:630px;
+  font-size: 12px;
+  margin-right:47px;
+}
+.comfort-rating-text{
+  top:670px;
+  font-size: 12px;
+  width:320px;
+  margin-right:80px;
+}
+
+.perfect-rating-space-size {
+  position: relative;
+  top: 588px;
+  width:250px;
+  margin:0 auto;
+}
+
+.perfect-rating-space-comfort {
+  position: relative;
+  top: 650px;
+  width:250px;
+  margin:0 auto;
+}
+
+.space-one{
+  display:inline-table;
+  height:8px;
+  width: 33%;
+  margin-right:2px;
+  background:rgb(223, 223, 223);
+}
+
+.space-two{
+  display:inline-table;
+  height:8px;
+  width: 33%;
+  margin-right:2px;
+  background:rgb(223, 223, 223);
+}
+.space-three{
+  display:inline-table;
+  height:8px;
+  width: 33%;
+  background:rgb(223, 223, 223);
+}
+  */
+
+/**************
+PRODUCT OVERVIEW
+***************/
+
+
+.red {
+  color: red;
+}
+
+.container {
+  padding: 0px 50px;
+}
+
+.item1 { grid-area: carousel;
+         align-items: center;
+         justify-content: space-around;
+}
+.item2 { grid-area: category;}
+.item3 { grid-area: style;
+         flex-direction: column;
+        justify-content: space-around;}
+.item4 { grid-area: size; }
+.item5 { grid-area: bag; }
+.item6 { grid-area: slogan}
+.item7 { grid-area: guarantee}
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'carousel carousel category category'
+    'carousel carousel category category'
+    'carousel carousel style style'
+    'carousel carousel style style'
+    'carousel carousel size size'
+    'slogan slogan bag bag'
+    'slogan slogan guarantee guarantee' ;
+  grid-gap: 10px;
+  background-color:black;
+  padding: 10px;
+  height: 80vh;
+}
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  padding: 20px 0;
+}
+
+/*********
+Product overview: Carousel (item1)
+********/
+
+.carousel-position {
+  position: relative;
+}
+
+.preview_list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.thumbnail-img {
+  width: 75px;
+  height: 75px;
+}
+
+.flex-preview-list {
+  flex-direction: column;
+  display:flex;
+  align-self: flex-start;
+}
+
+.button {
+  align-self: center;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.up-button {
+  align-self: center;
+}
+
+.down-button {
+  align-self:center;
+}
+
+.center-image {
+  width: 450px;
+  height: 450px;
+}
+
+/***********
+Category Styling
+***********/
+
+.product-name-font {
+  font-weight: 900;
+  font-size: 3em;
+}
+
+.category-name-font {
+  font-weight: 200;
+  font-size: 1.5em;
+  align-self: end;
+
+}
+
+.price-font {
+  font-weight: 200;
+  font-size: 1em;
+  align-self: end;
+}
+
+
+
+/*********
+'Style' styling
+*********/
+
+.selected-font {
+  font-size: 1.5em;
+}
+
+.horizontal-list {
+  float: left;
+  padding: 10px;
+  border-radius: 25px;
+  width:20%;
+}
+
+.remove-bullet {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.selected-style:after {
+  content: '✔';
+  position: relative;
+  left: 80px;
+  top: 35px;
+  color: black;
+
+
+}
+
+.style-select-img {
+  float: left;
+  padding: 10px;
+  width: 25px;
+  height: 50px;
+  object-fit: cover;
+  background-color: #bbb;
+  border-radius: 50%;
+  margin: 10px 10px;
+  border: 1px solid black;
+  flex: 0 0 15%;
+}
+
+.style-select-img-select-border {
+  border: 5px solid black;
+}
+
+/********
+
+END OF PRODUCT OVERVIEW
+
+********/
