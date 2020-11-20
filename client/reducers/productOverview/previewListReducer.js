@@ -1,4 +1,4 @@
-const previewListReducer = (state = { first: 0, last: 4 }, action) => {
+const previewListReducer = (state = { first: 0, last: 5 }, action) => {
   if (action.type === 'PREVIEW-FIRST') {
     return { ...state, first: action.payload };
   } else if (action.type === 'PREVIEW-LAST') {
