@@ -83,15 +83,19 @@
   height:8px;
   text-align: right;
 }
-/* .size-comfort-point{
-  display:block;
-  height:8px;
-  margin-right: 1px;
-} */
 
 .perfect-rating-poor {
   position: relative;
 }
+.perfect-rating-perfect {
+  position: relative;
+  margin-left: 170px;
+}
+
+.user-data {
+  text-align: right;
+}
+
 /**************
 PRODUCT OVERVIEW
 ***************/

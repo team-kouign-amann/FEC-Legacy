@@ -4,7 +4,7 @@ import AvarageStars from './avarageStars.jsx';
 import SizeComfort from './sizeComfort.jsx';
 import Reviews from './reviews.jsx';
 
-const Rating = ({ reviews, rating, changeReviewsOrder }) => {
+const Rating = ({ reviews, metaData }) => {
   // the data should come from meta
   const characteristics = {
     Size: {
@@ -57,14 +57,22 @@ const Rating = ({ reviews, rating, changeReviewsOrder }) => {
   const ratingsMeta = {
     1: 1, 2: 2, 3: 22, 4: 7, 5: 7,
   }; // data should come from meta
+  let starSum = 0;
+  let ratingSum = 0;
+  Object.values(ratingsMeta).map((value) => { ratingSum += value; });
+  for (const i in ratingsMeta) {
+    starSum += ratingsMeta[i] * parseInt(i);
+  }
+  const temp = (starSum / ratingSum).toFixed(2);
+  const avarageStarsPercentage = `${(temp / 5) * 120}%`;
 
   return (
     <div className="row">
       <div className="column_one">
         <h3>RATING &amp; REVIEWS</h3>
-        <div className="rating"> 3.4 </div>
+        <div className="rating"> {temp} </div>
         <div className="star-ratings-css">
-          <AvarageStars percentage={{ width: '57%' }} />
+          <AvarageStars percentage={{ width: avarageStarsPercentage }} />
         </div>
 
         <div>

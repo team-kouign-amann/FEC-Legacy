@@ -10,11 +10,11 @@ import getProduct from './actions/productOverview/getProduct.js';
 import getStyles from './actions/productOverview/getStyles.js';
 import './styles/style.css';
 
-store.dispatch(getProduct(1))
+store.dispatch(getProduct(3))
   .then(() => {
-    store.dispatch(getStyles(1));
-    store.dispatch(getReview(1));
-    store.dispatch(getMeta(1));
+    store.dispatch(getStyles(3));
+    store.dispatch(getReview(3));
+    store.dispatch(getMeta(3));
   })
   .then(() => {
     ReactDOM.render(

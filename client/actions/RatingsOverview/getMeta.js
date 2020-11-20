@@ -3,8 +3,8 @@ import MetaDataAction from './metaData.js';
 
 const getMeta = (productId) => (dispatch) => axios.get(`http://3.21.164.220/reviews/meta?product_id=${productId}`)
   .then((resp) => {
-    //console.log('getMeta');
-    //console.log(resp.data);
+    // console.log('getMeta');
+    // console.log(resp.data);
     dispatch(MetaDataAction(resp.data.ratings));
   })
   .catch((err) => {

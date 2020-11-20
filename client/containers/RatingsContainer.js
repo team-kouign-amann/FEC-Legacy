@@ -3,11 +3,12 @@ import Ratings from '../components/widgets/Ratings/Ratings.jsx';
 
 const mapStateToProps = (state) => ({
   reviews: state.reviews,
+  metaData: state.metaData,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  changeReviewsOrder: (reviews) => {
-    dispatch(changeReviewsOrder(reviews));
+  handleHelpfulClick: (reviews) => {
+    dispatch(handleHelpfulClick(reviews));
   },
 
 });
