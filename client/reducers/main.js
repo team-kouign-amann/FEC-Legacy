@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 
-import currentReviewsReducer from './ratingReducers/ratingReducer.js';
+import metaReducer from './ratingReducers/metaReducer.js';
+import reviewsReducer from './ratingReducers/reviewsReducer.js';
 
 // import your other reducers:
 import relatedInfoReducer from './Related Products/relatedProdReducer.js';
@@ -15,7 +16,8 @@ const rootReducer = combineReducers({
   currentStyle: currentStyleReducer,
   styles: allStylesReducer,
   carouselPosition: carouselPositionReducer,
-  showReviews: currentReviewsReducer,
+  showReviews: reviewsReducer,
+  metaRatings: metaReducer,
 });
 
 export default rootReducer;
