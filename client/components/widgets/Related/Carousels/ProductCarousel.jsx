@@ -16,10 +16,11 @@ class ProductCarousel extends React.Component {
     this.updateScroll = this.updateScroll.bind(this);
   }
 
-  componentDidUpdate(previous) {
-    console.log('previous props', previous)
-    console.log('current props', this.props)
-  }
+  // Used for Debugging Async Issue
+  // componentDidUpdate(previous) {
+  //   console.log('previous props', previous)
+  //   console.log('current props', this.props)
+  // }
 
   myRef = React.createRef();
 
@@ -88,7 +89,7 @@ class ProductCarousel extends React.Component {
         <div className='wrapper'>
           
           <div className='relatedContainer' ref={this.myRef}>
-            {console.log(this.props.relatedInfo)}
+            {/* {console.log(this.props.relatedInfo)} */}
             {this.props.relatedInfo.map(this.renderCard)}
           </div>
 
