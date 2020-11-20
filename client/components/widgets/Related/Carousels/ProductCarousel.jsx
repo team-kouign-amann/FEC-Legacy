@@ -41,11 +41,11 @@ class ProductCarousel extends React.Component {
           </Card.Title>
 
           <Card.Text className='cardPrice'>
-            {card.image[0].sale_price === 0 ? 
+            {card.image[0].sale_price === '0' ? 
               <div>${card.image[0].original_price}</div> :
-              <div>
-                <span styles='text-decoration: line-through'>${card.image[0].original_price} </span>
-                <span styles='color: red'>${card.image[0].sale_price}</span>
+              <div className='priceLineUp'>
+                <div className='cutOriginalPrice'>${card.image[0].original_price}</div>
+                <div className='salePrice'>${card.image[0].sale_price}</div>
               </div> 
             }
           </Card.Text>

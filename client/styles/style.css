@@ -411,6 +411,18 @@ Related Products
   font-size: 14px;
 }
 
+.priceLineUp {
+  display: inline-flex;
+}
+
+.cutOriginalPrice {
+  text-decoration: line-through;
+}
+
+.salePrice {
+  color: red;
+}
+
 .cardTitle {
   text-align: left;
   font-family: 'Open Sans', sans-serif;
