@@ -9,6 +9,9 @@ import currentStyleReducer from './productOverview/currentStyleReducer.js';
 import allStylesReducer from './productOverview/allStylesReducer.js';
 import carouselPositionReducer from './productOverview/carouselPositionReducer.js';
 import previewListReducer from './productOverview/previewListReducer.js';
+import selectSizeReducer from './productOverview/selectSize.js';
+
+
 
 const rootReducer = combineReducers({
   relatedInfo: relatedInfoReducer,
@@ -18,6 +21,7 @@ const rootReducer = combineReducers({
   carouselPosition: carouselPositionReducer,
   previewListPosition: previewListReducer,
   showReviews: currentReviewsReducer,
+  selectSize: selectSizeReducer,
 });
 
 export default rootReducer;
