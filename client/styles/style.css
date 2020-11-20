@@ -47,64 +47,6 @@
   display: block;
   z-index: 0;
 }
-/*
-  .full-star{
-    font-size: 20px;
-    width: 20px;
-    color: rgb(0, 0, 0);
-}
-
-  .star {
-    font-size: 20px;
-    width: 20px;
-    display: inline-block;
-    color: gray;
-}
-
-.star.half:after {
-    content:'\2605';
-    color: rgb(0, 0, 0);
-    position: absolute;
-    margin-left: -20px;
-    width: 10px;
-    overflow: hidden;
-} */
-/*
-.ratings-container-five {
-  position: relative;
-  top:0px;
-  left: 10px;
-  width:200px;
-  margin:0 auto;
-}
-.ratings-container-four {
-  position: relative;
-  left: 10px;
-  top: 0px;
-  width:200px;
-  margin:0 auto;
-}
-.ratings-container-three {
-  position: relative;
-  left: 10px;
-  top: 0px;
-  width:200px;
-  margin:0 auto;
-}
-.ratings-container-two {
-  position: relative;
-  left: 10px;
-  top:0px;
-  width:200px;
-  margin:0 auto;
-}
-.ratings-container-one {
-  position: relative;
-  left: 10px;
-  top: 20px;
-  width:200px;
-  margin:0 auto;
-} */
 
 .ratings-container {
   position: relative;
@@ -122,55 +64,42 @@
 
 .black{ background:rgb(73, 73, 73); }
 
-/*
-.perfect-rating-text {
-  top:630px;
-  font-size: 12px;
-  margin-right:47px;
-}
-.comfort-rating-text{
-  top:670px;
-  font-size: 12px;
+
+.bars-container{
+  position: relative;
   width:320px;
-  margin-right:80px;
+  font-size: 20px;
 }
 
-.perfect-rating-space-size {
+.size-comfort-container{
   position: relative;
-  top: 588px;
-  width:250px;
-  margin:0 auto;
+  width:255px;
+  background:rgb(223, 223, 223);
+  height:8px;
 }
 
-.perfect-rating-space-comfort {
+.size-comfort-bar{
+  display:block;
+  height:8px;
+  text-align: right;
+}
+
+.perfect-rating-poor {
   position: relative;
-  top: 650px;
-  width:250px;
-  margin:0 auto;
+}
+.perfect-rating-perfect {
+  position: relative;
+  margin-left: 170px;
 }
 
-.space-one{
-  display:inline-table;
-  height:8px;
-  width: 33%;
-  margin-right:2px;
-  background:rgb(223, 223, 223);
+.user-data {
+  text-align: right;
 }
 
-.space-two{
-  display:inline-table;
-  height:8px;
-  width: 33%;
-  margin-right:2px;
-  background:rgb(223, 223, 223);
+.images {
+  width: 90px;
+  height: 90px;
 }
-.space-three{
-  display:inline-table;
-  height:8px;
-  width: 33%;
-  background:rgb(223, 223, 223);
-}
-  */
 
 /**************
 PRODUCT OVERVIEW

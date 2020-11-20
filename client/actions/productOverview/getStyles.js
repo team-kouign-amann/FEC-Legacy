@@ -8,8 +8,8 @@ const getStyles = (productID) => {
   return (dispatch) => {
     return axios.get('http://3.21.164.220/products/' + productID + '/styles')
     .then(({data}) => {
-      console.log(data.results);
-      console.log(data.results[0]);
+      // console.log(data.results);
+      // console.log(data.results[0]);
       dispatch(allStylesAction(data.results));
       dispatch(currentStyleAction(data.results[0]));
     })
