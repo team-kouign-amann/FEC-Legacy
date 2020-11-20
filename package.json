@@ -44,10 +44,7 @@
   },
   "dependencies": {
     "axios": "^0.21.0",
-<<<<<<< HEAD
     "bluebird": "^3.7.2",
-=======
->>>>>>> master
     "bootstrap": "^4.5.3",
     "css-loader": "^5.0.1",
     "eslint-plugin-jest": "^24.1.3",
