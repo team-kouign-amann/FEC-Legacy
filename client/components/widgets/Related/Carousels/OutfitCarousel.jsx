@@ -28,22 +28,36 @@ class OutfitCarousel extends React.Component {
     this.nextClick = this.nextClick.bind(this);
     this.prevClick = this.prevClick.bind(this);
     this.updateScroll = this.updateScroll.bind(this);
+    this.addOutfit = this.addOutfit.bind(this);
   }
+  
+  // componentDidMount() {
+  // }
 
   renderCard = (card, index) => {
     return (
       <Card key={index} index={index} className='individualCard'>
         <Card.Img variant="top" src={card.img} className='cardImg'/>
         <Card.Body className='cardBody'>
+
           <Card.Text className='cardText'>
             {card.category}
           </Card.Text>
-          <Card.Title className='cardTitle'>{card.title}</Card.Title>
+
+          <Card.Title className='cardTitle'>
+            {card.title}
+          </Card.Title>
+
           <Card.Text className='cardPrice'>
             {card.price}
           </Card.Text>
+
+          <Card.Text className='cardRating'>
+            Rating
+          </Card.Text>
+
         </Card.Body>
-        <Button variant="primary" className='outfitDeleteButton'>X</Button>
+        <Button variant="primary" className='outfitDeleteButton'>x</Button>
       </Card>
     );
   }
@@ -85,6 +99,10 @@ class OutfitCarousel extends React.Component {
     }
   }
 
+  addOutfit() {
+    console.log('Adding Outfit!')
+  }
+
   render() {
     return (
       <>
@@ -92,7 +110,15 @@ class OutfitCarousel extends React.Component {
         <div className='wrapper'>
 
           <div className='relatedContainer' ref={this.outfitRef}>
-              {this.state.cardInfo.map(this.renderCard)}
+            
+            <Card className='individualCard addOutfit' onClick={() => this.addOutfit()}>
+              <div className='outfitButtonText outfitText'>
+                <div><h3>+</h3></div>
+                <div><h3>Add to Outfits</h3></div>
+              </div>
+            </Card>
+
+            {this.state.cardInfo.map(this.renderCard)}
           </div>
 
           <div className='arrows'>

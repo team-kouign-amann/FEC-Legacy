@@ -108,11 +108,17 @@ class ProductCarousel extends React.Component {
           <div className='arrows'>
             {!this.state.leftarrow ? 
             <button className='hidearrow left'></button> :  
-            <button className='arrow left' onClick={() => this.prevClick()}></button>          
+            <div>
+              {/* <div className='listGradient gradLeft'></div> */}
+              <button className='arrow left' onClick={() => this.prevClick()}></button>
+            </div>
             }
             {!this.state.rightarrow ? 
             <button className='hidearrow right'></button> :
-            <button className='arrow right' onClick={() => this.nextClick()}></button>
+            <div>
+              {/* <div className='listGradient gradRight'></div> */}
+              <button className='arrow right' onClick={() => this.nextClick()}></button>
+            </div>
             }
           </div>
       </>

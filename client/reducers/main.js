@@ -3,7 +3,7 @@ import { combineReducers } from 'redux';
 import currentReviewsReducer from './ratingReducers/ratingReducer.js';
 
 // import your other reducers:
-import relatedInfoReducer from './relatedProdReducer.js';
+import relatedInfoReducer from './Related Products/relatedProdReducer.js';
 import currentProductReducer from './productOverview/currentProductReducer.js';
 import currentStyleReducer from './productOverview/currentStyleReducer.js';
 import allStylesReducer from './productOverview/allStylesReducer.js';
