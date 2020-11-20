@@ -28,7 +28,7 @@
 }
 
 .individualCard:hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .individualCard + .individualCard {
@@ -79,6 +79,12 @@
   box-shadow: 0px 0px 0px transparent;
   background: linear-gradient(to left,rgba(255,255,255,1)60%,
     rgba(255,255,255,0));
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  background: transparent;
 }
 
 .right {
@@ -298,7 +304,7 @@
 
 /**************
 PRODUCT OVERVIEW
-***************/
+
 
 
 .red {
@@ -346,7 +352,6 @@ PRODUCT OVERVIEW
 
 /*********
 Product overview: Carousel (item1)
-********/
 
 .carousel-position {
   position: relative;
@@ -391,7 +396,7 @@ Product overview: Carousel (item1)
 
 /***********
 Category Styling
-***********/
+
 
 .product-name-font {
   font-weight: 900;
@@ -415,7 +420,7 @@ Category Styling
 
 /*********
 'Style' styling
-*********/
+
 
 .selected-font {
   font-size: 1.5em;
@@ -463,5 +468,5 @@ Category Styling
 .style-select-img-select-border {
   border: 5px solid black;
 }
-
+****/
 /* END OF RATINGS AND REVIEWS */
