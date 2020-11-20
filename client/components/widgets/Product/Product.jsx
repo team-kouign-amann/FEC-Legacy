@@ -5,9 +5,7 @@ import StyleSelectorContainer from '../../../containers/productContainers/styleS
 import CarouselContainer from '../../../containers/productContainers/carouselContainer.js';
 
 const Product = ({product, currentStyle, styles}) => (
-  <div>
-    <div><h1>Product</h1></div>
-    <div className="container">
+  <div className="container">
       <div className="grid-container">
         <CarouselContainer />
         <div className="item2">
@@ -21,7 +19,6 @@ const Product = ({product, currentStyle, styles}) => (
         <div className="item6">Slogan</div>
         <div className="item7">Guarantee</div>
       </div>
-    </div>
   </div>
 );
 

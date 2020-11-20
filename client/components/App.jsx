@@ -6,11 +6,17 @@ import ProductContainer from '../containers/ProductContainer.js';
 
 const App = () => (
   <div>
-    <ProductContainer />
-    <RelatedContainer />
-    <QuestionsContainer />
-    <RatingsContainer />
+
+      <ProductContainer />
+
+      <RelatedContainer />
+
+
+      <QuestionsContainer />
+
+      <RatingsContainer />
   </div>
+
 
 );
 

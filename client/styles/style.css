@@ -1,3 +1,5 @@
+
+
 .column_one {
   float: left;
   width: 30%;
@@ -189,7 +191,8 @@ PRODUCT OVERVIEW
          align-items: center;
          justify-content: space-around;
 }
-.item2 { grid-area: category;}
+.item2 { grid-area: category;
+         flex-direction: column;}
 .item3 { grid-area: style;
          flex-direction: column;
         justify-content: space-around;}
@@ -211,7 +214,7 @@ PRODUCT OVERVIEW
   grid-gap: 10px;
   background-color:black;
   padding: 10px;
-  height: 80vh;
+  height: 100vh;
 }
 
 .grid-container > div {
@@ -345,3 +348,19 @@ Category Styling
 END OF PRODUCT OVERVIEW
 
 ********/
+
+/*****
+
+Genearl Styling
+
+
+******/
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-item {
+ flex-grow: 1;
+}
