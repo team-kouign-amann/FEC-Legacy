@@ -345,3 +345,138 @@ Category Styling
 END OF PRODUCT OVERVIEW
 
 ********/
+
+
+/* Related Products */
+
+/* Related Products Container */
+.wrapper {
+  max-width: 900px;
+  width: 100%;
+}
+
+.relatedContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0 auto;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  padding: 30px;
+  width: 100%;
+}
+
+.relatedContainer::-webkit-scrollbar {
+  display: none;
+}
+
+/* Related Product Cards */
+
+.individualCard {
+  max-width: 15rem;
+  min-width: 15rem;
+  min-height: 20rem;
+  max-height: 20rem;
+  border: 0.5px solid rgb(56, 56, 56);
+}
+
+.individualCard:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  
+}
+
+.individualCard + .individualCard {
+  margin-left: 2%;
+}
+
+.relatedTitle {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.outfitTitle {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.cardImg {
+  max-width: 100%;
+  max-height: 200px;
+  display: block;
+  object-fit: cover;
+}
+
+.cardBody {
+  margin-left: 5px;
+}
+
+.cardText {
+  text-align: left;
+  color: rgb(109, 109, 109);
+  font-family: 'Open Sans', sans-serif;
+}
+
+.cardTitle {
+  text-align: left;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.cardPrice {
+  text-align: left;
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* Related Product Carousel Arrows */
+
+.arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  background: transparent;
+  box-shadow: 0px 0px 0px transparent;  
+  position: relative;
+  top: -200px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.hidearrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  background: transparent;
+  box-shadow: 0px 0px 0px transparent;  
+  position: relative;
+  top: -200px;
+  transform: translateY(-50%);
+  visibility: hidden;
+}
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  background: transparent;
+  left: 1000px;
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+  background: transparent;
+}
+
+/* Related Products Compare and Delete Button */
+
+.productCompare, .outfitDeleteButton {
+  background: transparent;
+  box-shadow: 0px 0px 0px transparent;
+  border: 0px none transparent;
+  text-shadow: 0px 0px 0px transparent;
+  position: relative;
+  transition: 0.5s ease;
+  top: -290px;
+  left: 210px;
+  color: white;
+  font-size: 15px;
+}
+
+/* End of Related Products */
