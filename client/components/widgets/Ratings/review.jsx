@@ -1,10 +1,12 @@
 import React from 'react';
 //import moment from 'moment';
 import AvarageStars from './avarageStars.jsx';
+import Image from './image.jsx';
 
 const Review = ({ review }) => {
-  const starPercentage = `${review.rating / 6 * 100}%`;
+  const starPercentage = `${review.rating / 4 * 100}%`;
   const postTime = review.date.split('T')[0];
+  //const postTime = moment().format(review.date);
 
   // const handleHelpClick = function () { };
   // const handleReportClick = function () { };
@@ -23,6 +25,7 @@ const Review = ({ review }) => {
         </h6>
         <p>{review.body}</p>
       </div>
+      <Image photos={review.photos}></Image>
 
       <div>
         <h6>

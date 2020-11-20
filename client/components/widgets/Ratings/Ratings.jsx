@@ -4,59 +4,17 @@ import AvarageStars from './avarageStars.jsx';
 import SizeComfort from './sizeComfort.jsx';
 import Reviews from './reviews.jsx';
 
-const Rating = ({ reviews, metaData }) => {
-  // the data should come from meta
-  const characteristics = {
-    Size: {
-      id: 14,
-      value: '4.5000',
-    },
-    Comfort: {
-      id: 16,
-      value: '3.0000',
-    },
-  };
-  const recommended = { 0: 14, 1: 24, null: 1 };// the data should come from meta
-  const sum = recommended[0] + recommended[1] + recommended.null;
+const Rating = ({ showReviews, metaRatings}) => {
+  console.log('showReviews');
+  console.log(showReviews);
+  // console.log('metaRatings');
+  // console.log(metaRatings);
+  const characteristics = metaRatings.characteristics;
+  const recommended = metaRatings.recommended;
+  const sum = recommended[0] + recommended[1];
   const recommendPercentage = parseInt((recommended[1] / sum) * 100);
-  const showReviews = [
-    {
-      review_id: 5,
-      rating: 3,
-      summary: "I'm enjoying wearing these shades",
-      recommend: 0,
-      response: '',
-      body: 'Comfortable and practical.',
-      date: '2019-04-14T00:00:00.000Z',
-      reviewer_name: 'shortandsweeet',
-      helpfulness: 5,
-      photos: [{
-        id: 1,
-        url: 'urlplaceholder/review_5_photo_number_1.jpg',
-      },
-      {
-        id: 2,
-        url: 'urlplaceholder/review_5_photo_number_2.jpg',
-      },
+  const ratingsMeta = metaRatings.ratings;
 
-      ],
-    },
-    {
-      review_id: 3,
-      rating: 4,
-      summary: 'I am liking these glasses',
-      recommend: 0,
-      response: "Glad you're enjoying the product!",
-      body: "They are very dark. But that's good because I'm in very sunny spots",
-      date: '2019-06-23T00:00:00.000Z',
-      reviewer_name: 'bigbrotherbenjamin',
-      helpfulness: 5,
-      photos: [],
-    },
-  ];
-  const ratingsMeta = {
-    1: 1, 2: 2, 3: 22, 4: 7, 5: 7,
-  }; // data should come from meta
   let starSum = 0;
   let ratingSum = 0;
   Object.values(ratingsMeta).map((value) => { ratingSum += value; });
@@ -64,7 +22,7 @@ const Rating = ({ reviews, metaData }) => {
     starSum += ratingsMeta[i] * parseInt(i);
   }
   const temp = (starSum / ratingSum).toFixed(2);
-  const avarageStarsPercentage = `${(temp / 5) * 120}%`;
+  const avarageStarsPercentage = `${(temp / 5) * 125}%`;
 
   return (
     <div className="row">
