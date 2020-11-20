@@ -5,26 +5,28 @@ import ComparisonModal from './ComparisonModal.jsx'
 
 class Related extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      compare: false
-    }
+      compare: false,
+    };
   }
 
   componentDidMount() {
-    this.props.getRelatedProducts();
+    const currentId = 3;
+    this.props.getRelatedProducts(currentId);
   }
 
   render() {
+    // console.log('Testing Related: ', this.props.relatedInfo)
+    // console.log('Testing Related Length: ', this.props.relatedInfo.length)
+
     return (
       <div>
-        {/* { this.state.compare ? <ComparisonModal /> : <></> } */}
-
+        { this.state.compare ? <ComparisonModal /> : <></> }
         <ProductCarousel relatedInfo={this.props.relatedInfo} />
-
         <OutfitCarousel />
       </div>
-    )
+    );
   }
 }
 

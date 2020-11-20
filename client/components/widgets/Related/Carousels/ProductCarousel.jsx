@@ -19,6 +19,7 @@ class ProductCarousel extends React.Component {
   myRef = React.createRef();
 
   renderCard(card, index) {
+    // console.log('hello card: ', card)
     return (
       <Card key={index} index={index} className='individualCard'>
         <Card.Img variant="top" src='http://placecorgi.com/260/180' className='cardImg'/>
@@ -62,7 +63,7 @@ class ProductCarousel extends React.Component {
   }
 
   updateScroll() {
-    console.log(this.state.scroll)
+    // console.log(this.state.scroll)
     if (this.state.scroll === this.props.relatedInfo.length * 70.4) {
       this.setState({rightarrow: false})
     } else {
@@ -76,13 +77,13 @@ class ProductCarousel extends React.Component {
   }
 
   render() {
-    // console.log(this.props.relatedInfo.length * 70.4)
     return (
       <>
         <h9 className='relatedTitle'>Related Products</h9>
         <div className='wrapper'>
           
           <div className='relatedContainer' ref={this.myRef}>
+            {console.log(this.props.relatedInfo)}
             {this.props.relatedInfo.map(this.renderCard)}
           </div>
 

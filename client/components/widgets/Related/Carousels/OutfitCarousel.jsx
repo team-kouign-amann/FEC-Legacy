@@ -72,7 +72,7 @@ class OutfitCarousel extends React.Component {
   }
 
   updateScroll() {
-    console.log(this.state.scroll)
+    // console.log(this.state.scroll)
     if (this.state.scroll === this.state.cardInfo.length * 70.4) {
       this.setState({rightarrow: false})
     } else {

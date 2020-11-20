@@ -1,19 +1,20 @@
 const initialState = {
   relatedProducts: [],
-  loading: false
-}
+  loading: false,
+};
 
 const relatedInfoReducer = (state = initialState, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case 'FETCH_RELATED_SUCCESS':
-      return {relatedProducts: action.payload, loading: false};
+      // console.log('action payload: ', action.payload);
+      return { relatedProducts: action.payload, loading: false };
     case 'FETCH_RELATED':
-      return {...state, loading: true};
+      return { ...state, loading: true };
     case 'FETCH_RELATED_FAILURE':
-      return {...state, loading: false};
+      return { ...state, loading: false };
     default:
       return state;
-  }  
+  }
 };
 
 export default relatedInfoReducer;

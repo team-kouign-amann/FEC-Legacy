@@ -9,7 +9,7 @@ var mapStateToProps = (state) => ({
 
 var mapDispatchToProps = dispatch => {
   return {
-    getRelatedProducts: () => dispatch(getRelatedProducts())
+    getRelatedProducts: (id) => dispatch(getRelatedProducts(id))
   }
 }
 
