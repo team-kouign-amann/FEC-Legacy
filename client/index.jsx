@@ -12,7 +12,7 @@ import './styles/style.css';
 
 store.dispatch(getProduct(1))
   .then(() => {
-    store.dispatch(getStyles(1));
+    store.dispatch(getStyles(3));
     store.dispatch(getReview(1));
     store.dispatch(getMeta(1));
   })
