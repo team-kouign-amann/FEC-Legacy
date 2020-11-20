@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import Questions from '../components/widgets/Questions/Questions.jsx';
 import allQuestions from '../actions/allQuestions.js';
 
-var mapStateToProps = (state) => ({
+const mapStateToProps = (state) => ({
   data: state.currentQuestions.data,
   id: state.currentQuestions.id,
 });

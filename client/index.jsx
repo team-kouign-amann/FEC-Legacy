@@ -13,12 +13,15 @@ import './styles/style.css';
 
 
 
+
 store.dispatch(getProduct(1))
   .then(() => {
     store.dispatch(getStyles(1));
     store.dispatch(getReview(1));
     store.dispatch(getMeta(1));
-    store.dispatch(getQuestions(5))
+    // store.dispatch(getQuestions(5))
+  }).then(() => {
+    return store.dispatch(getQuestions(5))
   })
   .then(() => {
     ReactDOM.render(
