@@ -4,7 +4,10 @@ import axios from 'axios';
 const fetchRelatedProducts = () => ({ type: 'FETCH_RELATED' });
 
 const fetchRelatedProductsSuccess = (relatedProds) => ({ type: 'FETCH_RELATED_SUCCESS', payload: relatedProds });
+
 const fetchRelatedProductsFailure = () => ({ type: 'FETCH_RELATED_FAILURE' });
+
+const updateRelatedProductWithImage = (productDetail) => ({ type: 'UPDATE_RELATED_PRODUCT_WITH_IMAGE', payload: productDetail });
 
 export function getRelatedProducts(id) {
   return (dispatch) => {
@@ -17,6 +20,10 @@ export function getRelatedProducts(id) {
           axios.get(`http://3.21.164.220/products/${products[i]}`)
             .then((results) => productData.push(results.data))
             .then(() => { dispatch(fetchRelatedProductsSuccess(productData)); })
+            .then(() => {
+              axios.get(`http://3.21.164.220/products/${i}/styles`)
+                .then((styleResult) => dispatch(updateRelatedProductWithImage(styleResult.data)));
+            })
             .catch((error) => {
               console.log('Error transforming ids to products: ', error);
             });
