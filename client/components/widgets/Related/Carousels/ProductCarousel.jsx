@@ -27,7 +27,7 @@ class ProductCarousel extends React.Component {
     // console.log('hello card: ', card)
     return (
       <Card key={index} index={index} className='individualCard'>
-        <Card.Img variant="top" src='http://placecorgi.com/260/180' className='cardImg'/>
+        <Card.Img variant="top" src={card.image[0].photos[0].thumbnail_url} className='cardImg'/>
         <Card.Body className='cardBody'>
           <Card.Text className='cardText'>
             {card.category}
