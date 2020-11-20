@@ -3,7 +3,7 @@ import PreviewList from '../../components/widgets/Product/productComponents/Prev
 //import carouselPositionAction from '../../actions/productOverview/carouselPosition.js';
 
 const mapStateToProps = (state) => ({
-  currentStyle: state.currentStyle,
+  position: state.previewListPosition,
   // carouselPosition: state.carouselPosition,
 });
 
