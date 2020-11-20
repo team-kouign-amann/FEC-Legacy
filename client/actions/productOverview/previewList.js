@@ -5,7 +5,7 @@ const previewListFirstAction = (first) => ({
 
 const previewListLastAction = (last) => ({
   type: 'PREVIEW-LAST',
-  payload: Math.min(last, 4),
+  payload: Math.min(last, 5),
 });
 
 exports.previewListLastAction = previewListLastAction;
