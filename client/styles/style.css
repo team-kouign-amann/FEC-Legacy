@@ -8,18 +8,16 @@
     width: 70%;
 }
 
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 
-  .rating {
-    font-size: 50px;
-    font-style: bold;
-  }
-
-
+.rating {
+  font-size: 50px;
+  font-style: bold;
+}
 
 .star-ratings-css {
   unicode-bidi: bidi-override;
@@ -310,7 +308,6 @@ Category Styling
   margin: 0;
   display: flex;
   flex-wrap: wrap;
-
 }
 
 .selected-style:after {
@@ -319,8 +316,6 @@ Category Styling
   left: 80px;
   top: 35px;
   color: black;
-
-
 }
 
 .style-select-img {
@@ -347,23 +342,26 @@ END OF PRODUCT OVERVIEW
 ********/
 
 
-/* Related Products */
+/******** 
+
+Related Products 
+
+********/
 
 /* Related Products Container */
-.wrapper {
-  max-width: 900px;
-  width: 100%;
-}
 
-.relatedContainer {
+.relatedContainer, .relatedTitle, .outfitTitle {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   margin: 0 auto;
   overflow-x: scroll;
+  /* SCROLL IS GIVING WEIRD PADDING - CHANGE TO HIDDEN AFTER FIXING ARROWS */
   scroll-behavior: smooth;
-  padding: 30px;
+  padding: 20px;
+  max-width: 900px;
   width: 100%;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .relatedContainer::-webkit-scrollbar {
@@ -373,10 +371,11 @@ END OF PRODUCT OVERVIEW
 /* Related Product Cards */
 
 .individualCard {
+  flex-shrink: 0;
   max-width: 15rem;
   min-width: 15rem;
-  min-height: 20rem;
-  max-height: 20rem;
+  min-height: 25rem;
+  max-height: 25rem;
   border: 0.5px solid rgb(56, 56, 56);
 }
 
@@ -388,19 +387,11 @@ END OF PRODUCT OVERVIEW
   margin-left: 2%;
 }
 
-.relatedTitle {
-  font-family: 'Open Sans', sans-serif;
-}
-
-.outfitTitle {
-  font-family: 'Open Sans', sans-serif;
-}
-
 .cardImg {
-  max-width: 100%;
-  max-height: 200px;
   display: block;
   object-fit: cover;
+  width: 15rem;
+  height: 15rem;
 }
 
 .cardBody {
@@ -411,16 +402,20 @@ END OF PRODUCT OVERVIEW
   text-align: left;
   color: rgb(109, 109, 109);
   font-family: 'Open Sans', sans-serif;
-}
-
-.cardTitle {
-  text-align: left;
-  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
 }
 
 .cardPrice {
   text-align: left;
   font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+}
+
+.cardTitle {
+  text-align: left;
+  font-family: 'Open Sans', sans-serif;
+  color: black;
+  font-weight: bold;
 }
 
 /* Related Product Carousel Arrows */
@@ -473,10 +468,14 @@ END OF PRODUCT OVERVIEW
   text-shadow: 0px 0px 0px transparent;
   position: relative;
   transition: 0.5s ease;
-  top: -290px;
+  top: -390px;
   left: 210px;
   color: white;
   font-size: 15px;
 }
 
-/* End of Related Products */
+/******** 
+
+End of Related Products 
+
+********/

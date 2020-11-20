@@ -1,7 +1,11 @@
-import React from "react";
+/* eslint-disable import/no-named-as-default */
+/* eslint-disable import/no-named-as-default-member */
+/* eslint-disable react/prop-types */
+/* eslint-disable react/destructuring-assignment */
+import React from 'react';
 import ProductCarousel from './Carousels/ProductCarousel.jsx';
 import OutfitCarousel from './Carousels/OutfitCarousel.jsx';
-import ComparisonModal from './ComparisonModal.jsx'
+import ComparisonModal from './ComparisonModal.jsx';
 
 class Related extends React.Component {
   constructor(props) {
@@ -12,14 +16,11 @@ class Related extends React.Component {
   }
 
   componentDidMount() {
-    const currentId = 3;
+    const currentId = 5;
     this.props.getRelatedProducts(currentId);
   }
 
   render() {
-    // console.log('Testing Related: ', this.props.relatedInfo)
-    // console.log('Testing Related Length: ', this.props.relatedInfo.length)
-
     return (
       <div>
         { this.state.compare ? <ComparisonModal /> : <></> }

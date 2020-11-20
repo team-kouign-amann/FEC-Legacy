@@ -25,20 +25,29 @@ class ProductCarousel extends React.Component {
   myRef = React.createRef();
 
   renderCard(card, index) {
-    // console.log('hello card: ', card)
     return (
       <Card key={index} index={index} className='individualCard'>
+
         <Card.Img variant="top" src={card.image[0].photos[0].thumbnail_url} className='cardImg'/>
+
         <Card.Body className='cardBody'>
+
           <Card.Text className='cardText'>
             {card.category}
           </Card.Text>
+
           <Card.Title className='cardTitle'>
               <b>{card.name}</b>
           </Card.Title>
+
           <Card.Text className='cardPrice'>
-            ${card.default_price}
+            ${`${card.default_price}`}
           </Card.Text>
+
+          <Card.Text className='cardRating'>
+            Rating
+          </Card.Text>
+
         </Card.Body>
         <Button variant="primary" className='productCompare'>★</Button>
       </Card>
@@ -85,11 +94,8 @@ class ProductCarousel extends React.Component {
   render() {
     return (
       <>
-        <h9 className='relatedTitle'>Related Products</h9>
-        <div className='wrapper'>
-          
+          <h9 className='relatedTitle'>Related Products</h9>
           <div className='relatedContainer' ref={this.myRef}>
-            {/* {console.log(this.props.relatedInfo)} */}
             {this.props.relatedInfo.map(this.renderCard)}
           </div>
 
@@ -103,8 +109,6 @@ class ProductCarousel extends React.Component {
             <button className='arrow right' onClick={() => this.nextClick()}></button>
             }
           </div>
-          
-        </div>
       </>
     )
   }
