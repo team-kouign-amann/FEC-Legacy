@@ -205,9 +205,9 @@ PRODUCT OVERVIEW
   display: grid;
   grid-template-areas:
     'carousel carousel category category'
-    'carousel carousel category category'
     'carousel carousel style style'
     'carousel carousel style style'
+    'carousel carousel size size'
     'carousel carousel size size'
     'slogan slogan bag bag'
     'slogan slogan guarantee guarantee' ;
@@ -343,6 +343,37 @@ Category Styling
   border: 5px solid black;
 }
 
+/*****
+
+SELECT SIZE
+
+
+*****/
+
+.select-size-container {
+  position: relative;
+  font-family: Arial;
+}
+
+.select-items-hidden {
+  display: none;
+}
+
+.select-items {
+  position: absolute;
+  background-color: DodgerBlue;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+.select-items > div{
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+}
 /********
 
 END OF PRODUCT OVERVIEW
@@ -356,11 +387,3 @@ Genearl Styling
 
 ******/
 
-.flex-container {
-  display: flex;
-  flex-direction: column;
-}
-
-.flex-item {
- flex-grow: 1;
-}
