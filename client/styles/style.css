@@ -214,7 +214,6 @@ PRODUCT OVERVIEW
   grid-gap: 10px;
   background-color:black;
   padding: 10px;
-  height: 100vh;
 }
 
 .grid-container > div {
@@ -355,16 +354,28 @@ SELECT SIZE
   font-family: Arial;
 }
 
+
 .select-items-hidden {
   display: none;
+}
+.select-items:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: black transparent transparent transparent;
 }
 
 .select-items {
   position: absolute;
-  background-color: DodgerBlue;
+  background-color: white;
+  width: 300px;
 }
 .select-items > div{
-  color: #ffffff;
+  color: black;
   padding: 8px 16px;
   border: 1px solid transparent;
   border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
