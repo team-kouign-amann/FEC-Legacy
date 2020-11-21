@@ -7,7 +7,16 @@ import SelectSizeContainer from '../../../containers/productContainers/selectSiz
 
 
 const Product = ({product, currentStyle, styles}) => (
-  <div className="container">
+  <div style={{"margin":"0px 150px"}}>
+    <div className="header-container">
+      <div className="header-logo">
+        Daifuku X Donqueello Collab Official Store
+      </div>
+      <div className="header-search-container">
+        <input className="header-search-bar" placeholder="____________" />
+      </div>
+    </div>
+    <div className="container">
       <div className="grid-container">
         <CarouselContainer />
         <div className="item2">
@@ -21,6 +30,7 @@ const Product = ({product, currentStyle, styles}) => (
         <div className="item6">Slogan</div>
         <div className="item7">Guarantee</div>
       </div>
+    </div>
   </div>
 );
 
