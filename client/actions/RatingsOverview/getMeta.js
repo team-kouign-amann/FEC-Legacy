@@ -5,11 +5,8 @@ const getMeta = (productId) => (dispatch) => axios.get(`http://3.21.164.220/revi
   .then((resp) => {
     // console.log('getMeta');
     // console.log(resp.data);
-<<<<<<< HEAD
-    dispatch(MetaDataAction(resp.data.ratings));
-=======
+    // dispatch(MetaDataAction(resp.data.ratings));
     dispatch(MetaDataAction(resp.data)); 
->>>>>>> master
   })
   .catch((err) => {
     console.log('Error! Please fetch right ratings data. Error: ', err);
