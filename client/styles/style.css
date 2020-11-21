@@ -190,6 +190,7 @@ PRODUCT OVERVIEW
 .item1 { grid-area: carousel;
          align-items: center;
          justify-content: space-around;
+         background: #F0F0F0;
 }
 .item2 { grid-area: category;
          flex-direction: column;}
@@ -212,14 +213,11 @@ PRODUCT OVERVIEW
     'slogan slogan bag bag'
     'slogan slogan guarantee guarantee' ;
   grid-gap: 10px;
-  background-color:black;
-  padding: 10px;
 }
 
 .grid-container > div {
-  background-color: rgba(255, 255, 255, 0.8);
   display: flex;
-  padding: 20px 0;
+  padding: 20px;
 }
 
 /*********
@@ -403,6 +401,62 @@ SELECT SIZE
   border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
   cursor: pointer;
 }
+.select-quantity-items > div:hover {
+  background-color: grey;
+}
+
+/********
+
+Website Header
+
+********/
+
+.header-container {
+  margin: 0px 50px;
+  display: flex;
+  height: 50px;
+  background-color: #404040;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-logo {
+  padding: 0px 30px;
+  font-size: 2em;
+  color: white;
+  font-style: italic;
+  font-weight: 800;
+  text-decoration: underline;
+
+}
+
+.header-search-container {
+  padding: 0px 30px;
+}
+.header-search-bar {
+  width: 130px;
+  font-size: 16px;
+  background-image: url(https://cdn2.iconfinder.com/data/icons/clean-simple/75/search-512.png);
+  background-position: 110px;
+  background-size: 21px 21px;
+  background-repeat:no-repeat;
+  background-color: #404040;
+  border:0px;
+  color:white;
+}
+.header-search-bar:focus {
+  /**  for dynamic search bar
+  width: 200px;
+  background-position: 180px;
+  **/
+  border: 0px;
+}
+
+.header-search-bar::placeholder {
+  color: white;
+}
+
+
 /********
 
 END OF PRODUCT OVERVIEW
