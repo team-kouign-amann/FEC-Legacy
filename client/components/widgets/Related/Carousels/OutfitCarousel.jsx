@@ -10,18 +10,7 @@ class OutfitCarousel extends React.Component {
       leftarrow: false,
       rightarrow: true,
       scroll: 0,
-      cardInfo: [
-        {category: 'Sweater', title: 'Supreme Sweater', price: '$40', img: 'http://placecorgi.com/260/180'},
-        {category: 'Jacket', title: 'Supreme Jacket', price: '$60', img: 'http://placecorgi.com/260/180'},
-        {category: 'Pants', title: 'Supreme Pants', price: '$30', img: 'http://placecorgi.com/260/180'},
-        {category: 'Socks', title: 'Supreme Socks', price: '$10', img: 'http://placecorgi.com/260/180'},
-        {category: 'Shoes', title: 'Supreme Shoes', price: '$100', img: 'http://placecorgi.com/260/180'},
-        {category: 'Sweater', title: 'Supreme Sweater', price: '$40', img: 'http://placecorgi.com/260/180'},
-        {category: 'Jacket', title: 'Supreme Jacket', price: '$60', img: 'http://placecorgi.com/260/180'},
-        {category: 'Pants', title: 'Supreme Pants', price: '$30', img: 'http://placecorgi.com/260/180'},
-        {category: 'Socks', title: 'Supreme Socks', price: '$10', img: 'http://placecorgi.com/260/180'},
-        {category: 'Shoes', title: 'Supreme Shoes', price: '$100', img: 'http://placecorgi.com/260/180'}
-      ]
+      cardInfo: []
     }
 
     this.renderCard = this.renderCard.bind(this);
@@ -29,15 +18,16 @@ class OutfitCarousel extends React.Component {
     this.prevClick = this.prevClick.bind(this);
     this.updateScroll = this.updateScroll.bind(this);
     this.addOutfit = this.addOutfit.bind(this);
+    this.deleteOutfit = this.deleteOutfit.bind(this);
+    this.update = this.update.bind(this);
   }
-  
-  // componentDidMount() {
-  // }
 
-  renderCard = (card, index) => {
+  renderCard(card, index) {
     return (
       <Card key={index} index={index} className='individualCard'>
-        <Card.Img variant="top" src={card.img} className='cardImg'/>
+
+        <Card.Img variant="top" src={card.styles[0].photos[0].thumbnail_url} className='cardImg'/>
+
         <Card.Body className='cardBody'>
 
           <Card.Text className='cardText'>
@@ -45,11 +35,17 @@ class OutfitCarousel extends React.Component {
           </Card.Text>
 
           <Card.Title className='cardTitle'>
-            {card.title}
+              <b>{card.name}</b>
           </Card.Title>
 
           <Card.Text className='cardPrice'>
-            {card.price}
+            {card.styles[0].sale_price === '0' ? 
+              <div>${card.styles[0].original_price}</div> :
+              <div className='priceLineUp'>
+                <div className='cutOriginalPrice'>${card.styles[0].original_price}</div>
+                <div className='salePrice'>${card.styles[0].sale_price}</div>
+              </div> 
+            }
           </Card.Text>
 
           <Card.Text className='cardRating'>
@@ -57,7 +53,11 @@ class OutfitCarousel extends React.Component {
           </Card.Text>
 
         </Card.Body>
-        <Button variant="primary" className='outfitDeleteButton'>x</Button>
+        <Button 
+          variant="primary" 
+          className='outfitDeleteButton'
+          onClick={(card) => {this.deleteOutfit(card.id)}}
+        >x</Button>
       </Card>
     );
   }
@@ -100,7 +100,18 @@ class OutfitCarousel extends React.Component {
   }
 
   addOutfit() {
-    console.log('Adding Outfit!')
+    let outfitInformation = this.state.cardInfo;
+    outfitInformation.push(this.props.outfitInfo)
+    this.setState({cardInfo: outfitInformation}, this.update())
+  }
+
+  update() {
+    console.log(this.state.cardInfo)
+  }
+
+  deleteOutfit(id) {
+    let updatedInformation = this.state.cardInfo.filter((card) => {(card.id !== id)});
+    this.setState({cardInfo: updatedInformation})
   }
 
   render() {
@@ -113,7 +124,7 @@ class OutfitCarousel extends React.Component {
             
             <Card className='individualCard addOutfit' onClick={() => this.addOutfit()}>
               <div className='outfitButtonText outfitText'>
-                <div><h3>+</h3></div>
+                {/* <div><h3>+</h3></div> */}
                 <div><h3>Add to Outfits</h3></div>
               </div>
             </Card>

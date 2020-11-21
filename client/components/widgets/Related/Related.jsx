@@ -26,7 +26,7 @@ class Related extends React.Component {
       <div>
         { this.state.compare ? <ComparisonModal /> : <></> }
         <ProductCarousel relatedInfo={this.props.relatedInfo} />
-        <OutfitCarousel />
+        <OutfitCarousel outfitInfo={this.props.outfitInfo} />
       </div>
     );
   }

@@ -285,7 +285,7 @@ Related Products
   justify-content: flex-start;
   margin: 0 auto;
   /* overflow-x: scroll; */
-  overflow-x: hidden;
+  overflow-x: scroll;
   /* SCROLL IS GIVING WEIRD PADDING - CHANGE TO HIDDEN AFTER FIXING ARROWS */
   scroll-behavior: smooth;
   padding: 20px;
@@ -452,8 +452,9 @@ Related Products
 /* Outfit Styling */
 
 .addOutfit {
-  background-color: rgb(238, 238, 238);
+  background-color: white;
   position: relative;
+  cursor: pointer;
 }
 
 .outfitText {
@@ -463,12 +464,13 @@ Related Products
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: 3rem;
+  top: 150px;
+  left: 45px;
 }
 
-.outfitButtonText {
+/* .outfitButtonText {
   top: 200px;
-}
+} */
 
 .addOutfitButtonImage {
   display: block;

@@ -17,6 +17,7 @@ export function getRelatedProducts(id) {
         const detail = await axios.get(`http://3.21.164.220/products/${prodID}`)
         const styles = await axios.get(`http://3.21.164.220/products/${prodID}/styles`)
         const ratings = await axios.get(`http://3.21.164.220/reviews/meta?product_id=${prodID}`)
+        
         let productDetail = detail.data;
         productDetail.image = styles.data.results; 
         productDetail.ratings = ratings.data.ratings;
