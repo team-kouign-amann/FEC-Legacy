@@ -196,7 +196,7 @@ PRODUCT OVERVIEW
 .item3 { grid-area: style;
          flex-direction: column;
         justify-content: space-around;}
-.item4 { grid-area: size; }
+.item4 { grid-area: size;}
 .item5 { grid-area: bag; }
 .item6 { grid-area: slogan}
 .item7 { grid-area: guarantee}
@@ -352,13 +352,21 @@ SELECT SIZE
 .select-size-container {
   position: relative;
   font-family: Arial;
+  flex-grow: 1;
+  width:50px;
+  padding-left: 100px;
 }
 
+.select-quantity-container {
+  position: relative;
+  font-family: Arial;
+  flex-grow:2;
+}
 
 .select-items-hidden {
   display: none;
 }
-.select-items:after {
+.select-items:after, .select-quantity-items:after {
   position: absolute;
   content: "";
   top: 14px;
@@ -369,12 +377,26 @@ SELECT SIZE
   border-color: black transparent transparent transparent;
 }
 
+
 .select-items {
   position: absolute;
   background-color: white;
-  width: 300px;
+  width: 150px;
+}
+
+.select-quantity-items {
+  position:absolute;
+  background-color: white;
+  width: 150px;
 }
 .select-items > div{
+  color: black;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+}
+.select-quantity-items > div{
   color: black;
   padding: 8px 16px;
   border: 1px solid transparent;
