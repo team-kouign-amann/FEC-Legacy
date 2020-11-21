@@ -4,7 +4,6 @@ import { Promise } from 'bluebird';
 const fetchRelatedProducts = () => ({ type: 'FETCH_RELATED' });
 const fetchRelatedProductsSuccess = (relatedProds) => ({ type: 'FETCH_RELATED_SUCCESS', payload: relatedProds });
 const fetchRelatedProductsFailure = () => ({ type: 'FETCH_RELATED_FAILURE' });
-// const updateRelatedProductWithImage = (productDetail) => ({ type: 'UPDATE_RELATED_PRODUCT_WITH_IMAGE', payload: productDetail });
 
 export function getRelatedProducts(id) {
   return async (dispatch) => {

@@ -18,7 +18,7 @@ class Related extends React.Component {
   componentDidMount() {
     const currentId = 5;
     this.props.getRelatedProducts(currentId);
-    console.log(this.props);
+    this.props.getOutfitInformation(3);
   }
 
   render() {

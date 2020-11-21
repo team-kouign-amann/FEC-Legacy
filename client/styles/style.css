@@ -453,6 +453,7 @@ Related Products
 
 .addOutfit {
   background-color: rgb(238, 238, 238);
+  position: relative;
 }
 
 .outfitText {
@@ -461,6 +462,8 @@ Related Products
   display: flex;
   align-items: center;
   justify-content: center;
+  position: absolute;
+  top: 3rem;
 }
 
 .outfitButtonText {
