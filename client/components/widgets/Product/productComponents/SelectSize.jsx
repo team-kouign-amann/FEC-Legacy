@@ -1,7 +1,7 @@
 import React from 'react';
 
 const SelectSize = ({currentStyle, selectSize, handleSelectClick, updateMaxQuantity,
-  handleSelectChange}) => {
+  handleSelectChange, selectQuantity, handleQuantityClick, handleQuantityChange}) => {
   const sizeArray = [];
   const sizeObj = {};
   for (const sku in currentStyle.skus) {
@@ -12,6 +12,13 @@ const SelectSize = ({currentStyle, selectSize, handleSelectClick, updateMaxQuant
   if (selectSize.display === false) {
     selectItemClass = 'select-items-hidden';
   }
+  let selectQuantityClass = '';
+  if (selectQuantity.display === false) {
+    selectQuantityClass = 'select-items-hidden';
+  }
+
+  const sizes = ["QUANTITY",...Array(selectSize.maxQuantity + 1).keys()];
+
   return (
     <div className="item4">
       <div className="select-size-container">
@@ -27,7 +34,18 @@ const SelectSize = ({currentStyle, selectSize, handleSelectClick, updateMaxQuant
           ))}
         </div>
       </div>
-      {selectSize.maxQuantity}
+      <div className="select-quantity-container">
+        <div className="select-quantity-items">
+          <div onClick={()=>{handleQuantityClick()}}>
+            {selectQuantity.currentQuantity}
+          </div>
+          {sizes.map((quantity) => (
+            <div className={selectQuantityClass} onClick={() => { handleQuantityClick(); handleQuantityChange(quantity);}}>
+              {quantity}
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

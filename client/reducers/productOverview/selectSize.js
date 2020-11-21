@@ -14,7 +14,7 @@ const selectSizeReducer = (state = initialState, action) => {
   } else if (action.type === 'CURRENT-SIZE') {
       return {...state, currentSize: action.payload};
   } else if (action.type === 'MAX-QUANTITY') {
-    return {...state, maxQuantity: action.payload};
+    return {...state, maxQuantity: Math.min(15, action.payload)};
   } else {
     return state;
   }
