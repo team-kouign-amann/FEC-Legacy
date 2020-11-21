@@ -1,12 +1,15 @@
 import React from 'react';
 
-const SelectSize = ({currentStyle, selectSize, handleSelectClick}) => {
+const SelectSize = ({currentStyle, selectSize, handleSelectClick, updateMaxQuantity,
+  handleSelectChange}) => {
   const sizeArray = [];
+  const sizeObj = {};
   for (const sku in currentStyle.skus) {
     sizeArray.push(currentStyle.skus[sku]);
+    sizeObj[currentStyle.skus[sku].size] = currentStyle.skus[sku].quantity;
   }
   let selectItemClass = '';
-  if (selectSize === true) {
+  if (selectSize.display === false) {
     selectItemClass = 'select-items-hidden';
   }
   return (
@@ -14,15 +17,17 @@ const SelectSize = ({currentStyle, selectSize, handleSelectClick}) => {
       <div className="select-size-container">
         <div className="select-items">
           <div onClick={()=>{handleSelectClick()}}>
-            SELECT SIZE
+            {selectSize.currentSize}
           </div>
-          {sizeArray.map((size) => (
-            <div className={selectItemClass}>
-              {size.size}
+          {Object.keys(sizeObj).map((size) => (
+            <div className={selectItemClass} onClick={() => {handleSelectChange(size); handleSelectClick();
+              updateMaxQuantity(sizeObj[size])}}>
+              {size}
             </div>
           ))}
         </div>
       </div>
+      {selectSize.maxQuantity}
     </div>
   );
 };
