@@ -17,7 +17,7 @@ const SelectSize = ({currentStyle, selectSize, handleSelectClick, updateMaxQuant
     selectQuantityClass = 'select-items-hidden';
   }
 
-  const sizes = ["QUANTITY",...Array(selectSize.maxQuantity + 1).keys()];
+  const sizes = [...Array(selectSize.maxQuantity + 1).keys()];
 
   return (
     <div className="item4">
