@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
+// import { AvarageStars } from '../../Ratings/avarageStars.jsx'
 
 class ProductCarousel extends React.Component {
   constructor(props) {
@@ -59,6 +60,10 @@ class ProductCarousel extends React.Component {
       </Card>
     );
   }
+
+  // averageStars() {
+  //   AvarageStars()
+  // }
 
   nextClick() {
     const slide = this.myRef.current;

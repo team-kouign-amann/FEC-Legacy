@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
+import ls from 'local-storage';
 
 class OutfitCarousel extends React.Component {
   outfitRef = React.createRef();
@@ -19,7 +20,6 @@ class OutfitCarousel extends React.Component {
     this.updateScroll = this.updateScroll.bind(this);
     this.addOutfit = this.addOutfit.bind(this);
     this.deleteOutfit = this.deleteOutfit.bind(this);
-    this.update = this.update.bind(this);
   }
 
   renderCard(card, index) {
@@ -102,16 +102,20 @@ class OutfitCarousel extends React.Component {
   addOutfit() {
     let outfitInformation = this.state.cardInfo;
     outfitInformation.push(this.props.outfitInfo)
-    this.setState({cardInfo: outfitInformation}, this.update())
-  }
-
-  update() {
-    console.log(this.state.cardInfo)
+    this.setState({cardInfo: outfitInformation})
+    ls.set('cardInfo', outfitInformation);
   }
 
   deleteOutfit(id) {
     let updatedInformation = this.state.cardInfo.filter((card) => {(card.id !== id)});
     this.setState({cardInfo: updatedInformation})
+    ls.set('cardInfo', updatedInformation);
+  }
+
+  componentDidMount() {
+    this.setState({
+      cardInfo: ls.get('cardInfo') || []
+    });
   }
 
   render() {
