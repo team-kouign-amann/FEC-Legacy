@@ -5,27 +5,27 @@
 import React from 'react';
 import ProductCarousel from './Carousels/ProductCarousel.jsx';
 import OutfitCarousel from './Carousels/OutfitCarousel.jsx';
-import ComparisonModal from './ComparisonModal.jsx';
 
 class Related extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      compare: false,
-    };
+    this.state = {};
   }
 
   componentDidMount() {
     const currentId = 5;
     this.props.getRelatedProducts(currentId);
+    // going to need to pass id of current product from store
     this.props.getOutfitInformation(3);
   }
 
   render() {
     return (
       <div>
-        { this.state.compare ? <ComparisonModal /> : <></> }
-        <ProductCarousel relatedInfo={this.props.relatedInfo} />
+        <ProductCarousel
+          relatedInfo={this.props.relatedInfo}
+          overviewProduct={this.props.overviewProduct}
+        />
         <OutfitCarousel outfitInfo={this.props.outfitInfo} />
       </div>
     );

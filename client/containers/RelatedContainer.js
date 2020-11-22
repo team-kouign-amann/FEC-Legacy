@@ -7,6 +7,7 @@ let mapStateToProps = (state) => ({
   relatedInfo: state.relatedInfo.relatedProducts,
   loading: state.relatedInfo.loading,
   outfitInfo: state.outfitInfo.outfitInfo,
+  overviewProduct: state.currentProduct,
 });
 
 let mapDispatchToProps = dispatch => {

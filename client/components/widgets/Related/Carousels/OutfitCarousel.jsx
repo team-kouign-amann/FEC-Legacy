@@ -3,16 +3,14 @@ import { Card, Button } from 'react-bootstrap';
 import ls from 'local-storage';
 
 class OutfitCarousel extends React.Component {
-  outfitRef = React.createRef();
-
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       leftarrow: false,
       rightarrow: true,
       scroll: 0,
-      cardInfo: []
-    }
+      cardInfo: [],
+    };
 
     this.renderCard = this.renderCard.bind(this);
     this.nextClick = this.nextClick.bind(this);
@@ -21,6 +19,8 @@ class OutfitCarousel extends React.Component {
     this.addOutfit = this.addOutfit.bind(this);
     this.deleteOutfit = this.deleteOutfit.bind(this);
   }
+
+  outfitRef = React.createRef();
 
   renderCard(card, index) {
     return (
