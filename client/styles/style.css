@@ -304,7 +304,7 @@ Related Products
   min-width: 15rem;
   min-height: 25rem;
   max-height: 25rem;
-  border: 0.5px solid rgb(56, 56, 56);
+  border: 0.5px solid rgb(177 177 177);
 }
 
 .individualCard:hover {
@@ -427,12 +427,18 @@ Related Products
   font-weight: bold;
 }
 
+*:focus {
+  outline: 0 !important;
+}
+
 /* Related Products Outfit Styling */
 
 .addOutfit {
   background-color: white;
   position: relative;
   cursor: pointer;
+  border-style: none;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  
 }
 
 .outfitText {
@@ -447,15 +453,8 @@ Related Products
   top: 65px;
 }
 
-.addOutfitButtonImage {
-  display: block;
-  object-fit: cover;
-  width: 15rem;
-  height: 15rem;
-}
-
 /* Related Products Comparison Modal */
-/* Created in reference to: CodePen - Dmytryi */
+/* Created with references from: CodePen - Dmytryi */
 .modal_title {
   text-align: center;
   padding-bottom: 5px;

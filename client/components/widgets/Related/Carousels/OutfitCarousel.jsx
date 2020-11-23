@@ -98,7 +98,6 @@ class OutfitCarousel extends React.Component {
   }
 
   updateScroll() {
-    // console.log(this.state.scroll)
     if (this.state.scroll === this.state.cardInfo.length * 70.4) {
       this.setState({rightarrow: false})
     } else {
@@ -152,7 +151,6 @@ class OutfitCarousel extends React.Component {
             
             <Card className='individualCard addOutfit' onClick={() => this.addOutfit()}>
               <div className='outfitButtonText outfitText'>
-                {/* <div><h3>+</h3></div> */}
                 <div><h3>+</h3></div>
               </div>
             </Card>
