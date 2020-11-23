@@ -185,6 +185,7 @@ PRODUCT OVERVIEW
 
 .container {
   padding: 0px 50px;
+  height: 700px;
 }
 .grid-container > div {
   display: flex;
@@ -216,6 +217,7 @@ PRODUCT OVERVIEW
     'slogan slogan bag bag'
     'slogan slogan guarantee guarantee' ;
   grid-gap: 10px;
+  height: 700px;
 }
 
 
@@ -241,7 +243,6 @@ Product overview: Carousel (item1)
 .flex-preview-list {
   flex-direction: column;
   display:flex;
-  align-self: flex-start;
 }
 
 .button {
@@ -351,8 +352,9 @@ SELECT SIZE
   position: relative;
   font-family: Arial;
   flex-grow: 1;
-  width:150px;
+  width: 150px;
   height: 40px;
+  font-weight: bold;
 }
 
 .select-quantity-container {
@@ -360,6 +362,8 @@ SELECT SIZE
   font-family: Arial;
   flex-grow:2;
   height: 40px;
+  font-weight: bold;
+  padding-left: 50px;
 }
 
 .select-items-hidden {
@@ -368,7 +372,7 @@ SELECT SIZE
 .select-items:after, .select-quantity-items:after {
   position: absolute;
   content: "";
-  top: 14px;
+  top: 24px;
   right: 10px;
   width: 0;
   height: 0;
@@ -380,13 +384,17 @@ SELECT SIZE
 .select-items {
   position: absolute;
   background-color: white;
-  width: 250px;
+  width: 300px;
+  border: 1px solid black;
+  padding: 10px;
 }
 
 .select-quantity-items {
   position:absolute;
   background-color: white;
   width: 200px;
+  border: 1px solid black;
+  padding: 10px;
 }
 .select-items > div{
   color: black;

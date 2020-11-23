@@ -81,10 +81,21 @@
     rgba(255,255,255,0));
 }
 
+.up {
+  width: 8px;
+  height: 8px;
+  align-self: center;
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg)
+}
+
 .down {
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
   background: transparent;
+  width: 8px;
+  height: 8px;
+  align-self: center;
 }
 
 .right {
