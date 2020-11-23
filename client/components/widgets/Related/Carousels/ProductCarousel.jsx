@@ -30,6 +30,7 @@ class ProductCarousel extends React.Component {
   renderCard(card, index) {
     // Each star is 16.7% width
     // Total width is 83.4%
+    let testingtesting = 'testingtesting'
     let starCount = 0;
     let starRating = 0;
     const ratings = card.ratings;
