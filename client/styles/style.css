@@ -436,13 +436,14 @@ Related Products
 
 .outfitText {
   font-weight: bold;
-  font-size: 20px;
+  font-size: 66px;
   display: flex;
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: 150px;
-  left: 45px;
+  left: 97px;
+  color: grey;
+  top: 65px;
 }
 
 .addOutfitButtonImage {

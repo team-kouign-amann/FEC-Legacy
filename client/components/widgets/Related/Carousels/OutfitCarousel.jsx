@@ -101,9 +101,21 @@ class OutfitCarousel extends React.Component {
 
   addOutfit() {
     let outfitInformation = this.state.cardInfo;
-    outfitInformation.push(this.props.outfitInfo)
-    this.setState({cardInfo: outfitInformation})
-    ls.set('cardInfo', outfitInformation);
+    if (outfitInformation.length === 0) {
+      outfitInformation.push(this.props.outfitInfo)
+      this.setState({cardInfo: outfitInformation})
+      ls.set('cardInfo', outfitInformation)
+    } else {
+      for (let i = 0; i < outfitInformation.length; i++) {
+        if (outfitInformation[i].id === this.props.outfitInfo.id) {
+          return;
+        } else {
+          outfitInformation.push(this.props.outfitInfo)
+          this.setState({cardInfo: outfitInformation})
+          ls.set('cardInfo', outfitInformation)
+        }
+      }
+    }
   }
 
   deleteOutfit(id) {
@@ -129,7 +141,7 @@ class OutfitCarousel extends React.Component {
             <Card className='individualCard addOutfit' onClick={() => this.addOutfit()}>
               <div className='outfitButtonText outfitText'>
                 {/* <div><h3>+</h3></div> */}
-                <div><h3>Add to Outfits</h3></div>
+                <div><h3>+</h3></div>
               </div>
             </Card>
 
