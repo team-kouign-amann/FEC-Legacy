@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
 import ComparisonModal from '../ComparisonModal.jsx';
-// import { AvarageStars } from '../../Ratings/avarageStars.jsx'
+import AverageStars from '../../Ratings/avarageStars.jsx';
 
 class ProductCarousel extends React.Component {
   constructor(props) {
@@ -28,6 +28,19 @@ class ProductCarousel extends React.Component {
   }
 
   renderCard(card, index) {
+    // Each star is 16.7% width
+    // Total width is 83.4%
+    let starCount = 0;
+    let starRating = 0;
+    const ratings = card.ratings;
+    for (const stars in ratings) {
+        starCount += stars * ratings[stars]
+        starRating  += ratings[stars]
+    }
+    let actualPercentage = (starCount / (starRating * 5)) * 100
+    let starPercentage = actualPercentage * 83.4 / 100
+    let percentage = `${starPercentage}%`
+    
     return (
       <Card key={index} index={index} className='individualCard'>
         <Card.Img variant="top" src={card.image[0].photos[0].thumbnail_url} className='cardImg'/>
@@ -48,7 +61,7 @@ class ProductCarousel extends React.Component {
             }
           </Card.Text>
           <Card.Text className='cardRating'>
-            Rating
+            <AverageStars percentage={{width: starPercentage}} />
           </Card.Text>
         </Card.Body>
         <Button

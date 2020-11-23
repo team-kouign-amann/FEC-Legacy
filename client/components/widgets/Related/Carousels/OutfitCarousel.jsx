@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
+import AverageStars from '../../Ratings/avarageStars.jsx';
 import ls from 'local-storage';
 
 class OutfitCarousel extends React.Component {
@@ -23,6 +24,17 @@ class OutfitCarousel extends React.Component {
   outfitRef = React.createRef();
 
   renderCard(card, index) {
+    let starCount = 0;
+    let starRating = 0;
+    const ratings = card.ratings;
+    for (const stars in ratings) {
+        starCount += stars * ratings[stars]
+        starRating  += ratings[stars]
+    }
+    let actualPercentage = (starCount / (starRating * 5)) * 100
+    let starPercentage = actualPercentage * 83.4 / 100
+    let percentage = `${starPercentage}%`
+
     return (
       <Card key={index} index={index} className='individualCard'>
 
@@ -49,7 +61,7 @@ class OutfitCarousel extends React.Component {
           </Card.Text>
 
           <Card.Text className='cardRating'>
-            Rating
+            <AverageStars percentage={{width: starPercentage}} />
           </Card.Text>
 
         </Card.Body>

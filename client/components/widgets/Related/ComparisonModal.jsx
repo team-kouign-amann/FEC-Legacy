@@ -21,7 +21,6 @@ const ComparisonModal = (props) => {
     productFeatures[i].currentHas = true;
     array.push(productFeatures[i]);
   }
-
   for (let i = 0; i < relatedFeatures.length; i++) {
     let relatedFeature = relatedFeatures[i];
     const matchedFeature = array.find(((featureObj) => featureObj.feature === relatedFeature.feature));
@@ -58,7 +57,7 @@ const ComparisonModal = (props) => {
                   {featureObj.currentHas
                   && <span className="comparison-check"></span>}
                 </div>
-                <div>{`${featureObj.feature}: ${featureObj.value}`}</div>
+                <div className="comparison-feature">{`${featureObj.feature} - ${featureObj.value}`}</div>
                 <div>
                   {featureObj.relatedHas
                   && <span className="comparison-check"></span>}
