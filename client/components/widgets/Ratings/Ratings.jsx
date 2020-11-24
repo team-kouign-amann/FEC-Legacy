@@ -1,15 +1,15 @@
 import React from 'react';
 import StartsBar from './startsBar.jsx';
-import AvarageStars from './avarageStars.jsx';
+import AverageStars from './averageStars.jsx';
 
 const Rating = ({ reviews, rating, changeReviewsOrder }) => (
 
   <div className="row">
     <div className="column_one">
-      <h3>RATING &amp; REVIEWS</h3>
+      <h3 id="ratings_reviews">RATING &amp; REVIEWS</h3>
       <div className="rating"> 3.4 </div>
       <div className="star-ratings-css">
-        <AvarageStars percentage={{ width: '57%' }} />
+        <AverageStars percentage={{ width: '57%' }} />
       </div>
 
       <div className="starts-Bars">
