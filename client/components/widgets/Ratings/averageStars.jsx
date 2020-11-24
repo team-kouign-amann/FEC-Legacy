@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AvarageStars = ({ percentage }) => (
+const AverageStars = ({ percentage }) => (
 
   <div className="star-ratings-css">
     <div className="star-ratings-css-top" style={percentage}>
@@ -21,4 +21,4 @@ const AvarageStars = ({ percentage }) => (
   </div>
 );
 
-export default AvarageStars;
+export default AverageStars;
