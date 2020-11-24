@@ -278,14 +278,13 @@ Category Styling
 .category-name-font {
   font-weight: 200;
   font-size: 1.5em;
-  align-self: end;
 
 }
 
 .price-font {
   font-weight: 200;
   font-size: 1em;
-  align-self: end;
+  margin-top: auto; /* Per flexbox, margin set to zero. This property distributes the top margin to all other items before this one, placing this item at "end" of flex container */
 }
 
 
