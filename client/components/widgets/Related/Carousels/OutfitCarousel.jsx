@@ -21,6 +21,12 @@ class OutfitCarousel extends React.Component {
     this.deleteOutfit = this.deleteOutfit.bind(this);
   }
 
+  componentDidMount() {
+    this.setState({
+      cardInfo: ls.get('cardInfo') || []
+    });
+  }
+
   outfitRef = React.createRef();
 
   renderCard(card, index) {
@@ -65,7 +71,7 @@ class OutfitCarousel extends React.Component {
         <Button 
           variant="primary" 
           className='outfitDeleteButton'
-          onClick={(card) => {this.deleteOutfit(card.id)}}
+          onClick={() => {this.deleteOutfit(card.id)}}
         >x</Button>
       </Card>
     );
@@ -122,10 +128,8 @@ class OutfitCarousel extends React.Component {
     }
     const match = (card) => card.id === this.props.outfitInfo.id;
     if (outfitInformation.some(match)) {
-      console.log('There is a match!')
       return;
     } else {
-      console.log('There was no match!')
       outfitInformation.push(this.props.outfitInfo)
       this.setState({cardInfo: outfitInformation})
       ls.set('cardInfo', outfitInformation)
@@ -133,16 +137,11 @@ class OutfitCarousel extends React.Component {
     }
   }
 
-  deleteOutfit(id) {
-    let updatedInformation = this.state.cardInfo.filter((card) => {(card.id !== id)});
+  deleteOutfit(identifier) {
+    let updatedInformation = this.state.cardInfo.filter((card) => {
+      return card.id !== identifier});
     this.setState({cardInfo: updatedInformation})
     ls.set('cardInfo', updatedInformation);
-  }
-
-  componentDidMount() {
-    this.setState({
-      cardInfo: ls.get('cardInfo') || []
-    });
   }
 
   render() {
