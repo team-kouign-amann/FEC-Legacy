@@ -13,10 +13,11 @@ class Related extends React.Component {
   }
 
   componentDidMount() {
-    const currentId = 5;
-    this.props.getRelatedProducts(currentId);
-    // going to need to pass id of current product from store
-    this.props.getOutfitInformation(3);
+    const overviewProduct = this.props.overviewProduct.id;
+    this.props.getRelatedProducts(overviewProduct);
+    // this.props.getOutfitInformation(overviewProduct);
+    // testing
+    this.props.getOutfitInformation(9);
   }
 
   render() {

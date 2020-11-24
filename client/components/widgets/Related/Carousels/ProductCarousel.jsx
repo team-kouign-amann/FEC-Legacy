@@ -9,7 +9,7 @@ class ProductCarousel extends React.Component {
     this.state = {
       leftarrow: false,
       rightarrow: true,
-      scroll: 0,
+      scroll: 940,
       compare: false,
       cardInfo: [],
     }
@@ -30,7 +30,6 @@ class ProductCarousel extends React.Component {
   renderCard(card, index) {
     // Each star is 16.7% width
     // Total width is 83.4%
-    let testingtesting = 'testingtesting'
     let starCount = 0;
     let starRating = 0;
     const ratings = card.ratings;
@@ -44,7 +43,9 @@ class ProductCarousel extends React.Component {
     
     return (
       <Card key={index} index={index} className='individualCard'>
-        <Card.Img variant="top" src={card.image[0].photos[0].thumbnail_url} className='cardImg'/>
+        {card.image[0].photos[0].thumbnail_url === null
+        ? <Card.Img variant="top" src='https://whetstonefire.org/wp-content/uploads/2020/06/image-not-available.jpg' className='cardImg' alt=''/>
+        : <Card.Img variant="top" src={card.image[0].photos[0].thumbnail_url} className='cardImg' alt=''/> }
         <Card.Body className='cardBody'>
           <Card.Text className='cardText'>
             {card.category}
@@ -78,7 +79,7 @@ class ProductCarousel extends React.Component {
     const slide = this.myRef.current;
     slide.scrollLeft += 260;
     let scrollPositionNext = this.state.scroll + 260;
-    let totalWidth = this.props.relatedInfo.length * 70.4;
+    const totalWidth = slide.scrollWidth;
     if (scrollPositionNext > totalWidth) {
       this.setState({scroll: totalWidth}, this.updateScroll);
     } else {
@@ -90,21 +91,21 @@ class ProductCarousel extends React.Component {
     const slide = this.myRef.current;
     slide.scrollLeft -= 260;
     let scrollPositionPrev = this.state.scroll - 260;
-    if (scrollPositionPrev < 0 || scrollPositionPrev === 0) {
-      this.setState({scroll: 0}, this.updateScroll);
+    if (scrollPositionPrev < 940 || scrollPositionPrev === 940) {
+      this.setState({scroll: 940}, this.updateScroll);
     } else {
       this.setState({scroll: this.state.scroll - 260}, this.updateScroll);
     }
   }
 
   updateScroll() {
-    // console.log(this.state.scroll)
-    if (this.state.scroll === this.props.relatedInfo.length * 70.4) {
+    const slide = this.myRef.current;
+    if (this.state.scroll === slide.scrollWidth) {
       this.setState({rightarrow: false})
     } else {
       this.setState({rightarrow: true})
     }
-    if (this.state.scroll === 0) {
+    if (this.state.scroll === 940) {
       this.setState({leftarrow: false})
     } else {
       this.setState({leftarrow: true})

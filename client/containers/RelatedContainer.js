@@ -4,6 +4,7 @@ import { relatedInfo, getRelatedProducts } from '../actions/Related Products/Rel
 import { outfitInfo, getOutfitInformation } from '../actions/Related Products/OutfitInfo.js';
 
 let mapStateToProps = (state) => ({
+  product: state.currentProduct,
   relatedInfo: state.relatedInfo.relatedProducts,
   loading: state.relatedInfo.loading,
   outfitInfo: state.outfitInfo.outfitInfo,

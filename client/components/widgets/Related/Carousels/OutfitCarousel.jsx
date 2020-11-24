@@ -8,8 +8,8 @@ class OutfitCarousel extends React.Component {
     super(props);
     this.state = {
       leftarrow: false,
-      rightarrow: true,
-      scroll: 0,
+      rightarrow: false,
+      scroll: 940,
       cardInfo: [],
     };
 
@@ -38,18 +38,17 @@ class OutfitCarousel extends React.Component {
     return (
       <Card key={index} index={index} className='individualCard'>
 
-        <Card.Img variant="top" src={card.styles[0].photos[0].thumbnail_url} className='cardImg'/>
+        {card.styles[0].photos[0].thumbnail_url === null
+        ? <Card.Img variant="top" src='https://whetstonefire.org/wp-content/uploads/2020/06/image-not-available.jpg' className='cardImg' alt=''/>
+        : <Card.Img variant="top" src={card.styles[0].photos[0].thumbnail_url} className='cardImg' alt=''/> }
 
         <Card.Body className='cardBody'>
-
           <Card.Text className='cardText'>
             {card.category}
           </Card.Text>
-
           <Card.Title className='cardTitle'>
               <b>{card.name}</b>
           </Card.Title>
-
           <Card.Text className='cardPrice'>
             {card.styles[0].sale_price === '0' ? 
               <div>${card.styles[0].original_price}</div> :
@@ -59,11 +58,9 @@ class OutfitCarousel extends React.Component {
               </div> 
             }
           </Card.Text>
-
           <Card.Text className='cardRating'>
-            <AverageStars percentage={{width: starPercentage}} />
+            <AverageStars percentage={{width: percentage}} />
           </Card.Text>
-
         </Card.Body>
         <Button 
           variant="primary" 
@@ -78,7 +75,7 @@ class OutfitCarousel extends React.Component {
     const slide = this.outfitRef.current;
     slide.scrollLeft += 260;
     let scrollPositionNext = this.state.scroll + 260;
-    let totalWidth = this.state.cardInfo.length * 70.4;
+    let totalWidth = slide.scrollWidth
     if (scrollPositionNext > totalWidth) {
       this.setState({scroll: totalWidth}, this.updateScroll);
     } else {
@@ -90,20 +87,25 @@ class OutfitCarousel extends React.Component {
     const slide = this.outfitRef.current;
     slide.scrollLeft -= 260;
     let scrollPositionPrev = this.state.scroll - 260;
-    if (scrollPositionPrev < 0 || scrollPositionPrev === 0) {
-      this.setState({scroll: 0}, this.updateScroll);
+    if (scrollPositionPrev < 940 || scrollPositionPrev === 940) {
+      this.setState({scroll: 940}, this.updateScroll);
     } else {
       this.setState({scroll: this.state.scroll - 260}, this.updateScroll);
     }
   }
 
   updateScroll() {
-    if (this.state.scroll === this.state.cardInfo.length * 70.4) {
+    const slide = this.outfitRef.current;
+    if (this.state.scroll === slide.scrollWidth) {
+      this.setState({rightarrow: false})
+    } else if (this.state.cardInfo.length < 2) {
       this.setState({rightarrow: false})
     } else {
       this.setState({rightarrow: true})
     }
     if (this.state.scroll === 0) {
+      this.setState({leftarrow: false})
+    } else if (this.state.cardInfo.length < 2) {
       this.setState({leftarrow: false})
     } else {
       this.setState({leftarrow: true})
@@ -116,16 +118,18 @@ class OutfitCarousel extends React.Component {
       outfitInformation.push(this.props.outfitInfo)
       this.setState({cardInfo: outfitInformation})
       ls.set('cardInfo', outfitInformation)
+      return;
+    }
+    const match = (card) => card.id === this.props.outfitInfo.id;
+    if (outfitInformation.some(match)) {
+      console.log('There is a match!')
+      return;
     } else {
-      for (let i = 0; i < outfitInformation.length; i++) {
-        if (outfitInformation[i].id === this.props.outfitInfo.id) {
-          return;
-        } else {
-          outfitInformation.push(this.props.outfitInfo)
-          this.setState({cardInfo: outfitInformation})
-          ls.set('cardInfo', outfitInformation)
-        }
-      }
+      console.log('There was no match!')
+      outfitInformation.push(this.props.outfitInfo)
+      this.setState({cardInfo: outfitInformation})
+      ls.set('cardInfo', outfitInformation)
+      return;
     }
   }
 
