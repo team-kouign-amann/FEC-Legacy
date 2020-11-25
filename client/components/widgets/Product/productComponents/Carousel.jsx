@@ -3,7 +3,7 @@ import PreviewListContainer from '../../../../containers/productContainers/previ
 
 const defaultImg = '../../../../../image-not-available.jpg';
 
-const Carousel = ({currentStyle, carouselPosition, handleCarouselChange}) => {
+const Carousel = ({currentStyle, carouselPosition, handleCarouselChange, handleCenterImageClick}) => {
   let leftButtonClass = 'arrow left';
   let rightButtonClass = 'arrow right';
   if (carouselPosition === 0) {
@@ -13,11 +13,13 @@ const Carousel = ({currentStyle, carouselPosition, handleCarouselChange}) => {
     rightButtonClass += ' hidden';
   }
   return (
+
     <div className="item1">
+
       <PreviewListContainer />
       <button className={leftButtonClass} type="submit" onClick={() => { handleCarouselChange(carouselPosition - 1); }}
             onMouseDown={(e) => {e.preventDefault()}}></button>
-      <img className="center-image" src={currentStyle.photos[carouselPosition].url !== null ? currentStyle.photos[carouselPosition].url : defaultImg } alt="" />
+      <img className="center-image" src={currentStyle.photos[carouselPosition].url !== null ? currentStyle.photos[carouselPosition].url : defaultImg } alt="" onClick={() => {handleCenterImageClick()}} />
       <button className={rightButtonClass} type="submit" onClick={() => { handleCarouselChange(carouselPosition + 1); }}
       onMouseDown={(e) => {e.preventDefault()}}></button>
     </div>
