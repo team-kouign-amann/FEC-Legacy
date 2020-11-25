@@ -4,14 +4,12 @@ import CarouselContainer from '../../../containers/productContainers/carouselCon
 import SelectSizeContainer from '../../../containers/productContainers/selectSize.js';
 import ProductInfoContainer from '../../../containers/productContainers/productInfoContainer.js';
 import SloganContainer from '../../../containers/productContainers/sloganContainer.js';
+import ExpandedViewContainer from '../../../containers/productContainers/expandedViewContainer.js';
 
 const Product = ({currentStyle, carouselPosition, expandedView, handleImageClick}) => (
-  <React.Fragment>
-  <div class={expandedView ? "overlay" : "overlay hidden"}></div>
-  <div class={expandedView ? "overlayContent" : "overlayContent hidden"}>
-    <img src={currentStyle.photos[carouselPosition].url !== null ? currentStyle.photos[carouselPosition].url : ''} alt=''
-    onClick={()=> {handleImageClick()}} />
-  </div>
+  <div>
+  {expandedView ?
+   <ExpandedViewContainer /> : null}
   <div style={{"margin":"0px 150px"}}>
     <div className="header-container">
       <div className="header-logo">
@@ -33,7 +31,7 @@ const Product = ({currentStyle, carouselPosition, expandedView, handleImageClick
       </div>
     </div>
   </div>
-  </React.Fragment>
+  </div>
 );
 
 export default Product;
