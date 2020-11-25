@@ -1,5 +1,5 @@
 const initialState = {
-  currentQuantity: 'QUANTITY',
+  currentQuantity: '--',
   display: false,
 };
 
