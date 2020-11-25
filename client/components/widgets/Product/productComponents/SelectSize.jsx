@@ -18,7 +18,7 @@ const SelectSize = ({currentStyle, selectSize, handleSelectClick, updateMaxQuant
   }
 
   const sizes = [...Array(selectSize.maxQuantity + 1).keys()];
-
+  sizes.shift();
   return (
     <div className="item4">
       <div className="select-size-container">
@@ -36,7 +36,7 @@ const SelectSize = ({currentStyle, selectSize, handleSelectClick, updateMaxQuant
       </div>
       <div className="select-quantity-container">
         <div className="select-quantity-items">
-          <div onClick={()=>{handleQuantityClick()}}>
+          <div onClick={selectSize.currentSize === 'SELECT SIZE' ? (e) => {e.preventDefault()} :()=>{handleQuantityClick()}}>
             {selectQuantity.currentQuantity}
           </div>
           {sizes.map((quantity) => (
