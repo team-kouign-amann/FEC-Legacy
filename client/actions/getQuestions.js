@@ -1,76 +1,35 @@
 import axios from 'axios';
-import 'core-js';
-import 'regenerator-runtime';
+// import 'core-js';
+// import 'regenerator-runtime';
+// import getAnswers from './getAnswers.js';
 
-function getQuestions(productId, count, init) {
+function getQuestions(productId, count) {
   return (dispatch) => {
+    // console.log('PORDUCTID', productId);
+    // console.log('NEWCOUNT', count);
+    // console.log('INTINIT', init);
     return axios
       .get(
         `http://3.21.164.220/qa/questions?product_id=${productId}&count=${count}`
       )
       .then(({ data }) => {
-        console.log('Questions:', data);
-
+        console.log('grrr', data);
+        let questions = data.results;
+        let allAnswerObj = {};
+        for (let i = 0; i < questions.length; i++) {
+          let eachAnswerArray = Object.values(questions[i].answers);
+          allAnswerObj[questions[i].question_id] = eachAnswerArray;
+        }
+        console.log('mgk', allAnswerObj);
         dispatch({
-          type: 'RELATED_QUESTION',
-          data: data.results,
+          type: 'ALL_DATA',
+          data: questions,
           id: data.product_id,
-          count: count,
+          allAnswers: allAnswerObj,
+          // questions: data.results,
+          // count: 4,
         });
-        return data;
-      })
-      .then(async (data) => {
-        let result = data.results;
-        console.log('this is it', result);
-        let answerObj = {};
-        let answerLimit = null;
-        console.log('init 1', init);
-        if (init) {
-          answerLimit = 2;
-        }
-        if (!init) {
-          answerLimit = 5;
-        }
-        console.log('init 2', init);
-        console.log('Lets see the count', answerLimit);
-        for (var i = 0; i < result.length; i++) {
-          let questionID = result[i].question_id;
-          console.log('this is it where it is', questionID);
-          let tempData = await axios.get(
-            `http://3.21.164.220/qa/questions/${data.results[i].question_id}/answers?count=${answerLimit}`
-          );
-          answerObj[questionID] = tempData.data.results;
-        }
-        console.log('answerObj', answerObj);
-        return answerObj;
-      })
-      .then((data) => {
-        console.log('Lets see', data);
-        dispatch({
-          type: 'RELATED_ANSWERS',
-          data: data,
-          init: init,
-        });
-      })
-      .then(() => {
-        return axios
-          .get(
-            `http://3.21.164.220/qa/questions?product_id=${productId}&count=50`
-          )
-          .then(({ data }) => {
-            console.log('totalQuestions', data.results.length);
-            return data.results.length;
-          })
-          .then((data) => {
-            console.log('total:', data);
-            dispatch({
-              type: 'QUESTION_CHECK',
-              total: data,
-            });
-          })
-          .catch((error) => {
-            console.log('Error with GET total: ', error);
-          });
+        return [questions, allAnswerObj];
       })
       .catch((error) => {
         console.log('Error with GET questions: ', error);
@@ -79,3 +38,25 @@ function getQuestions(productId, count, init) {
 }
 
 export default getQuestions;
+
+// .then(async (data) => {
+//   let eachQuestion = data.results;
+//   // let questionIdsArr = [];
+//   let questionId = {};
+//   console.log('QUESTIONHAH', eachQuestion);
+//   for (var j = 0; j < eachQuestion.length; j++) {
+//     questionId[eachQuestion[j].question_id] = [null, true];
+//   }
+//   console.log('This is how we do', questionId);
+//   let ansDispatch = await getAnswers(questionId);
+//   console.log('thisbetterwork', ansDispatch);
+//   return ansDispatch;
+// })
+// .then((data) => {
+//   // console.log('dispatcher', data);
+//   dispatch({
+//     type: 'RELATED_ANSWERS',
+//     data: data,
+//     // init: init,
+//   });
+// })

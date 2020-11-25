@@ -297,8 +297,17 @@
   background-color: inherit;
   font-size: 16px;
   cursor: pointer;
-  display: inline-block;
+  /* display: inline-block; */
 }
+
+/* .itemconfiguration {
+  height: 50%;
+  width: 215px;
+  overflow: auto;
+  float: left;
+  position: relative;
+  margin-left: -5px;
+} */
 
 /**************
 PRODUCT OVERVIEW

@@ -1,22 +1,31 @@
 import { connect } from 'react-redux';
 import Questions from '../components/widgets/Questions/Questions.jsx';
-import getQuestions from '../actions/getQuestions.js';
-import getAnswers from '../actions/getAnswers.js';
+// import getQuestions from '../actions/getQuestions.js';
+// import getAnswers from '../actions/getAnswers.js';
+// import newQuestions from '../actions/newQuestions.js';
+import moreQuestions from '../actions/moreQuestions.js';
+import moreAnswers from '../actions/moreAnswers.js';
+import 'core-js';
+import 'regenerator-runtime';
 
 const mapStateToProps = (state) => ({
   data: state.currentQuestions.data,
+  allAnswers: state.currentQuestions.allAnswers,
   id: state.currentQuestions.id,
-  answers: state.currentQuestions.answers,
-  init: state.currentQuestions.init,
+  questions: state.currentQuestions.questions,
   count: state.currentQuestions.count,
-  total: state.currentQuestions.total,
+  answers: state.currentQuestions.answers,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  getQuestions: (productId, count, init) =>
-    dispatch(getQuestions(productId, count, init)),
-  getAnswers: (questionId, count, init) =>
-    dispatch(getAnswers(questionId, count, init)),
+  // newQuestions: async (productId, count, answers) =>
+  //   dispatch(await newQuestions(productId, count, answers)),
+  // getAnswers: async (questionId, changeAnswerId) =>
+  //   dispatch(await getAnswers(questionId, changeAnswerId)),
+  moreQuestions: (questions, amount, allAnswers) =>
+    dispatch(moreQuestions(questions, amount, allAnswers)),
+  moreAnswers: (answers, questions, init, questionId, toggle) =>
+    dispatch(moreAnswers(answers, questions, init, questionId, toggle)),
 });
 
 var QuestionsContainer = connect(
