@@ -517,6 +517,7 @@ Add to Cart
   align-self: center;
   display: flex;
   justify-content: space-between;
+  cursor: pointer;
 }
 
 /********
