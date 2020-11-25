@@ -46,6 +46,9 @@ const SelectSize = ({currentStyle, selectSize, handleSelectClick, updateMaxQuant
           ))}
         </div>
       </div>
+      <div className="select-size-container" style={{'flex-basis': '100%'}}>
+        <div className='select-items'>Add to cart</div>
+      </div>
     </div>
   );
 };
