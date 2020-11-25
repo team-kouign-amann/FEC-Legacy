@@ -6,7 +6,7 @@ const ProductInfo = ({ currentStyle, product }) => {
     return (
       <div className="item2">
         <AverageStars percentage={{ width: '10%'}} />
-        <a href="/#ratings_reviews">Read all reviews</a>
+        <a href="/#ratings_reviews" style={{ margin: '10px 0px'}}>Read all reviews</a>
         <span className="category-name-font">{product.category}</span>
         <span className="product-name-font">{product.name}</span>
         <span className="price-font">${currentStyle.original_price}</span>
