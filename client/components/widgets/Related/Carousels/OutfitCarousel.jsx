@@ -7,8 +7,8 @@ class OutfitCarousel extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      leftarrow: false,
-      rightarrow: false,
+      leftarrow: true,
+      rightarrow: true,
       scroll: 940,
       cardInfo: [],
     };
@@ -25,6 +25,8 @@ class OutfitCarousel extends React.Component {
     this.setState({
       cardInfo: ls.get('cardInfo') || []
     });
+    this.nextClick()
+    this.prevClick()
   }
 
   outfitRef = React.createRef();
@@ -109,7 +111,8 @@ class OutfitCarousel extends React.Component {
     } else {
       this.setState({rightarrow: true})
     }
-    if (this.state.scroll === 0) {
+
+    if (this.state.scroll === 940) {
       this.setState({leftarrow: false})
     } else if (this.state.cardInfo.length < 2) {
       this.setState({leftarrow: false})
@@ -149,18 +152,14 @@ class OutfitCarousel extends React.Component {
       <>
         <h9 className='outfitTitle'>Your Outfits</h9>
         <div className='wrapper'>
-
           <div className='relatedContainer' ref={this.outfitRef}>
-            
             <Card className='individualCard addOutfit' onClick={() => this.addOutfit()}>
               <div className='outfitButtonText outfitText'>
                 <div><h3>+</h3></div>
               </div>
             </Card>
-
             {this.state.cardInfo.map(this.renderCard)}
           </div>
-
           <div className='arrows'>
             {!this.state.leftarrow ? 
             <button className='hidearrow left'></button> :  
@@ -171,7 +170,6 @@ class OutfitCarousel extends React.Component {
             <button className='arrow right' onClick={() => this.nextClick()}></button>
             }
           </div>
-
         </div>
       </>
     )

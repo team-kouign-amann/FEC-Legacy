@@ -17,7 +17,7 @@ class Related extends React.Component {
     this.props.getRelatedProducts(overviewProduct);
     // this.props.getOutfitInformation(overviewProduct);
     // testing
-    this.props.getOutfitInformation(92);
+    this.props.getOutfitInformation(86);
   }
 
   render() {
