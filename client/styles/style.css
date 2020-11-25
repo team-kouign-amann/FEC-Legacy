@@ -502,10 +502,21 @@ Add to Cart
 ********/
 
 .add-to-cart-container {
+  flex-basis: 100%;
+  font-family: Arial;
+  height: 60px;
+  display: flex;
+  font-weight: bold;
 
 }
 .add-to-cart-button {
-
+  border: 1px solid black;
+  background-color: white;
+  padding: 10px;
+  flex-basis: 60%;
+  align-self: center;
+  display: flex;
+  justify-content: space-between;
 }
 
 /********

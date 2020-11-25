@@ -46,8 +46,11 @@ const SelectSize = ({currentStyle, selectSize, handleSelectClick, updateMaxQuant
           ))}
         </div>
       </div>
-      <div className="add-to-cart-container" style={{ 'flex-basis': '100%' }}>
-        <div className="add-to-cart-items">Add to cart</div>
+      <div className="add-to-cart-container">
+        <div className="add-to-cart-button">
+          <div style={{ 'align-self': 'center' }}> ADD TO CART</div>
+          <div style={{ 'font-size': '1.5em'}}> + </div>
+        </div>
       </div>
     </div>
   );
