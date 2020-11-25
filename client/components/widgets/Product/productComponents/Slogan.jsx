@@ -5,6 +5,7 @@ const Slogan = ({product}) => (
     <div className='product-slogan'>
       {product.slogan}
     </div>
+    <br />
     <div className='product-description'>
       {product.description}
     </div>
