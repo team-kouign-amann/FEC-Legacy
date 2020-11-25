@@ -11,7 +11,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   handleSelectClick: () => { dispatch(toggleSelectSizeAction(null)); },
-  handleSelectChange: (size) => { dispatch(selectSizeAction(size)); },
+  handleSelectChange: (size) => { dispatch(selectSizeAction(size));
+    dispatch(selectQuantityAction(1)); },
   updateMaxQuantity: (quantity) => { dispatch(updateMaxQuantityAction(quantity)); },
   handleQuantityClick: () => { dispatch(toggleSelectQuantityAction(null)); },
   handleQuantityChange: (quantity) => { dispatch(selectQuantityAction(quantity)); },
