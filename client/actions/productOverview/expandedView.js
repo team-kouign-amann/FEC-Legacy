@@ -2,4 +2,9 @@ const expandedViewAction = () => (
   {type: 'TOGGLE-EXPANDED-VIEW'}
 );
 
-export default expandedViewAction;
+const zoomViewAction = () => (
+  {type: 'TOGGLE-ZOOM-VIEW'}
+);
+
+exports.expandedViewAction = expandedViewAction;
+exports.zoomViewAction = zoomViewAction;
