@@ -14,7 +14,7 @@ class Related extends React.Component {
 
   componentDidMount() {
     const overviewProduct = this.props.overviewProduct.id;
-    this.props.getRelatedProducts(overviewProduct);
+    this.props.getRelatedProducts(1);
     // this.props.getOutfitInformation(overviewProduct);
     // testing
     this.props.getOutfitInformation(86);
