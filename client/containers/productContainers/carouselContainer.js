@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import Carousel from '../../components/widgets/Product/productComponents/Carousel.jsx';
 import carouselPositionAction from '../../actions/productOverview/carouselPosition.js';
-import expandedViewAction from '../../actions/productOverview/expandedView.js';
+import { expandedViewAction } from '../../actions/productOverview/expandedView.js';
 
 const mapStateToProps = (state) => ({
   currentStyle: state.currentStyle,
