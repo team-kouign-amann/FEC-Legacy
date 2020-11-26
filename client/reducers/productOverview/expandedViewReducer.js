@@ -1,9 +1,14 @@
-const expandedViewReducer = (state = false, action) => {
+const expandedViewReducer = (state = {toggleExpanded: false, toggleZoom: false}, action) => {
   if (action.type === 'TOGGLE-EXPANDED-VIEW') {
-    if (state === false) {
-      return true;
+    if (state.toggleExpanded === false) {
+      return { ...state, toggleExpanded: true};
     }
-    return false;
+    return { ...state, toggleExpanded: false };
+  } else if (action.type === 'TOGGLE-ZOOM-VIEW') {
+    if (state.toggleZoom === false) {
+      return { ...state, toggleZoom: true}
+    }
+    return { ...state, toggleZoom: false}
   }
 
   return state;
