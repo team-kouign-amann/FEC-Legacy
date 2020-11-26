@@ -1,7 +1,7 @@
 import axios from 'axios';
 import currentStyleAction from './currentStyle.js';
 import allStylesAction from './allStyles.js';
-
+import { previewListLastAction } from './previewList.js';
 
 
 const getStyles = (productID) => {
@@ -11,7 +11,9 @@ const getStyles = (productID) => {
       // console.log(data.results);
       // console.log(data.results[0]);
       dispatch(allStylesAction(data.results));
+      dispatch(previewListLastAction(data.results[0].photos.length - 1))
       dispatch(currentStyleAction(data.results[0]));
+
     })
     .catch((err) => {
       console.log("Error fetching style! Error: ", err);
