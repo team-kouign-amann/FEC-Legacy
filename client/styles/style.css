@@ -177,12 +177,6 @@
 /**************
 PRODUCT OVERVIEW
 ***************/
-
-
-.red {
-  color: red;
-}
-
 .container {
   padding: 0px 50px;
   height: 700px;
@@ -246,15 +240,50 @@ Product overview: Carousel (item1)
   flex-direction: column;
   display:flex;
 }
+.arrow-carousel {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  background: transparent;
+  box-shadow: 0px 0px 0px transparent;
+  background: linear-gradient(to left,rgba(255,255,255,1)60%,
+    rgba(255,255,255,0));
+}
 
-.button {
+.up-carousel {
+  width: 8px;
+  height: 8px;
   align-self: center;
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg)
+}
+
+.down-carousel {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  background: transparent;
+  width: 8px;
+  height: 8px;
+  align-self: center;
+}
+
+.right-carousel {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  background: transparent;
+}
+
+.left-carousel {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+  background: transparent;
 }
 
 .hidden {
   visibility: hidden;
 }
-
+/*
 .up-button {
   align-self: center;
 }
@@ -262,6 +291,11 @@ Product overview: Carousel (item1)
 .down-button {
   align-self:center;
 }
+
+.button {
+  align-self: center;
+}
+*/
 
 .center-image {
   width: 450px;

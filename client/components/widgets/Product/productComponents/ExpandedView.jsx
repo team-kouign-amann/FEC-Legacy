@@ -1,8 +1,8 @@
 import React from 'react';
 
 const ExpandedView = ({currentStyle, carouselPosition, handleImageClick, handleCarouselChange, toggleZoom, exitExpandedView}) => {
-  let leftButtonClass = 'arrow left';
-  let rightButtonClass = 'arrow right';
+  let leftButtonClass = 'arrow-carousel left-carousel';
+  let rightButtonClass = 'arrow-carousel right-carousel';
   if (carouselPosition === 0) {
     leftButtonClass += ' hidden';
   }

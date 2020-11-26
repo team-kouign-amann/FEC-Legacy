@@ -4,8 +4,8 @@ import PreviewListContainer from '../../../../containers/productContainers/previ
 const defaultImg = '../../../../../image-not-available.jpg';
 
 const Carousel = ({currentStyle, carouselPosition, handleCarouselChange, handleCenterImageClick}) => {
-  let leftButtonClass = 'arrow left';
-  let rightButtonClass = 'arrow right';
+  let leftButtonClass = 'arrow-carousel left-carousel';
+  let rightButtonClass = 'arrow-carousel right-carousel';
   if (carouselPosition === 0) {
     leftButtonClass += ' hidden';
   }
