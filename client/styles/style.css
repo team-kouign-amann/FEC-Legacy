@@ -266,6 +266,7 @@ Product overview: Carousel (item1)
 .center-image {
   width: 450px;
   height: 450px;
+  transition: width 2s, height 2s;
 }
 
 .overlay {
@@ -287,11 +288,17 @@ Product overview: Carousel (item1)
   text-align: center;
   overflow: hidden;
   z-index: 100;
+  display: flex;
+  align-items:center;
+  justify-content: space-evenly;
+  cursor: url(https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Plus_symbol.svg/500px-Plus_symbol.svg.png), auto;
 }
 .overlayContent > img {
   width: 600px;
   height: 600px;
+  transition: 0.5s all ease-in-out;
 }
+
 
 /***********
 Category Styling
