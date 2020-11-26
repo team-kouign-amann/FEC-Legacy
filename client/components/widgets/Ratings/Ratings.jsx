@@ -1,47 +1,69 @@
 import React from 'react';
 import StartsBar from './startsBar.jsx';
 import AverageStars from './averageStars.jsx';
+import SizeComfort from './sizeComfort.jsx';
+import Reviews from './reviews.jsx';
 
-const Rating = ({ reviews, rating, changeReviewsOrder }) => (
+const Rating = ({ showReviews, metaRatings}) => {
+  // console.log('showReviews');
+  // console.log(showReviews);
+  // console.log('metaRatings');
+  // console.log(metaRatings);
+  const characteristics = metaRatings.characteristics;
+  const recommended = metaRatings.recommended;
+  const sum = recommended[0] + recommended[1];
+  const recommendPercentage = parseInt((recommended[1] / sum) * 100);
+  const ratingsMeta = metaRatings.ratings;
 
-  <div className="row">
-    <div className="column_one">
-      <h3 id="ratings_reviews">RATING &amp; REVIEWS</h3>
-      <div className="rating"> 3.4 </div>
-      <div className="star-ratings-css">
-        <AverageStars percentage={{ width: '57%' }} />
+  let starSum = 0;
+  let ratingSum = 0;
+  Object.values(ratingsMeta).map((value) => { ratingSum += value; });
+  for (const i in ratingsMeta) {
+    starSum += ratingsMeta[i] * parseInt(i);
+  }
+  const temp = (starSum / ratingSum).toFixed(2);
+  const avarageStarsPercentage = `${(temp / 5) * 125}%`;
+
+  return (
+    <div className="row">
+      <div className="column_one">
+        <h3>RATING &amp; REVIEWS</h3>
+        <div className="rating"> {temp} </div>
+        <div className="star-ratings-css">
+          <AverageStars percentage={{ width: avarageStarsPercentage }} />
+        </div>
+
+        <div>
+          <h5>
+            {recommendPercentage}
+            % of reviews recommend this product
+          </h5>
+        </div>
+
+        <div className="starts-Bars">
+          <StartsBar ratingsMeta={ratingsMeta} />
+        </div>
+
+        <div className="size-comfort">
+          <SizeComfort characteristics={characteristics} />
+        </div>
+
       </div>
 
-      <div className="starts-Bars">
-        {[1, 2, 3, 4, 5].map((number) => (
-          <StartsBar starsNumber={number} percentage={{ width: '57%' }} />
-        ))}
-      </div>
+      <div className="column_two">
+        <div>
+          <Reviews showReviews={showReviews} />
+        </div>
 
-      {/* {
-        <div className = "starts-Bars">
-          {[1,2,3,4,5].map(number => {
-            <StartsBar starsNumber={number} percentage = {(data)=>{
-              let max = 0;
-              let rating = data.ratings;
-              rating.forEach(num => {if(max < rating[num]) {max = rating[num];}});
-              percentage = rating[number]/max;
-              return percentage;
-            }} />
-          })}
-        </div>} */}
+        <div>
+          <button type="button" className="more-reviews">MORE REVIEWS</button>
+          <button type="button" className="add-a-review">ADD A REVIEW</button>
+        </div>
+      </div>
 
     </div>
 
-    <div className="column_two">
-      <div>
-        <button type="button" className="more-reviews">MORE REVIEWS</button>
-        <button type="button" className="add-a-review">ADD A REVIEW</button>
-      </div>
-    </div>
-
-  </div>
-
-);
+  );
+};
 
 export default Rating;
