@@ -7,13 +7,16 @@ import Answers from './Answers.jsx';
 
 const Questions = (props) => {
   
-  // {console.log('props1!:', props)}
-  {console.log('props.data:', props.data)}
-  {console.log('props.count:', props.count)}
+  // {console.log('props.data:', props.data)}
   {console.log('props.questions:', props.questions)}
-  {console.log('props.allAnswers:', props.allAnswers)}
-
-  let questions = props.questions.slice(0, numRender);
+  {console.log('props.filterQs:', props.filterQs)}
+    
+  let questions;
+  if (!props.filterQs) {
+    questions = props.questions.slice(0, props.numRender);
+  } else {
+    questions = props.filterQs;
+  }
   
   
   return(
@@ -24,7 +27,7 @@ const Questions = (props) => {
       </div>
       <div>
         <div class="search">
-          <input type="text" class="searchTerm" placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..."></input>
+          <input type="text" class="searchTerm" placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..." onChange={(e) => props.inputSearch(e.target.value, props.questions)}></input>
           <button type="submit" class="searchButton">
             <i class="fas fa-search"></i> 
           </button>
@@ -32,26 +35,27 @@ const Questions = (props) => {
       </div>
     </div>
     <div className="row">
-        {props.questions.map((question) => (
+        {questions.map((question) => (
           <div>
             <div className="question_column_one">
             <div><span>Q: {question.question_body}</span></div>
-              <Answers questions={props.questions} question={question} moreAnswers={props.moreAnswers} allAnswers={props.allAnswers} answers={props.answers}/>
+              <Answers question={question} answerBoolean={props.answerBoolean} moreAnswers={props.moreAnswers} answerHelpful={(answerId) => props.answerHelpful(props.questions, question.question_id, answerId, props.votedAnswer)}/>
             </div>
               <div className="question_column_two">
-                  <div>Helpful? <span className="btn_words">Yes</span> ({question.question_helpfulness}) | <span className="btn_words">Add Answer</span></div>
+                  <div>Helpful? <span className="btn_words" onClick={() => props.questionHelpful(props.questions, question.question_id, props.votedAlready)}>Yes</span> ({question.question_helpfulness}) | <span className="btn_words">Add Answer</span></div>
               </div>
           </div>
                 ))}
           <div className="row">
             <div className="question_column_one">
               {(() => {
-                if (props.count < props.data.length) {
-                return (<div><span><button onClick={() => props.moreQuestions(props.data, props.count + 2)}>MORE ANSWERED QUESTION</button></span><span><button>ADD A QUESTION  +</button></span></div>)
+                if (questions.length < props.questions.length) {
+                return (<div><span><button onClick={() => props.moreQuestions(props.numRender + 2, props.questions)}>MORE ANSWERED QUESTION</button></span></div>)
               } else {
                 return null;
               }
             })()}
+            <span><button>ADD A QUESTION  +</button></span>
             </div>
           </div>
     </div>

@@ -6,18 +6,39 @@ var questionsReducer = (state = [], action) => {
       console.log('QuestionsREducer', action);
       return {
         ...state,
-        data: action.data,
-        id: action.id,
-        allAnswers: action.allAnswers,
         questions: action.questions,
-        count: action.count,
+        numRender: action.numRender,
+        votedAlready: action.votedAlready,
+        votedAnswer: action.votedAlready,
+        // data: action.data,
+        // id: action.id,
+        // allAnswers: action.allAnswers,
+        // count: action.count,
       };
-    case 'MORE_QUESTIONS':
-      console.log('MORE_QUESTIONS', action);
-      return { ...state, questions: action.questions, count: action.count };
-    case 'MORE_ANSWERS':
-      console.log('MORE_ANSWERS', action);
-      return { ...state, answers: action.answers };
+    case 'NEW_NUM':
+      return {
+        ...state,
+        numRender: action.numRender,
+      };
+    case 'SHOW_ANSWERS':
+      return { ...state, answerBoolean: action.answerBoolean };
+    case 'HELPFUL_CHANGE':
+      return {
+        ...state,
+        questions: action.questions,
+        votedAlready: action.votedAlready,
+      };
+    case 'HELPFUL_ANSWER':
+      return {
+        ...state,
+        questions: action.questions,
+        votedAnswer: action.votedAnswer,
+      };
+    case 'SEARCH_CHANGE':
+      return {
+        ...state,
+        filterQs: action.filterQs,
+      };
     default:
       return state;
   }

@@ -5,31 +5,37 @@ import axios from 'axios';
 
 function getQuestions(productId, count) {
   return (dispatch) => {
-    // console.log('PORDUCTID', productId);
-    // console.log('NEWCOUNT', count);
-    // console.log('INTINIT', init);
     return axios
       .get(
         `http://3.21.164.220/qa/questions?product_id=${productId}&count=${count}`
       )
       .then(({ data }) => {
-        console.log('grrr', data);
+        // console.log('grrr', data);
         let questions = data.results;
-        let allAnswerObj = {};
-        for (let i = 0; i < questions.length; i++) {
-          let eachAnswerArray = Object.values(questions[i].answers);
-          allAnswerObj[questions[i].question_id] = eachAnswerArray;
-        }
-        console.log('mgk', allAnswerObj);
+        console.log('unsortedTotalQuestions', questions);
+        questions.sort(
+          (a, b) => b.question_helpfulness - a.question_helpfulness
+        );
         dispatch({
           type: 'ALL_DATA',
-          data: questions,
-          id: data.product_id,
-          allAnswers: allAnswerObj,
-          // questions: data.results,
-          // count: 4,
+          questions: questions,
+          numRender: 4,
+          votedAlready: [],
+          votedAnswer: [],
         });
-        return [questions, allAnswerObj];
+        return questions;
+      })
+      .then((data) => {
+        console.log('allQuestions', data);
+        let questionIds = {};
+        for (let i = 0; i < data.length; i++) {
+          questionIds[data[i].question_id] = true;
+        }
+        console.log('Questionids', questionIds);
+        dispatch({
+          type: 'SHOW_ANSWERS',
+          answerBoolean: questionIds,
+        });
       })
       .catch((error) => {
         console.log('Error with GET questions: ', error);

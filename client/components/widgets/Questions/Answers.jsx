@@ -3,38 +3,64 @@ import moment from 'moment';
 
 const Answers = (props) => {
   console.log('props.question:', props.question);
-  console.log('props.answers:', props.answers);
-  // let answers;
+  console.log('props.answerBoolean:', props.answerBoolean);
+
+  let answers = Object.values(props.question.answers)
   
-  if (!props.answers[props.question.question_id]) {
-      props.moreAnswers(props.allAnswers, props.questions, false, props.question.question_id, true)
+  answers.sort((a, b) => {
+    return b.helpfulness - a.helpfulness
+  })
+  
+  let sellerFirst = [];
+  answers.forEach((answer) => {
+    if (answer.answerer_name === 'Seller') {
+      sellerFirst.unshift(answer);
+    } else {
+      sellerFirst.push(answer);
+    }
+  })
+  
+  console.log('Afteranswers', sellerFirst);
+  
+  let renderedAnswers;
+
+  let key = props.question.question_id;
+
+  console.log("ID", props.answerBoolean[key])
+  
+  if (props.answerBoolean[key]) {
+    renderedAnswers = answers.slice(0, 2);
+  } else {
+    renderedAnswers = answers;
   }
 
- console.log('Before', props.answers, props.question.question_id)
+  console.log('lololol', renderedAnswers)
+
   
-  return (<div>
-        {props.answers[props.question.question_id].map((answer) => (
+  return (<div><span>A:</span><div>
+        {renderedAnswers.map((answer) => (
           <div className="itemconfiguration">
-          <div><span>A:</span><span className="indiv_answers">{answer.body}</span></div>
-          <div><span>by {answer.answerer_name}, {moment(answer.date).format('MMMM Do, YYYY')}</span> | Helpful? <span className="btn_words">Yes</ span>  ({answer.helpfulness}) | <span className="btn_words">Report</span></div>
-          <div><span>Any additional comments that will be associated with the below pictures</span></div>
+          <div><span className="indiv_answers">{answer.body}</span></div>
           <div>{answer.photos.map((photo) => (
             <span><img src={photo} width="75" height="50"/></span>
             ))}
           </div>
-          <div><span>by {answer.answerer_name}, {moment(answer.date).format('MMMM Do, YYYY')}</ span> | Helpful?<button className="btn_words">Yes</button>({answer.helpfulness})  | <span className="btn_words">Report</span></div>
+          {(() => {if (answer.answerer_name === 'Seller') {
+            return <div><span>by <b>{answer.answerer_name}</b>, {moment(answer.date).format('MMMM Do, YYYY')}</span> | Helpful? <span className="btn_words" onClick={() => props.answerHelpful(answer.id)}>Yes</ span>  ({answer.helpfulness}) | <span className="btn_words">Report</span> | <span className="btn_words">Add Answer</span></div>
+          } else {
+            return <div><span>by {answer.answerer_name}, {moment(answer.date).format('MMMM Do, YYYY')}</span> | Helpful? <span className="btn_words" onClick={() => props.answerHelpful(answer.id)}>Yes</ span>  ({answer.helpfulness}) | <span className="btn_words">Report</span> | <span className="btn_words">Add Answer</span></div>
+          }})()}
         </div> 
       ))}
-      {console.log('equality', props.answers[props.question.question_id].length, props.allAnswers[props.question.question_id].length)}
-    {(() => {if (props.allAnswers[props.question.question_id].length <= 2) {
+    {(() => {if (answers.length <= 2) {
       return null;
-    } else if (props.answers[props.question.question_id].length < props.allAnswers[props.question.question_id].length) {
-      return <div><button className="btn_words" onClick={() => props.moreAnswers(props.allAnswers, props.questions, false, props.question.question_id, false)}>LOAD MORE ANSWERS</button></div>
+    } else if (renderedAnswers.length < answers.length) {
+      return <div><button className="btn_words" onClick={() => props.moreAnswers(props.answerBoolean, props.question.question_id)}>LOAD MORE ANSWERS</button></div>
     } else {
-      return <div><button className="btn_words" onClick={() => props.moreAnswers(props.allAnswers, props.questions, false, props.question.question_id, true)}>Collapse ANSWERS</button></div>
+      return <div><button className="btn_words" onClick={() => props.moreAnswers(props.answerBoolean, props.question.question_id)}>Collapse ANSWERS</button></div>
     }
     })()} 
-  </div>
+  </div></div>
   )};
 
 

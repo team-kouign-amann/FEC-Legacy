@@ -276,7 +276,7 @@
   text-align: center;
   color: #000000;
   border-radius: 0 5px 5px 0;
-  cursor: pointer;
+  /* cursor: pointer; */
   font-size: 18px;
   border-left: none;
 }
@@ -308,6 +308,14 @@
   position: relative;
   margin-left: -5px;
 } */
+
+.answers_container {
+  position: relative;
+  display: inline-block;
+}
+
+.seller {
+}
 
 /**************
 PRODUCT OVERVIEW
