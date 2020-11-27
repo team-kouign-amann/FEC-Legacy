@@ -127,7 +127,8 @@ PRODUCT OVERVIEW
 .item5 { grid-area: bag; }
 .item6 { grid-area: slogan;
          flex-direction: column;}
-.item7 { grid-area: guarantee}
+.item7 { grid-area: guarantee;
+         justify-content: space-evenly;}
 
 .grid-container {
   display: grid;
@@ -166,6 +167,7 @@ Product overview: Carousel (item1)
 .flex-preview-list {
   flex-direction: column;
   display:flex;
+  height:500px;
 }
 .arrow-carousel {
   border: solid black;
