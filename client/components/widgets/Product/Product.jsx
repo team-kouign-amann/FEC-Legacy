@@ -25,12 +25,9 @@ const Product = ({expandedView}) => {
     })
   }, [])
 
-  const handleAllElementClick = (e) => {
-    const date = new Date();
-    clickTracker(e.target.outerHTML, 'Product', date.toString());
-  };
+
   return (
-    <div onClick={(e) => { handleAllElementClick(e); }}>
+    <div>
       {expandedView ?
         <ExpandedViewContainer /> : null}
       <div id="product" style={{"margin":"0px 150px"}}>
