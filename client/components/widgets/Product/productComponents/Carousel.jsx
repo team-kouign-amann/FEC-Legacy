@@ -19,7 +19,7 @@ const Carousel = ({currentStyle, carouselPosition, handleCarouselChange, handleC
       <PreviewListContainer />
       <button className={leftButtonClass} type="submit" onClick={() => { handleCarouselChange(carouselPosition - 1); }}
             onMouseDown={(e) => {e.preventDefault()}}></button>
-      <img className="center-image" src={currentStyle.photos[carouselPosition].url !== null ? currentStyle.photos[carouselPosition].url : defaultImg } alt="" onClick={() => {handleCenterImageClick()}} />
+      <img className="center-image" src={currentStyle.photos[carouselPosition].thumbnail_url !== null ? currentStyle.photos[carouselPosition].thumbnail_url : defaultImg } alt="" onClick={() => {handleCenterImageClick()}} />
       <button className={rightButtonClass} type="submit" onClick={() => { handleCarouselChange(carouselPosition + 1); }}
       onMouseDown={(e) => {e.preventDefault()}}></button>
     </div>
