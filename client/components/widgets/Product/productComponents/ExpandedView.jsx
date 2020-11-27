@@ -18,7 +18,7 @@ const ExpandedView = ({currentStyle, carouselPosition, handleImageClick, handleC
         <div className={leftButtonClass} style={{width: '25px', height: '25px'}}
         onClick={() => { handleCarouselChange(carouselPosition - 1); }}
             onMouseDown={(e) => {e.preventDefault()}}></div>
-        <img src={currentStyle.photos[carouselPosition].url !== null ? currentStyle.photos[carouselPosition].url : ''} alt='' style={toggleZoom ? style : {}} onClick={()=> {handleImageClick()}} />
+        <img src={currentStyle.photos[carouselPosition].thumbnail_url !== null ? currentStyle.photos[carouselPosition].thumbnail_url : ''} alt='' style={toggleZoom ? style : {}} onClick={()=> {handleImageClick()}} />
         <div className={rightButtonClass} style={{width: '25px', height: '25px'}} onClick={() => { handleCarouselChange(carouselPosition + 1); }}
       onMouseDown={(e) => {e.preventDefault()}}></div>
         <div ></div>
