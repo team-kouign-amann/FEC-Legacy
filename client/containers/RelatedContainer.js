@@ -1,22 +1,19 @@
 import { connect } from 'react-redux';
 import Related from '../components/widgets/Related/Related.jsx';
-import { relatedInfo, getRelatedProducts } from '../actions/Related Products/RelatedInfo.js';
-import { outfitInfo, getOutfitInformation } from '../actions/Related Products/OutfitInfo.js';
+import { relatedInfo, getRelatedProducts } from '../actions/RelatedInfo.js';
 
-let mapStateToProps = (state) => ({
-  product: state.currentProduct,
+var mapStateToProps = (state) => ({
   relatedInfo: state.relatedInfo.relatedProducts,
-  loading: state.relatedInfo.loading,
-  outfitInfo: state.outfitInfo.outfitInfo,
-  overviewProduct: state.currentProduct,
+  loading: state.relatedInfo.loading
 });
 
-let mapDispatchToProps = dispatch => {
+var mapDispatchToProps = dispatch => {
   return {
-    getRelatedProducts: (id) => dispatch(getRelatedProducts(id)),
-    getOutfitInformation: (id) => dispatch(getOutfitInformation(id))
+    getRelatedProducts: () => dispatch(getRelatedProducts())
   }
 }
+
+
 
 var RelatedContainer = connect(mapStateToProps, mapDispatchToProps)(Related);
 

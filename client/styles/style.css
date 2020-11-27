@@ -8,21 +8,23 @@
     width: 70%;
 }
 
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
 
-.rating {
-  font-size: 50px;
-  font-style: bold;
-}
+  .rating {
+    font-size: 50px;
+    font-style: bold;
+  }
+
+
 
 .star-ratings-css {
   unicode-bidi: bidi-override;
   color: #c5c5c5;
-  font-size: 17px;
+  font-size: 25px;
   height: 25px;
   width: 100px;
   position: relative;
@@ -237,6 +239,7 @@ Category Styling
   margin: 0;
   display: flex;
   flex-wrap: wrap;
+
 }
 
 .selected-style:after {
@@ -245,6 +248,8 @@ Category Styling
   left: 80px;
   top: 35px;
   color: black;
+
+
 }
 
 .style-select-img {
@@ -267,278 +272,5 @@ Category Styling
 /********
 
 END OF PRODUCT OVERVIEW
-
-********/
-
-
-/******** 
-
-Related Products 
-
-********/
-
-/* Related Products Container */
-
-.relatedContainer, .relatedTitle, .outfitTitle {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  margin: 0 auto;
-  overflow-x: scroll;
-  scroll-behavior: smooth;
-  padding: 20px;
-  max-width: 900px;
-  width: 100%;
-  font-family: 'Open Sans', sans-serif;
-}
-
-.relatedContainer::-webkit-scrollbar {
-  display: none;
-}
-
-/* Related Product Cards */
-
-.individualCard {
-  flex-shrink: 0;
-  max-width: 15rem;
-  min-width: 15rem;
-  min-height: 25rem;
-  max-height: 25rem;
-  border: 0.5px solid rgb(177 177 177);
-}
-
-.individualCard:hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  
-}
-
-.individualCard + .individualCard {
-  margin-left: 2%;
-}
-
-.cardImg {
-  display: block;
-  object-fit: cover;
-  width: 15rem;
-  height: 15rem;
-}
-
-.cardBody {
-  margin-left: 5px;
-}
-
-.cardText {
-  text-align: left;
-  color: rgb(109, 109, 109);
-  font-family: 'Open Sans', sans-serif;
-  font-size: 14px;
-}
-
-.cardPrice {
-  text-align: left;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 14px;
-}
-
-.priceLineUp {
-  display: inline-flex;
-}
-
-.cutOriginalPrice {
-  text-decoration: line-through;
-}
-
-.salePrice {
-  color: red;
-}
-
-.cardTitle {
-  text-align: left;
-  font-family: 'Open Sans', sans-serif;
-  color: black;
-  font-weight: bolder;
-  font-size: large;
-}
-
-/* Related Product Carousel Arrows */
-
-.arrows {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  margin: 0 auto;
-  max-width: 900px;
-  width: 100%;
-}
-
-.arrow {
-  border: solid black;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 3px;
-  background: transparent;
-  box-shadow: 0px 0px 0px transparent;  
-  position: relative;
-  top: -265px;
-  transform: translateY(-50%);
-  cursor: pointer;
-  height: 25px;
-  width: 25px;
-}
-
-.hidearrow {
-  border: solid black;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 3px;
-  background: transparent;
-  box-shadow: 0px 0px 0px transparent;  
-  position: relative;
-  top: -265px;
-  transform: translateY(-50%);
-  visibility: hidden;
-}
-
-.right {
-  transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
-  background: transparent;
-  left: 900px;
-}
-
-.left {
-  transform: rotate(135deg);
-  -webkit-transform: rotate(135deg);
-  background: transparent;
-}
-
-/* Related Products Compare and Delete Button */
-
-.productCompare, .outfitDeleteButton {
-  background: transparent;
-  box-shadow: 0px 0px 0px transparent;
-  border: 0px none transparent;
-  text-shadow: 0px 0px 0px transparent;
-  position: relative;
-  transition: 0.5s ease;
-  top: -395px;
-  left: 210px;
-  color: white;
-  font-size: 17px;
-  font-weight: bold;
-}
-
-*:focus {
-  outline: 0 !important;
-}
-
-/* Related Products Outfit Styling */
-
-.addOutfit {
-  background-color: white;
-  position: relative;
-  cursor: pointer;
-  border-style: none;
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  
-}
-
-.outfitText {
-  font-weight: bold;
-  font-size: 66px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  left: 97px;
-  color: grey;
-  top: 65px;
-}
-
-/* Related Products Comparison Modal */
-/* Created with references from: CodePen - Dmytryi */
-.modal_title {
-  text-align: center;
-  padding-bottom: 5px;
-  font-family: 'Open Sans', sans-serif;
-}
-
-.modal_names {
-  font-weight: bold;
-  padding-bottom: 10px;
-  font-family: 'Open Sans', sans-serif;
-}
-
-.modal_flex {
-  display: flex;
-  justify-content: space-between;
-  padding-bottom: 10px;
-  padding-top: 10px;
-}
-
-.modalDialog {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.8);
-  z-index: 99999;
-  opacity:0;
-  -webkit-transition: opacity 100ms ease-in;
-  -moz-transition: opacity 100ms ease-in;
-  transition: opacity 100ms ease-in;
-  pointer-events: none;
-}
-
-.modalDialog > div {
-  max-width: 800px;
-  width: 90%;
-  position: relative;
-  margin: 10% auto;
-  padding: 20px;
-  border-radius: 3px;
-  background: #fff;
-}
-.close {
-  font-family: Arial, Helvetica, sans-serif;
-  background: #f26d7d;
-  color: #fff;
-  line-height: 25px;
-  position: absolute;
-  right: -12px;
-  text-align: center;
-  top: -10px;
-  width: 34px;
-  height: 34px;
-  text-decoration: none;
-  font-weight: bold;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  border-radius: 50%;
-  -moz-box-shadow: 1px 1px 3px #000;
-  -webkit-box-shadow: 1px 1px 3px #000;
-  box-shadow: 1px 1px 3px #000;
-  padding-top: 5px;
-}
-.close:hover {
-  background: #fa3f6f;
-}
-
-.comparison-feature {
-  text-align: center;
-  font-family: 'Open Sans', sans-serif;
-}
-
-.comparison-check {
-  display: inline-block;
-  transform: rotate(45deg);
-  height: 15px;
-  width: 8px;
-  border-bottom: 7px solid #78b13f;
-  border-right: 7px solid #78b13f;
-}
-
-/******** 
-
-End of Related Products 
 
 ********/
