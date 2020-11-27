@@ -22,9 +22,7 @@ const StyleSelector = ({currentStyle, styles}) => {
 
     return matrix;
   }
-  console.log("Styles array: ", styles);
   var styleMatrix = convert(styles);
-  console.log("Style matrix: ", styleMatrix);
 
   return (
     <div className="item3">
