@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
+import { FacebookShareButton, FacebookIcon, TwitterShareButton, TwitterIcon, PinterestShareButton, PinterestIcon } from 'react-share';
 import StyleSelectorContainer from '../../../containers/productContainers/styleSelectorContainer.js';
 import CarouselContainer from '../../../containers/productContainers/carouselContainer.js';
 import SelectSizeContainer from '../../../containers/productContainers/selectSize.js';
@@ -10,10 +11,9 @@ import getProduct from '../../../actions/productOverview/getProduct.js';
 import store from '../../../store/store.js';
 import getStyles from '../../../actions/productOverview/getStyles.js';
 
-
 const Product = ({expandedView}) => {
   const { productId } = useParams();
-
+  const location = useLocation();
   useEffect(() => {
     store.dispatch(getProduct(productId))
     .then(() => {
@@ -45,7 +45,17 @@ const Product = ({expandedView}) => {
             <SelectSizeContainer />
             <div className="item5">Size</div>
             <SloganContainer />
-            <div className="item7">Guarantee</div>
+            <div className="item7">
+              <FacebookShareButton url={location.pathname}>
+                <FacebookIcon size={50} round />
+              </FacebookShareButton>
+              <TwitterShareButton url={location.pathname}>
+                <TwitterIcon size={50} round />
+              </TwitterShareButton>
+              <PinterestShareButton url={location.pathname} media="http://placecorgi.com/260/180">
+                <PinterestIcon size={50} round />
+              </PinterestShareButton>
+            </div>
           </div>
         </div>
       </div>
