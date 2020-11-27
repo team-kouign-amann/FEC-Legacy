@@ -10,6 +10,7 @@ import ExpandedViewContainer from '../../../containers/productContainers/expande
 import getProduct from '../../../actions/productOverview/getProduct.js';
 import store from '../../../store/store.js';
 import getStyles from '../../../actions/productOverview/getStyles.js';
+import clickTracker from '../../../../util/clickTracker.js';
 
 const Product = ({expandedView}) => {
   const { productId } = useParams();
@@ -17,18 +18,22 @@ const Product = ({expandedView}) => {
   useEffect(() => {
     store.dispatch(getProduct(productId))
     .then(() => {
-      console.log('made api request');
       store.dispatch(getStyles(productId));
     })
     .catch((err) => {
       console.log("Error! Error: ", err);
     })
   }, [])
+
+  const handleAllElementClick = (e) => {
+    const date = new Date();
+    clickTracker(e.target.outerHTML, 'Product', date.toString());
+  };
   return (
-    <div>
+    <div onClick={(e) => { handleAllElementClick(e); }}>
       {expandedView ?
         <ExpandedViewContainer /> : null}
-      <div style={{"margin":"0px 150px"}}>
+      <div id="product" style={{"margin":"0px 150px"}}>
         <div className="header-container">
           <div className="header-logo">
             Daifuku X Donqueello Collab Official Store
