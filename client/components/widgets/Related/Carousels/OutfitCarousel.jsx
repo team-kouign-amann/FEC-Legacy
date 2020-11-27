@@ -104,17 +104,18 @@ class OutfitCarousel extends React.Component {
 
   updateScroll() {
     const slide = this.outfitRef.current;
-    if (this.state.scroll === slide.scrollWidth) {
+
+    if (this.state.cardInfo.length <= 2) {
       this.setState({rightarrow: false})
-    } else if (this.state.cardInfo.length < 2) {
+    } else if (this.state.scroll === slide.scrollWidth) {
       this.setState({rightarrow: false})
     } else {
       this.setState({rightarrow: true})
     }
 
-    if (this.state.scroll === 940) {
+    if (this.state.cardInfo.length <= 2) {
       this.setState({leftarrow: false})
-    } else if (this.state.cardInfo.length < 2) {
+    } else if (this.state.scroll === 940) {
       this.setState({leftarrow: false})
     } else {
       this.setState({leftarrow: true})
@@ -127,6 +128,7 @@ class OutfitCarousel extends React.Component {
       outfitInformation.push(this.props.outfitInfo)
       this.setState({cardInfo: outfitInformation})
       ls.set('cardInfo', outfitInformation)
+      this.updateScroll()
       return;
     }
     const match = (card) => card.id === this.props.outfitInfo.id;
@@ -136,6 +138,7 @@ class OutfitCarousel extends React.Component {
       outfitInformation.push(this.props.outfitInfo)
       this.setState({cardInfo: outfitInformation})
       ls.set('cardInfo', outfitInformation)
+      this.updateScroll()
       return;
     }
   }
@@ -145,6 +148,7 @@ class OutfitCarousel extends React.Component {
       return card.id !== identifier});
     this.setState({cardInfo: updatedInformation})
     ls.set('cardInfo', updatedInformation);
+    this.updateScroll()
   }
 
   render() {

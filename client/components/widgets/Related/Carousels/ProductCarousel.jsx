@@ -19,6 +19,7 @@ class ProductCarousel extends React.Component {
     this.prevClick = this.prevClick.bind(this);
     this.updateScroll = this.updateScroll.bind(this);
     this.showComparison = this.showComparison.bind(this);
+    this.updateOverview = this.updateOverview.bind(this);
   }
 
   myRef = React.createRef();
@@ -42,7 +43,7 @@ class ProductCarousel extends React.Component {
     let percentage = `${starPercentage}%`
     
     return (
-      <Card key={index} index={index} className='individualCard'>
+      <Card key={index} index={index} className='individualCard' onClick={() => this.updateOverview(card)}>
         {card.image[0].photos[0].thumbnail_url === null
         ? <Card.Img variant="top" src='https://whetstonefire.org/wp-content/uploads/2020/06/image-not-available.jpg' className='cardImg' alt=''/>
         : <Card.Img variant="top" src={card.image[0].photos[0].thumbnail_url} className='cardImg' alt=''/> }
@@ -112,6 +113,12 @@ class ProductCarousel extends React.Component {
     }
   }
 
+  updateOverview(card) {
+    console.log('updating overview!')
+    console.log('This is the card: ', card)
+  }
+
+
   render() {
     return (
       <>
@@ -125,9 +132,12 @@ class ProductCarousel extends React.Component {
             : <></>}
         </div>
         <h9 className='relatedTitle'>Related Products</h9>
-        <div className='relatedContainer' ref={this.myRef}>
-          {this.props.relatedInfo.map(this.renderCard)}
+        <div className='wrapper'>
+          <div className='relatedContainer relatedMap' ref={this.myRef}>
+            {this.props.relatedInfo.map(this.renderCard)}
+          </div>
         </div>
+
 
         <div className='arrows'>
           {!this.state.leftarrow ?
