@@ -26,7 +26,7 @@
 .star-ratings-css {
   unicode-bidi: bidi-override;
   color: #c5c5c5;
-  font-size: 25px;
+  font-size: 17px;
   height: 25px;
   width: 100px;
   position: relative;
@@ -719,9 +719,9 @@ Related Products
   font-weight: bold;
 }
 
-*:focus {
+/* *:focus {
   outline: 0 !important;
-}
+} */
 
 /* Related Products Outfit Styling */
 

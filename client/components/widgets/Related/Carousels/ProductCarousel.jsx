@@ -43,7 +43,7 @@ class ProductCarousel extends React.Component {
     let percentage = `${starPercentage}%`
     
     return (
-      <Card key={index} index={index} className='individualCard' onClick={() => this.updateOverview(card)}>
+      <Card key={index} index={index} className='individualCard' >
         {card.image[0].photos[0].thumbnail_url === null
         ? <Card.Img variant="top" src='https://whetstonefire.org/wp-content/uploads/2020/06/image-not-available.jpg' className='cardImg' alt=''/>
         : <Card.Img variant="top" src={card.image[0].photos[0].thumbnail_url} className='cardImg' alt=''/> }
