@@ -126,9 +126,8 @@ class OutfitCarousel extends React.Component {
     let outfitInformation = this.state.cardInfo;
     if (outfitInformation.length === 0) {
       outfitInformation.push(this.props.outfitInfo)
-      this.setState({cardInfo: outfitInformation})
+      this.setState({cardInfo: outfitInformation}, this.updateScroll)
       ls.set('cardInfo', outfitInformation)
-      this.updateScroll()
       return;
     }
     const match = (card) => card.id === this.props.outfitInfo.id;
@@ -136,9 +135,8 @@ class OutfitCarousel extends React.Component {
       return;
     } else {
       outfitInformation.push(this.props.outfitInfo)
-      this.setState({cardInfo: outfitInformation})
+      this.setState({cardInfo: outfitInformation}, this.updateScroll)
       ls.set('cardInfo', outfitInformation)
-      this.updateScroll()
       return;
     }
   }
@@ -146,7 +144,7 @@ class OutfitCarousel extends React.Component {
   deleteOutfit(identifier) {
     let updatedInformation = this.state.cardInfo.filter((card) => {
       return card.id !== identifier});
-    this.setState({cardInfo: updatedInformation})
+    this.setState({cardInfo: updatedInformation, scroll: 940}, this.updateScroll)
     ls.set('cardInfo', updatedInformation);
     this.updateScroll()
   }

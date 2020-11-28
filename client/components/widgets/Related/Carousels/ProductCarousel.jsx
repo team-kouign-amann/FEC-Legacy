@@ -64,7 +64,7 @@ class ProductCarousel extends React.Component {
             }
           </Card.Text>
           <Card.Text className='cardRating'>
-            <AverageStars percentage={{width: starPercentage}} />
+            <AverageStars percentage={{width: percentage}} />
           </Card.Text>
         </Card.Body>
         <Button
