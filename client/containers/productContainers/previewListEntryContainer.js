@@ -4,7 +4,7 @@ import carouselPositionAction from '../../actions/productOverview/carouselPositi
 
 const mapStateToProps = (state) => ({
   currentStyle: state.currentStyle,
-  // carouselPosition: state.carouselPosition,
+  carouselPosition: state.carouselPosition,
 });
 
 const mapDispatchToProps = (dispatch) => ({
