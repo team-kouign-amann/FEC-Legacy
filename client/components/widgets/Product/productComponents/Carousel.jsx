@@ -1,10 +1,11 @@
 import React from 'react';
+import PreviewListContainer from '../../../../containers/productContainers/previewListContainer.js';
 
-const defaultImg = '../../../../../image-not-available.jpg'
+const defaultImg = '../../../../../image-not-available.jpg';
 
-const Carousel = ({currentStyle, carouselPosition, handleCarouselChange}) => {
-  let leftButtonClass = 'button';
-  let rightButtonClass = 'button';
+const Carousel = ({currentStyle, carouselPosition, handleCarouselChange, handleCenterImageClick}) => {
+  let leftButtonClass = 'arrow-carousel left-carousel';
+  let rightButtonClass = 'arrow-carousel right-carousel';
   if (carouselPosition === 0) {
     leftButtonClass += ' hidden';
   }
@@ -12,19 +13,15 @@ const Carousel = ({currentStyle, carouselPosition, handleCarouselChange}) => {
     rightButtonClass += ' hidden';
   }
   return (
+
     <div className="item1">
-      <div className="flex-preview-list">
-        <button className="up-button" type="submit"> Up </button>
-        <ul className="preview_list">
-          {currentStyle.photos.map((photo) => (
-            <li><img src={photo.thumbnail_url} className="thumbnail-img" /></li>
-          ))}
-        </ul>
-        <button className="down-button" type="submit"> Down </button>
-      </div>
-      <button className={leftButtonClass} type="submit" onClick={() => { handleCarouselChange(carouselPosition - 1); }}> Left </button>
-      <img className="center-image" src={currentStyle.photos[carouselPosition].url !== null ? currentStyle.photos[carouselPosition].url : defaultImg } alt="" />
-      <button className={rightButtonClass} type="submit" onClick={() => { handleCarouselChange(carouselPosition + 1); }}> Right </button>
+
+      <PreviewListContainer />
+      <button className={leftButtonClass} type="submit" onClick={() => { handleCarouselChange(carouselPosition - 1); }}
+            onMouseDown={(e) => {e.preventDefault()}}></button>
+      <img className="center-image" src={currentStyle.photos[carouselPosition].thumbnail_url !== null ? currentStyle.photos[carouselPosition].thumbnail_url : defaultImg } alt="" onClick={() => {handleCenterImageClick()}} />
+      <button className={rightButtonClass} type="submit" onClick={() => { handleCarouselChange(carouselPosition + 1); }}
+      onMouseDown={(e) => {e.preventDefault()}}></button>
     </div>
   );
 };

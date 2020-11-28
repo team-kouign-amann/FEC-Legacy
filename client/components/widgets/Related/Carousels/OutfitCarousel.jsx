@@ -1,5 +1,7 @@
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
+import AverageStars from '../../Ratings/averageStars.jsx';
+import ls from 'local-storage';
 
 class OutfitCard extends React.Component {
   outfitRef = React.createRef();
@@ -35,10 +37,23 @@ class OutfitCard extends React.Component {
           </Card.Text>
           <Card.Title className='cardTitle'>{card.title}</Card.Title>
           <Card.Text className='cardPrice'>
-            ${card.price}
+            {card.styles[0].sale_price === '0' ?
+              <div>${card.styles[0].original_price}</div> :
+              <div className='priceLineUp'>
+                <div className='cutOriginalPrice'>${card.styles[0].original_price}</div>
+                <div className='salePrice'>${card.styles[0].sale_price}</div>
+              </div>
+            }
+          </Card.Text>
+          <Card.Text className='cardRating'>
+            <AverageStars percentage={{width: percentage}} />
           </Card.Text>
         </Card.Body>
-        <Button variant="primary" className='outfitDeleteButton'>X</Button>
+        <Button
+          variant="primary"
+          className='outfitDeleteButton'
+          onClick={() => {this.deleteOutfit(card.id)}}
+        >x</Button>
       </Card>
     );
   }
@@ -67,8 +82,15 @@ class OutfitCard extends React.Component {
           <div className='previousarrow'>
               <button className='arrow left' onClick={() => this.prevClick()}></button>
           </div>
-          <div className='nextarrow'>
-              <button className='arrow right' onClick={() => this.nextClick()}></button>
+          <div className='arrows'>
+            {!this.state.leftarrow ?
+            <button className='hidearrow left'></button> :
+            <button className='arrow left' onClick={() => this.prevClick()}></button>
+            }
+            {!this.state.rightarrow ?
+            <button className='hidearrow right'></button> :
+            <button className='arrow right' onClick={() => this.nextClick()}></button>
+            }
           </div>
         </div>
       </>

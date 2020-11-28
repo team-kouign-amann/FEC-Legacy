@@ -13,7 +13,7 @@ const sampleProduct = {
   ]
 }
 
-const currentProductReducer = (state = sampleProduct, action) => {
+const currentProductReducer = (state = {}, action) => {
   if (action.type === "CURRENT_PRODUCT") {
     return action.payload;
   } else {

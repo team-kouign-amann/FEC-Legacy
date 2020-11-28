@@ -3,6 +3,7 @@ import StyleSelector from '../../components/widgets/Product/productComponents/st
 
 const mapStateToProps = (state) => ({
   styles: state.styles,
+  currentStyle: state.currentStyle,
 });
 
 const StyleSelectorContainer = connect(mapStateToProps, null)(StyleSelector);
