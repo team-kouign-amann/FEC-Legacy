@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
 import ComparisonModal from '../ComparisonModal.jsx';
-import AverageStars from '../../Ratings/avarageStars.jsx';
+import AverageStars from '../../Ratings/averageStars.jsx';
 
 class ProductCarousel extends React.Component {
   constructor(props) {
@@ -40,7 +40,7 @@ class ProductCarousel extends React.Component {
     let actualPercentage = (starCount / (starRating * 5)) * 100
     let starPercentage = actualPercentage * 83.4 / 100
     let percentage = `${starPercentage}%`
-    
+
     return (
       <Card key={index} index={index} className='individualCard'>
         {card.image[0].photos[0].thumbnail_url === null
@@ -67,7 +67,7 @@ class ProductCarousel extends React.Component {
           </Card.Text>
         </Card.Body>
         <Button
-          variant="primary" 
+          variant="primary"
           className='productCompare'
           onClick={() => this.showComparison(card)}
         >★</Button>
@@ -115,13 +115,13 @@ class ProductCarousel extends React.Component {
   render() {
     return (
       <>
-        <div>          
+        <div>
           { this.state.compare
-            ? <ComparisonModal 
-              show={this.state.compare} 
+            ? <ComparisonModal
+              show={this.state.compare}
               hide={() => this.setState({compare: false})}
               relatedInformation={this.state.cardInfo}
-              overviewProduct={this.props.overviewProduct}/> 
+              overviewProduct={this.props.overviewProduct}/>
             : <></>}
         </div>
         <h9 className='relatedTitle'>Related Products</h9>
@@ -131,13 +131,13 @@ class ProductCarousel extends React.Component {
 
         <div className='arrows'>
           {!this.state.leftarrow ?
-          <button className='hidearrow left'></button> :  
+          <button className='hidearrow left'></button> :
           <div>
             {/* <div className='listGradient gradLeft'></div> */}
             <button className='arrow left' onClick={() => this.prevClick()}></button>
           </div>
           }
-          {!this.state.rightarrow ? 
+          {!this.state.rightarrow ?
           <button className='hidearrow right'></button> :
           <div>
             {/* <div className='listGradient gradRight'></div> */}

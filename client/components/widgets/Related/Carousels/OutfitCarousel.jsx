@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
-import AverageStars from '../../Ratings/avarageStars.jsx';
+import AverageStars from '../../Ratings/averageStars.jsx';
 import ls from 'local-storage';
 
 class OutfitCarousel extends React.Component {
@@ -58,20 +58,20 @@ class OutfitCarousel extends React.Component {
               <b>{card.name}</b>
           </Card.Title>
           <Card.Text className='cardPrice'>
-            {card.styles[0].sale_price === '0' ? 
+            {card.styles[0].sale_price === '0' ?
               <div>${card.styles[0].original_price}</div> :
               <div className='priceLineUp'>
                 <div className='cutOriginalPrice'>${card.styles[0].original_price}</div>
                 <div className='salePrice'>${card.styles[0].sale_price}</div>
-              </div> 
+              </div>
             }
           </Card.Text>
           <Card.Text className='cardRating'>
             <AverageStars percentage={{width: percentage}} />
           </Card.Text>
         </Card.Body>
-        <Button 
-          variant="primary" 
+        <Button
+          variant="primary"
           className='outfitDeleteButton'
           onClick={() => {this.deleteOutfit(card.id)}}
         >x</Button>
@@ -161,11 +161,11 @@ class OutfitCarousel extends React.Component {
             {this.state.cardInfo.map(this.renderCard)}
           </div>
           <div className='arrows'>
-            {!this.state.leftarrow ? 
-            <button className='hidearrow left'></button> :  
-            <button className='arrow left' onClick={() => this.prevClick()}></button>          
+            {!this.state.leftarrow ?
+            <button className='hidearrow left'></button> :
+            <button className='arrow left' onClick={() => this.prevClick()}></button>
             }
-            {!this.state.rightarrow ? 
+            {!this.state.rightarrow ?
             <button className='hidearrow right'></button> :
             <button className='arrow right' onClick={() => this.nextClick()}></button>
             }

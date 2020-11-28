@@ -10,6 +10,10 @@ import currentProductReducer from './productOverview/currentProductReducer.js';
 import currentStyleReducer from './productOverview/currentStyleReducer.js';
 import allStylesReducer from './productOverview/allStylesReducer.js';
 import carouselPositionReducer from './productOverview/carouselPositionReducer.js';
+import previewListReducer from './productOverview/previewListReducer.js';
+import selectSizeReducer from './productOverview/selectSize.js';
+import selectQuantityReducer from './productOverview/selectQuantity.js';
+import expandedViewReducer from './productOverview/expandedViewReducer.js';
 
 const rootReducer = combineReducers({
   relatedInfo: relatedInfoReducer,
@@ -18,6 +22,10 @@ const rootReducer = combineReducers({
   currentStyle: currentStyleReducer,
   styles: allStylesReducer,
   carouselPosition: carouselPositionReducer,
+  previewListPosition: previewListReducer,
+  selectSize: selectSizeReducer,
+  selectQuantity: selectQuantityReducer,
+  expandedView: expandedViewReducer,
   showReviews: reviewsReducer,
   metaRatings: metaReducer,
 });

@@ -1,6 +1,6 @@
 import React from 'react';
 import StartsBar from './startsBar.jsx';
-import AvarageStars from './avarageStars.jsx';
+import AverageStars from './averageStars.jsx';
 import SizeComfort from './sizeComfort.jsx';
 import Reviews from './reviews.jsx';
 
@@ -30,7 +30,7 @@ const Rating = ({ showReviews, metaRatings}) => {
         <h3>RATING &amp; REVIEWS</h3>
         <div className="rating"> {temp} </div>
         <div className="star-ratings-css">
-          <AvarageStars percentage={{ width: avarageStarsPercentage }} />
+          <AverageStars percentage={{ width: avarageStarsPercentage }} />
         </div>
 
         <div>
