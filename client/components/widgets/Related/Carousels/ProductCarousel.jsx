@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
 import ComparisonModal from '../ComparisonModal.jsx';
-import AverageStars from '../../Ratings/avarageStars.jsx';
+import AverageStars from '../../Ratings/averageStars.jsx';
 
 class ProductCarousel extends React.Component {
   constructor(props) {
