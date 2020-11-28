@@ -10,8 +10,9 @@ function getQuestions(productId, count) {
         `http://3.21.164.220/qa/questions?product_id=${productId}&count=${count}`
       )
       .then(({ data }) => {
-        // console.log('grrr', data);
+        console.log('grrr', data);
         let questions = data.results;
+        let product_id = data.product_id;
         console.log('unsortedTotalQuestions', questions);
         questions.sort(
           (a, b) => b.question_helpfulness - a.question_helpfulness
@@ -20,8 +21,9 @@ function getQuestions(productId, count) {
           type: 'ALL_DATA',
           questions: questions,
           numRender: 4,
-          votedAlready: [],
-          votedAnswer: [],
+          id: product_id,
+          // votedAlready: [],
+          // votedAnswer: [],
         });
         return questions;
       })
@@ -36,6 +38,7 @@ function getQuestions(productId, count) {
           type: 'SHOW_ANSWERS',
           answerBoolean: questionIds,
         });
+        return;
       })
       .catch((error) => {
         console.log('Error with GET questions: ', error);

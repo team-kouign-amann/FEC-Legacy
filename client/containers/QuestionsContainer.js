@@ -21,7 +21,7 @@ const mapStateToProps = (state) => ({
   votedAnswer: state.currentQuestions.votedAnswer,
   filterQs: state.currentQuestions.filterQs,
   // allAnswers: state.currentQuestions.allAnswers,
-  // id: state.currentQuestions.id,
+  id: state.currentQuestions.id,
   // count: state.currentQuestions.count,
   // answers: state.currentQuestions.answers,
 });
@@ -30,10 +30,10 @@ const mapDispatchToProps = (dispatch) => ({
   moreQuestions: (newNum) => dispatch(moreQuestions(newNum)),
   moreAnswers: (booleanObj, questionId) =>
     dispatch(moreAnswers(booleanObj, questionId)),
-  questionHelpful: (allQuestions, questionId, votedAlready) =>
-    dispatch(questionHelpful(allQuestions, questionId, votedAlready)),
-  answerHelpful: (allQuestions, questionId, answerId, votedAlready) =>
-    dispatch(answerHelpful(allQuestions, questionId, answerId, votedAlready)),
+  questionHelpful: (questionId, votedAlready, id) =>
+    dispatch(questionHelpful(questionId, votedAlready, id)),
+  answerHelpful: (answerId, votedAlready, product_id) =>
+    dispatch(answerHelpful(answerId, votedAlready, product_id)),
   inputSearch: (input, questions) => dispatch(inputSearch(input, questions)),
 });
 

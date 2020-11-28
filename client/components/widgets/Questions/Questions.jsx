@@ -1,8 +1,6 @@
 import React from "react";
 // import moment from 'moment';
 import Answers from './Answers.jsx';
-// import 'core-js';
-// import 'regenerator-runtime';
 
 
 const Questions = (props) => {
@@ -39,10 +37,10 @@ const Questions = (props) => {
           <div>
             <div className="question_column_one">
             <div><span>Q: {question.question_body}</span></div>
-              <Answers question={question} answerBoolean={props.answerBoolean} moreAnswers={props.moreAnswers} answerHelpful={(answerId) => props.answerHelpful(props.questions, question.question_id, answerId, props.votedAnswer)}/>
+              <Answers question={question} answerBoolean={props.answerBoolean} moreAnswers={props.moreAnswers} answerHelpful={(answerId) => props.answerHelpful(answerId, props.votedAnswer, props.id)}/>
             </div>
               <div className="question_column_two">
-                  <div>Helpful? <span className="btn_words" onClick={() => props.questionHelpful(props.questions, question.question_id, props.votedAlready)}>Yes</span> ({question.question_helpfulness}) | <span className="btn_words">Add Answer</span></div>
+                  <div>Helpful? <span className="btn_words" onClick={() => props.questionHelpful(question.question_id, props.votedAlready, props.id)}>Yes</span> ({question.question_helpfulness}) | <span className="btn_words">Add Answer</span></div>
               </div>
           </div>
                 ))}

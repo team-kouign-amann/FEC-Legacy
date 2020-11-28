@@ -1,6 +1,11 @@
 import Redux from 'redux';
 
-var questionsReducer = (state = [], action) => {
+let initialState = {
+  votedAlready: [],
+  votedAnswer: [],
+};
+
+var questionsReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'ALL_DATA':
       console.log('QuestionsREducer', action);
@@ -8,12 +13,7 @@ var questionsReducer = (state = [], action) => {
         ...state,
         questions: action.questions,
         numRender: action.numRender,
-        votedAlready: action.votedAlready,
-        votedAnswer: action.votedAlready,
-        // data: action.data,
-        // id: action.id,
-        // allAnswers: action.allAnswers,
-        // count: action.count,
+        id: action.id,
       };
     case 'NEW_NUM':
       return {
@@ -23,6 +23,7 @@ var questionsReducer = (state = [], action) => {
     case 'SHOW_ANSWERS':
       return { ...state, answerBoolean: action.answerBoolean };
     case 'HELPFUL_CHANGE':
+      console.log('hihi');
       return {
         ...state,
         questions: action.questions,
