@@ -3,9 +3,9 @@ import currentReviewsAction from './currentReviews.js';
 
 const getReview = (productId) => (dispatch) =>
   axios
-    .get(`http://3.21.164.220/reviews?product_id=${productId}&count=5`)
+    .get(`http://3.21.164.220/reviews/?product_id=${productId}&count=5`)
     .then((resp) => {
-      // // console.log('getReview');
+      // console.log('getReview');
       // console.log(resp.data);
       dispatch(currentReviewsAction(resp.data.results));
     })
