@@ -1,3 +1,4 @@
+/*
 const initialState =  {
   "style_id": 1,
   "name": "Forest Green & Black",
@@ -5,6 +6,7 @@ const initialState =  {
   "sale_price": "0",
   "default?": 1,
   "photos": [
+      /*
       {
           "thumbnail_url": "https://images.unsplash.com/photo-1501088430049-71c79fa3283e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
           "url": "https://images.unsplash.com/photo-1501088430049-71c79fa3283e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80"
@@ -29,6 +31,7 @@ const initialState =  {
           "thumbnail_url": "https://images.unsplash.com/photo-1532543491484-63e29b3c1f5d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80",
           "url": "https://images.unsplash.com/photo-1532543491484-63e29b3c1f5d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80"
       }
+
   ],
   "skus": {
       "1": {
@@ -57,8 +60,9 @@ const initialState =  {
       }
   }
 }
+*/
 
-const currentStyleReducer = (state = initialState, action) => {
+const currentStyleReducer = (state = {}, action) => {
   if (action.type === 'CURRENT_STYLE') {
     return action.payload;
   } else {
