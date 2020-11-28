@@ -19,7 +19,7 @@ class ProductCarousel extends React.Component {
     this.prevClick = this.prevClick.bind(this);
     this.updateScroll = this.updateScroll.bind(this);
     this.showComparison = this.showComparison.bind(this);
-    // this.updateOverview = this.updateOverview.bind(this);
+    this.updateOverview = this.updateOverview.bind(this);
   }
 
   myRef = React.createRef();
@@ -43,7 +43,7 @@ class ProductCarousel extends React.Component {
     let percentage = `${starPercentage}%`
     
     return (
-      <Card key={index} index={index} className='individualCard' >
+      <Card key={index} index={index} className='individualCard' onClick={() => this.updateOverview(card)}>
         {card.image[0].photos[0].thumbnail_url === null
         ? <Card.Img variant="top" src='https://whetstonefire.org/wp-content/uploads/2020/06/image-not-available.jpg' className='cardImg' alt=''/>
         : <Card.Img variant="top" src={card.image[0].photos[0].thumbnail_url} className='cardImg' alt=''/> }
@@ -113,10 +113,9 @@ class ProductCarousel extends React.Component {
     }
   }
 
-  // updateOverview(card) {
-  //   // console.log('updating overview!')
-  //   // console.log('This is the card: ', card)
-  // }
+  updateOverview(card) {
+    window.location.search = card.id;
+  }
 
 
   render() {

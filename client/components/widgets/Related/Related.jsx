@@ -9,8 +9,10 @@ import OutfitCarousel from './Carousels/OutfitCarousel.jsx';
 
 const Related = (props) => {
   const { productId } = useParams();
-  useEffect(() => { props.getRelatedProducts(productId); }, []);
-  useEffect(() => { props.getOutfitInformation(productId); }, []);
+  useEffect(() => {
+    props.getRelatedProducts(productId);
+    props.getOutfitInformation(productId);
+  }, []);
 
   return (
     <div>

@@ -19,6 +19,8 @@ class OutfitCarousel extends React.Component {
     this.updateScroll = this.updateScroll.bind(this);
     this.addOutfit = this.addOutfit.bind(this);
     this.deleteOutfit = this.deleteOutfit.bind(this);
+    this.updateOverview = this.updateOverview.bind(this);
+
   }
 
   componentDidMount() {
@@ -44,7 +46,7 @@ class OutfitCarousel extends React.Component {
     let percentage = `${starPercentage}%`
 
     return (
-      <Card key={index} index={index} className='individualCard'>
+      <Card key={index} index={index} className='individualCard' onClick={() => this.updateOverview(card)}>
 
         {card.styles[0].photos[0].thumbnail_url === null
         ? <Card.Img variant="top" src='https://whetstonefire.org/wp-content/uploads/2020/06/image-not-available.jpg' className='cardImg' alt=''/>
@@ -147,6 +149,10 @@ class OutfitCarousel extends React.Component {
     this.setState({cardInfo: updatedInformation, scroll: 940}, this.updateScroll)
     ls.set('cardInfo', updatedInformation);
     this.updateScroll()
+  }
+
+  updateOverview(card) {
+    window.location.search = card.id;
   }
 
   render() {
