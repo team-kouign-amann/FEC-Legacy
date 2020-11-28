@@ -70,7 +70,7 @@ const Questions = (props) => {
                       <label for="email">* Your email</label><br />
                       <input type="text" id="email" name="email" placeholder="Why did you like the product or not?"></input>
                       <p>For authentication reasons, you will not be emailed</p>
-                      <input type="hidden" name="product_id" value={props.id} />
+                      <input type="hidden" name="product_id" value={props.id}></input>
                       <input type="submit" value="Submit question"></input>
                     </form>
                 </div>
