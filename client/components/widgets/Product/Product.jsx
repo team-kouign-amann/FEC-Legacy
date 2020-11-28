@@ -10,11 +10,10 @@ import ExpandedViewContainer from '../../../containers/productContainers/expande
 import getProduct from '../../../actions/productOverview/getProduct.js';
 import store from '../../../store/store.js';
 import getStyles from '../../../actions/productOverview/getStyles.js';
-import clickTracker from '../../../../util/clickTracker.js';
 
 const Product = ({expandedView}) => {
   const { productId } = useParams();
-  const location = useLocation();
+  //const location = useLocation();
   useEffect(() => {
     store.dispatch(getProduct(productId))
     .then(() => {
