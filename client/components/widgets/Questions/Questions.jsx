@@ -1,13 +1,15 @@
+import { getOwnPropertySymbols } from "core-js/fn/object";
 import React from "react";
 // import moment from 'moment';
 import Answers from './Answers.jsx';
+// import FormDialog from './FormDialog.jsx';
 
 
 const Questions = (props) => {
   
   // {console.log('props.data:', props.data)}
   {console.log('props.questions:', props.questions)}
-  {console.log('props.filterQs:', props.filterQs)}
+  {console.log('props.id:', props.id)}
     
   let questions;
   if (!props.filterQs) {
@@ -19,24 +21,24 @@ const Questions = (props) => {
   
   return(
     <div className="quest-wrap">
-    <div className="row">
-      <div>
-        <h3>QUESTIONS &amp; ANSWERS</h3>
-      </div>
-      <div>
-        <div class="search">
-          <input type="text" class="searchTerm" placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..." onChange={(e) => props.inputSearch(e.target.value, props.questions)}></input>
-          <button type="submit" class="searchButton">
-            <i class="fas fa-search"></i> 
-          </button>
+      <div className="row">
+        <div>
+          <h3>QUESTIONS &amp; ANSWERS</h3>
+        </div>
+        <div>
+          <div class="search">
+            <input type="text" class="searchTerm" placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..." onChange={(e) => props.inputSearch(e.target.value, props.questions)}></input>
+            <button type="submit" class="searchButton">
+              <i class="fas fa-search"></i> 
+            </button>
+          </div>
         </div>
       </div>
-    </div>
     <div className="row">
         {questions.map((question) => (
           <div>
             <div className="question_column_one">
-            <div><span>Q: {question.question_body}</span></div>
+              <div><span>Q: {question.question_body}</span></div>
               <Answers question={question} answerBoolean={props.answerBoolean} moreAnswers={props.moreAnswers} answerHelpful={(answerId) => props.answerHelpful(answerId, props.votedAnswer, props.id)}/>
             </div>
               <div className="question_column_two">
@@ -46,14 +48,33 @@ const Questions = (props) => {
                 ))}
           <div className="row">
             <div className="question_column_one">
-              {(() => {
-                if (questions.length < props.questions.length) {
-                return (<div><span><button onClick={() => props.moreQuestions(props.numRender + 2, props.questions)}>MORE ANSWERED QUESTION</button></span></div>)
-              } else {
-                return null;
-              }
-            })()}
-            <span><button>ADD A QUESTION  +</button></span>
+                {(() => {
+                  if (questions.length < props.questions.length) {
+                  return (<div><span><button onClick={() => props.moreQuestions(props.numRender + 2, props.questions)}>MORE ANSWERED QUESTION</button></span></div>)
+                } else {
+                  return null;
+                }
+              })()}
+              <span><a href="#openModal-about">ADD A QUESTION  +</a></span>
+              <div id="openModal-about" class="modalDialog">
+                <div>
+                  <a href="#close" title="Close" class="close">X</a>
+                  <h2>Ask Your Question</h2>
+                  <h3>About the (Product Name)</h3>
+                    <form method="post" action="http://3.21.164.220/qa/questions/" onsubmit={() => props.getQuestions(props.id, 50)}>
+                      <label for="body">* Your Question:</label><br />
+                      <input type="text" id="body" name="body"></input><br />
+                      <label for="name">* What is your nickname</label><br />
+                      <input type="text" id="name" name="name" placeholder="Example: jackson11!"></input>
+                      <p>For privacy reasons, do not use your full name or email address</p>
+                      <label for="email">* Your email</label><br />
+                      <input type="text" id="email" name="email" placeholder="Why did you like the product or not?"></input>
+                      <p>For authentication reasons, you will not be emailed</p>
+                      <input type="hidden" name="product_id" value={props.id} />
+                      <input type="submit" value="Submit question"></input>
+                    </form>
+                </div>
+              </div>
             </div>
           </div>
     </div>
