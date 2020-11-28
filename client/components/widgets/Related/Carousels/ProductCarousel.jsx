@@ -114,6 +114,7 @@ class ProductCarousel extends React.Component {
   }
 
   updateOverview(card) {
+    // console.log(window.location.search)
     window.location.search = card.id;
   }
 
@@ -142,15 +143,25 @@ class ProductCarousel extends React.Component {
           {!this.state.leftarrow ?
           <button className='hidearrow left'></button> :
           <div>
-            {/* <div className='listGradient gradLeft'>left</div> */}
-            <button className='arrow left' onClick={() => this.prevClick()}></button>
+            <div>
+              {/* <div className='listGradient gradLeft'>left</div> */}
+              <button className='arrow left' onClick={() => this.prevClick()}></button>
+            </div>
+            {/* <div>
+              <fade />
+            </div> */}
           </div>
           }
           {!this.state.rightarrow ? 
           <button className='hidearrow right'></button> :
           <div>
-            {/* <div className='listGradient gradRight'>right</div> */}
-            <button className='arrow right' onClick={() => this.nextClick()}></button>
+            <div>
+              {/* <div className='listGradient gradRight'>right</div> */}
+              <button className='arrow right' onClick={() => this.nextClick()}></button>
+            </div>
+            {/* <div>
+              <fade />
+            </div> */}
           </div>
           }
         </div>

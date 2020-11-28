@@ -677,15 +677,17 @@ Related Products
   -webkit-transform: rotate(-45deg);
   background: transparent;
   left: 900px;
+  outline:none;
 }
 
 .left {
   transform: rotate(135deg);
   -webkit-transform: rotate(135deg);
   background: transparent;
+  outline:none;
 }
-/* 
-.listGradient {
+
+/* fade {
   background-color: grey;
   width: 7rem;
   height: 25rem;
@@ -693,14 +695,6 @@ Related Products
   display: inline-block;
   top: -245px;
   z-index: 1;
-} */
-
-/* .gradLeft {
-
-} */
-
-/* .gradRight {
-
 } */
 
 /* Related Products Compare and Delete Button */
