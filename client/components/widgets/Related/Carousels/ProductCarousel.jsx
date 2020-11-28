@@ -114,8 +114,8 @@ class ProductCarousel extends React.Component {
   }
 
   updateOverview(card) {
-    console.log('updating overview!')
-    console.log('This is the card: ', card)
+    // console.log('updating overview!')
+    // console.log('This is the card: ', card)
   }
 
 
@@ -133,7 +133,7 @@ class ProductCarousel extends React.Component {
         </div>
         <h9 className='relatedTitle'>Related Products</h9>
         <div className='wrapper'>
-          <div className='relatedContainer relatedMap' ref={this.myRef}>
+          <div className='relatedContainer linear_gradient' ref={this.myRef}>
             {this.props.relatedInfo.map(this.renderCard)}
           </div>
         </div>
@@ -141,16 +141,16 @@ class ProductCarousel extends React.Component {
 
         <div className='arrows'>
           {!this.state.leftarrow ?
-          <button className='hidearrow left'></button> :  
+          <button className='hidearrow left'></button> :
           <div>
-            {/* <div className='listGradient gradLeft'></div> */}
+            {/* <div className='listGradient gradLeft'>left</div> */}
             <button className='arrow left' onClick={() => this.prevClick()}></button>
           </div>
           }
           {!this.state.rightarrow ? 
           <button className='hidearrow right'></button> :
           <div>
-            {/* <div className='listGradient gradRight'></div> */}
+            {/* <div className='listGradient gradRight'>right</div> */}
             <button className='arrow right' onClick={() => this.nextClick()}></button>
           </div>
           }
