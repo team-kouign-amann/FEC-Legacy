@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
-import AverageStars from '../../Ratings/avarageStars.jsx';
+import AverageStars from '../../Ratings/averageStars.jsx';
 import ls from 'local-storage';
 
 class OutfitCarousel extends React.Component {
@@ -104,18 +104,17 @@ class OutfitCarousel extends React.Component {
 
   updateScroll() {
     const slide = this.outfitRef.current;
-
-    if (this.state.cardInfo.length <= 2) {
+    if (this.state.scroll === slide.scrollWidth) {
       this.setState({rightarrow: false})
-    } else if (this.state.scroll === slide.scrollWidth) {
+    } else if (this.state.cardInfo.length < 2) {
       this.setState({rightarrow: false})
     } else {
       this.setState({rightarrow: true})
     }
 
-    if (this.state.cardInfo.length <= 2) {
+    if (this.state.scroll === 940) {
       this.setState({leftarrow: false})
-    } else if (this.state.scroll === 940) {
+    } else if (this.state.cardInfo.length < 2) {
       this.setState({leftarrow: false})
     } else {
       this.setState({leftarrow: true})
@@ -126,7 +125,7 @@ class OutfitCarousel extends React.Component {
     let outfitInformation = this.state.cardInfo;
     if (outfitInformation.length === 0) {
       outfitInformation.push(this.props.outfitInfo)
-      this.setState({cardInfo: outfitInformation}, this.updateScroll)
+      this.setState({cardInfo: outfitInformation})
       ls.set('cardInfo', outfitInformation)
       return;
     }
@@ -135,7 +134,7 @@ class OutfitCarousel extends React.Component {
       return;
     } else {
       outfitInformation.push(this.props.outfitInfo)
-      this.setState({cardInfo: outfitInformation}, this.updateScroll)
+      this.setState({cardInfo: outfitInformation})
       ls.set('cardInfo', outfitInformation)
       return;
     }
@@ -144,9 +143,8 @@ class OutfitCarousel extends React.Component {
   deleteOutfit(identifier) {
     let updatedInformation = this.state.cardInfo.filter((card) => {
       return card.id !== identifier});
-    this.setState({cardInfo: updatedInformation, scroll: 940}, this.updateScroll)
+    this.setState({cardInfo: updatedInformation})
     ls.set('cardInfo', updatedInformation);
-    this.updateScroll()
   }
 
   render() {
@@ -177,5 +175,4 @@ class OutfitCarousel extends React.Component {
     )
   }
 }
-
 export default OutfitCarousel;

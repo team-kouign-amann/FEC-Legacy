@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
 import ComparisonModal from '../ComparisonModal.jsx';
-import AverageStars from '../../Ratings/avarageStars.jsx';
+import AverageStars from '../../Ratings/averageStars.jsx';
 
 class ProductCarousel extends React.Component {
   constructor(props) {
@@ -19,7 +19,7 @@ class ProductCarousel extends React.Component {
     this.prevClick = this.prevClick.bind(this);
     this.updateScroll = this.updateScroll.bind(this);
     this.showComparison = this.showComparison.bind(this);
-    this.updateOverview = this.updateOverview.bind(this);
+    // this.updateOverview = this.updateOverview.bind(this);
   }
 
   myRef = React.createRef();
@@ -113,10 +113,10 @@ class ProductCarousel extends React.Component {
     }
   }
 
-  updateOverview(card) {
-    // console.log('updating overview!')
-    // console.log('This is the card: ', card)
-  }
+  // updateOverview(card) {
+  //   // console.log('updating overview!')
+  //   // console.log('This is the card: ', card)
+  // }
 
 
   render() {

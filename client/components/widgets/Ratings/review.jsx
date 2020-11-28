@@ -1,6 +1,6 @@
 import React from 'react';
 //import moment from 'moment';
-import AvarageStars from './avarageStars.jsx';
+import AverageStars from './averageStars.jsx';
 import Image from './image.jsx';
 
 const Review = ({ review }) => {
@@ -14,7 +14,7 @@ const Review = ({ review }) => {
   return (
     <div>
       <div className="star-ratings-css">
-        <AvarageStars percentage={{ width: starPercentage }} />
+        <AverageStars percentage={{ width: starPercentage }} />
       </div>
       <div>
         <h4>{review.summary}</h4>
