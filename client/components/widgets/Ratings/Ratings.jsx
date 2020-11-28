@@ -5,8 +5,8 @@ import SizeComfort from './sizeComfort.jsx';
 import Reviews from './reviews.jsx';
 
 const Rating = ({ showReviews, metaRatings}) => {
-  // console.log('showReviews');
-  // console.log(showReviews);
+  console.log('showReviews');
+  console.log(showReviews);
   // console.log('metaRatings');
   // console.log(metaRatings);
   const characteristics = metaRatings.characteristics;

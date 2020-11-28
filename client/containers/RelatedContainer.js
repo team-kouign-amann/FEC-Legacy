@@ -14,8 +14,8 @@ let mapStateToProps = (state) => ({
 
 let mapDispatchToProps = dispatch => {
   return {
-    getRelatedProducts: (id) => dispatch(getRelatedProducts(id)),
-    getOutfitInformation: (id) => dispatch(getOutfitInformation(id))
+    getRelatedProducts: () => dispatch(getRelatedProducts(1)),
+    getOutfitInformation: () => dispatch(getOutfitInformation(1))
   }
 }
 

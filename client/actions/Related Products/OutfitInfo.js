@@ -1,6 +1,8 @@
 /* eslint-disable import/prefer-default-export */
 import axios from 'axios';
 // import { Promise } from 'bluebird';
+import 'core-js'; 
+import 'regenerator-runtime';
 
 const fetchOutfitDetails = () => ({type: 'FETCH_OUTFIT_DETAILS'});
 

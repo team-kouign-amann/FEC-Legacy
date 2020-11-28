@@ -10,21 +10,23 @@
     width: 70%;
 }
 
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
 
-.rating {
-  font-size: 50px;
-  font-style: bold;
-}
+  .rating {
+    font-size: 50px;
+    font-style: bold;
+  }
+
+
 
 .star-ratings-css {
   unicode-bidi: bidi-override;
   color: #c5c5c5;
-  font-size: 17px;
+  font-size: 25px;
   height: 25px;
   width: 100px;
   position: relative;
@@ -316,6 +318,7 @@ Category Styling
   margin: 0;
   display: flex;
   flex-wrap: wrap;
+
 }
 
 .selected-style:after {
@@ -324,6 +327,8 @@ Category Styling
   left: 65px;
   bottom: 10px;
   color: black;
+
+
 }
 
 .style-select-img {
@@ -532,13 +537,31 @@ Related Products
   align-items: center;
   justify-content: flex-start;
   margin: 0 auto;
-  overflow-x: scroll;
-  scroll-behavior: smooth;
   padding: 20px;
   max-width: 900px;
   width: 100%;
   font-family: 'Open Sans', sans-serif;
 }
+
+.relatedContainer {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  z-index: 0;
+}
+
+/* .relatedContainer {
+  content  : "";
+  position : relative;
+  z-index  : 1;
+  bottom   : 0;
+  left     : 0;
+  pointer-events   : none;
+  background-image : linear-gradient(to right, 
+                    rgba(255,255,255, 0), 
+                    rgb(211, 35, 35) 90%);
+  width    : 100%;
+} */
 
 .relatedContainer::-webkit-scrollbar {
   display: none;
@@ -548,11 +571,10 @@ Related Products
 
 .individualCard {
   flex-shrink: 0;
-  max-width: 15rem;
-  min-width: 15rem;
-  min-height: 25rem;
-  max-height: 25rem;
+  width: 15rem;
+  height: 25rem;
   border: 0.5px solid rgb(177 177 177);
+  z-index: 0;
 }
 
 .individualCard:hover {
@@ -616,6 +638,7 @@ Related Products
   margin: 0 auto;
   max-width: 900px;
   width: 100%;
+  z-index: 2;
 }
 
 .arrow {
@@ -626,11 +649,12 @@ Related Products
   background: transparent;
   box-shadow: 0px 0px 0px transparent;
   position: relative;
-  top: -265px;
+  top: -245px;
   transform: translateY(-50%);
   cursor: pointer;
-  height: 25px;
-  width: 25px;
+  height: 20px;
+  width: 20px;
+  z-index: 2;
 }
 
 .hidearrow {
@@ -641,9 +665,11 @@ Related Products
   background: transparent;
   box-shadow: 0px 0px 0px transparent;
   position: relative;
-  top: -265px;
+  top: -245px;
   transform: translateY(-50%);
   visibility: hidden;
+  height: 20px;
+  width: 20px;
 }
 
 .right {
@@ -658,6 +684,24 @@ Related Products
   -webkit-transform: rotate(135deg);
   background: transparent;
 }
+/* 
+.listGradient {
+  background-color: grey;
+  width: 7rem;
+  height: 25rem;
+  position: relative;
+  display: inline-block;
+  top: -245px;
+  z-index: 1;
+} */
+
+/* .gradLeft {
+
+} */
+
+/* .gradRight {
+
+} */
 
 /* Related Products Compare and Delete Button */
 
