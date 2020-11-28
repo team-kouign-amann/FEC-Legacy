@@ -162,6 +162,11 @@ Product overview: Carousel (item1)
 .thumbnail-img {
   width: 75px;
   height: 75px;
+  border: 1px solid black;
+}
+
+.thumbnail-selected {
+  border-bottom: 5px solid black;
 }
 
 .flex-preview-list {
