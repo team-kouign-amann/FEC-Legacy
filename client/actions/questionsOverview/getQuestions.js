@@ -3,12 +3,10 @@ import axios from 'axios';
 // import 'regenerator-runtime';
 // import getAnswers from './getAnswers.js';
 
-function getQuestions(productId, count) {
+function getQuestions(productId) {
   return (dispatch) => {
     return axios
-      .get(
-        `http://3.21.164.220/qa/questions?product_id=${productId}&count=${count}`
-      )
+      .get(`http://3.21.164.220/qa/questions?product_id=${productId}&count=50`)
       .then(({ data }) => {
         console.log('grrr', data);
         let questions = data.results;

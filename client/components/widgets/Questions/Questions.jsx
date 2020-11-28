@@ -1,13 +1,24 @@
-import { getOwnPropertySymbols } from "core-js/fn/object";
-import React from "react";
-// import moment from 'moment';
+import React, {useEffect} from "react";
+import getQuestions from '../../../actions/questionsOverview/getQuestions.js'
 import Answers from './Answers.jsx';
-// import FormDialog from './FormDialog.jsx';
-
+import { useParams } from 'react-router-dom';
+// import 'core-js';
+// import 'regenerator-runtime';
+import store from '../../../store/store.js';
 
 const Questions = (props) => {
   
-  // {console.log('props.data:', props.data)}
+  const { productId } = useParams();
+  {console.log('props.id:', productId)}
+
+  useEffect(() => {
+    console.log('hit')
+    store.dispatch(getQuestions(productId))
+    .catch((err) => {
+      console.log("Error! Error: ", err);
+    }) 
+  }, [])
+  
   {console.log('props.questions:', props.questions)}
   {console.log('props.id:', props.id)}
     
@@ -61,7 +72,7 @@ const Questions = (props) => {
                   <a href="#close" title="Close" class="close">X</a>
                   <h2>Ask Your Question</h2>
                   <h3>About the (Product Name)</h3>
-                    <form method="post" action="http://3.21.164.220/qa/questions/" onsubmit={() => props.getQuestions(props.id, 50)}>
+                    <form method="post">
                       <label for="body">* Your Question:</label><br />
                       <input type="text" id="body" name="body"></input><br />
                       <label for="name">* What is your nickname</label><br />
