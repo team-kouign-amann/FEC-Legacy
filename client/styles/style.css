@@ -326,8 +326,8 @@ Category Styling
 .selected-style:after {
   content: '✔';
   position: relative;
-  left: 65px;
-  bottom: 10px;
+  left: 35px;
+  bottom: 30px;
   color: black;
 }
 
@@ -347,11 +347,17 @@ Category Styling
   height: 75px;
   border-radius: 50%;
   margin: 0px 20px;
+  border: 1px solid black;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 75px;
 }
 
+/*
 .style-select-img-select-border {
   border: 1px solid black;
 }
+*/
 
 /*****
 
