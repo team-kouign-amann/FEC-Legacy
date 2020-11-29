@@ -1,13 +1,4 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable max-len */
-/* eslint-disable jsx-quotes */
-/* eslint-disable react/self-closing-comp */
-/* eslint-disable react/jsx-boolean-value */
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable react/jsx-closing-bracket-location */
-/* eslint-disable arrow-body-style */
-/* eslint-disable react/jsx-props-no-spreading */
-import React from "react";
+import React from 'react';
 
 const ComparisonModal = (props) => {
   const productName = props.overviewProduct.name;
@@ -70,5 +61,4 @@ const ComparisonModal = (props) => {
     </>
   );
 };
-
 export default ComparisonModal;

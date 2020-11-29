@@ -10,7 +10,7 @@ module.exports = {
     ecmaFeatures: {
       jsx: true,
     },
-    ecmaVersion: 6,
+    ecmaVersion: 12,
   },
   plugins: ['react', 'jest'],
   rules: {

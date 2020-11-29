@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, Button } from 'react-bootstrap';
 import ComparisonModal from '../ComparisonModal.jsx';
 import AverageStars from '../../Ratings/averageStars.jsx';
+import { Redirect } from 'react-router';
 
 class ProductCarousel extends React.Component {
   constructor(props) {
@@ -19,6 +20,7 @@ class ProductCarousel extends React.Component {
     this.prevClick = this.prevClick.bind(this);
     this.updateScroll = this.updateScroll.bind(this);
     this.showComparison = this.showComparison.bind(this);
+    this.updateOverview = this.updateOverview.bind(this);
   }
 
   myRef = React.createRef();
@@ -40,9 +42,10 @@ class ProductCarousel extends React.Component {
     let actualPercentage = (starCount / (starRating * 5)) * 100
     let starPercentage = actualPercentage * 83.4 / 100
     let percentage = `${starPercentage}%`
-
+    
     return (
-      <Card key={index} index={index} className='individualCard'>
+      <Card key={index} index={index} className='individualCard' > 
+      <div onClick={() => this.updateOverview(card)}>
         {card.image[0].photos[0].thumbnail_url === null
         ? <Card.Img variant="top" src='https://whetstonefire.org/wp-content/uploads/2020/06/image-not-available.jpg' className='cardImg' alt=''/>
         : <Card.Img variant="top" src={card.image[0].photos[0].thumbnail_url} className='cardImg' alt=''/> }
@@ -63,11 +66,12 @@ class ProductCarousel extends React.Component {
             }
           </Card.Text>
           <Card.Text className='cardRating'>
-            <AverageStars percentage={{width: starPercentage}} />
+            <AverageStars percentage={{width: percentage}} />
           </Card.Text>
         </Card.Body>
+        </div>
         <Button
-          variant="primary"
+          variant="primary" 
           className='productCompare'
           onClick={() => this.showComparison(card)}
         >★</Button>
@@ -100,11 +104,13 @@ class ProductCarousel extends React.Component {
 
   updateScroll() {
     const slide = this.myRef.current;
+
     if (this.state.scroll === slide.scrollWidth) {
       this.setState({rightarrow: false})
     } else {
       this.setState({rightarrow: true})
     }
+
     if (this.state.scroll === 940) {
       this.setState({leftarrow: false})
     } else {
@@ -112,38 +118,56 @@ class ProductCarousel extends React.Component {
     }
   }
 
+  updateOverview(card) {
+    window.location.pathname = card.id
+    // return <Redirect to={`/${card.id}`} />
+  }
+
+
   render() {
     return (
       <>
-        <div>
+        <div>          
           { this.state.compare
-            ? <ComparisonModal
-              show={this.state.compare}
+            ? <ComparisonModal 
+              show={this.state.compare} 
               hide={() => this.setState({compare: false})}
               relatedInformation={this.state.cardInfo}
-              overviewProduct={this.props.overviewProduct}/>
+              overviewProduct={this.props.overviewProduct}/> 
             : <></>}
         </div>
         <h9 className='relatedTitle'>Related Products</h9>
-        <div className='relatedContainer' ref={this.myRef}>
-          {this.props.relatedInfo.map(this.renderCard)}
+        <div className='wrapper'>
+          <div className='relatedContainer linear_gradient' ref={this.myRef}>
+            {this.props.relatedInfo.map(this.renderCard)}
+          </div>
         </div>
+
 
         <div className='arrows'>
           {!this.state.leftarrow ?
           <button className='hidearrow left'></button> :
           <div>
-            {/* <div className='listGradient gradLeft'></div> */}
-            <button className='arrow left' onClick={() => this.prevClick()}></button>
+            <div>
+              <button className='arrow left' onClick={() => this.prevClick()}></button>
+            </div>
           </div>
           }
-          {!this.state.rightarrow ?
+          {!this.state.rightarrow ? 
           <button className='hidearrow right'></button> :
           <div>
-            {/* <div className='listGradient gradRight'></div> */}
-            <button className='arrow right' onClick={() => this.nextClick()}></button>
+            <div>
+              <button className='arrow right' onClick={() => this.nextClick()}></button>
+            </div>
           </div>
           }
+        </div>
+        <div className='listGradient'>
+          {!this.state.leftarrow && <div className='hiddenLeftList'></div>}
+          {this.state.leftarrow && <div className='leftList'></div>}
+          {!this.state.rightarrow
+          ? <div className='hiddenRightList'></div>
+          : <div className='rightList'></div>}
         </div>
       </>
     )

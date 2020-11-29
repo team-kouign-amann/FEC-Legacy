@@ -2,35 +2,27 @@
 /* eslint-disable import/no-named-as-default-member */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import ProductCarousel from './Carousels/ProductCarousel.jsx';
 import OutfitCarousel from './Carousels/OutfitCarousel.jsx';
 
-class Related extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+const Related = (props) => {
+  const { productId } = useParams();
+  useEffect(() => {
+    props.getRelatedProducts(productId);
+    props.getOutfitInformation(productId);
+  }, []);
 
-  componentDidMount() {
-    const overviewProduct = this.props.overviewProduct.id;
-    this.props.getRelatedProducts(1);
-    // this.props.getOutfitInformation(overviewProduct);
-    // testing
-    this.props.getOutfitInformation(86);
-  }
-
-  render() {
-    return (
-      <div>
-        <ProductCarousel
-          relatedInfo={this.props.relatedInfo}
-          overviewProduct={this.props.overviewProduct}
-        />
-        <OutfitCarousel outfitInfo={this.props.outfitInfo} />
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <ProductCarousel
+        relatedInfo={props.relatedInfo}
+        overviewProduct={props.overviewProduct}
+      />
+      <OutfitCarousel outfitInfo={props.outfitInfo} />
+    </div>
+  );
+};
 
 export default Related;

@@ -1,5 +1,8 @@
+/* eslint-disable import/prefer-default-export */
 import axios from 'axios';
 import { Promise } from 'bluebird';
+import 'core-js';
+import 'regenerator-runtime';
 
 const fetchRelatedProducts = () => ({ type: 'FETCH_RELATED' });
 const fetchRelatedProductsSuccess = (relatedProds) => ({ type: 'FETCH_RELATED_SUCCESS', payload: relatedProds });

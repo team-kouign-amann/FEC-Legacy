@@ -22,7 +22,7 @@ const Product = ({expandedView}) => {
     .catch((err) => {
       console.log("Error! Error: ", err);
     })
-  }, [])
+  }, []);
 
 
   return (
