@@ -27,7 +27,7 @@ const Rating = ({ showReviews, metaRatings}) => {
   return (
     <div className="row">
       <div className="column_one">
-        <h3>RATING &amp; REVIEWS</h3>
+        <h3 id="ratings">RATING &amp; REVIEWS</h3>
         <div className="rating"> {temp} </div>
         <div className="star-ratings-css">
           <AverageStars percentage={{ width: avarageStarsPercentage }} />
