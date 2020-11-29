@@ -4,7 +4,7 @@ import clickTrackerWrapper from '../../util/clickTrackerWrapper.jsx';
 
 const mapStateToProps = (state) => ({
   showReviews: state.showReviews,
-  metaRatings: state.metaRatings
+  metaRatings: state.metaRatings,
 });
 
 // const mapDispatchToProps = (dispatch) => ({

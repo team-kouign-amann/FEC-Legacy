@@ -1,4 +1,5 @@
 import React from 'react';
+import AddToCartContainer from '../../../../containers/productContainers/addToCartContainer.js';
 
 const SelectSize = ({currentStyle, selectSize, handleSelectClick, updateMaxQuantity,
   handleSelectChange, selectQuantity, handleQuantityClick, handleQuantityChange}) => {
@@ -46,12 +47,7 @@ const SelectSize = ({currentStyle, selectSize, handleSelectClick, updateMaxQuant
           ))}
         </div>
       </div>
-      <div className="add-to-cart-container">
-        <div className="add-to-cart-button">
-          <div style={{ 'align-self': 'center' }}> ADD TO CART</div>
-          <div style={{ 'font-size': '1.5em'}}> + </div>
-        </div>
-      </div>
+      <AddToCartContainer />
     </div>
   );
 };

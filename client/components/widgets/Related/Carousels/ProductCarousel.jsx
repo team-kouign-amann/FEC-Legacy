@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, Button } from 'react-bootstrap';
 import ComparisonModal from '../ComparisonModal.jsx';
 import AverageStars from '../../Ratings/averageStars.jsx';
-import { Redirect } from 'react-router';
+import { Redirect } from 'react-router-dom';
 
 class ProductCarousel extends React.Component {
   constructor(props) {
@@ -42,9 +42,9 @@ class ProductCarousel extends React.Component {
     let actualPercentage = (starCount / (starRating * 5)) * 100
     let starPercentage = actualPercentage * 83.4 / 100
     let percentage = `${starPercentage}%`
-    
+
     return (
-      <Card key={index} index={index} className='individualCard' > 
+      <Card key={index} index={index} className='individualCard' >
       <div onClick={() => this.updateOverview(card)}>
         {card.image[0].photos[0].thumbnail_url === null
         ? <Card.Img variant="top" src='https://www.agd-systems.com/wp-content/uploads/2017/02/photo-coming-soon.jpg' className='cardImg' alt=''/>
@@ -71,7 +71,7 @@ class ProductCarousel extends React.Component {
         </Card.Body>
         </div>
         <Button
-          variant="primary" 
+          variant="primary"
           className='productCompare'
           onClick={() => this.showComparison(card)}
         >★</Button>
@@ -119,20 +119,26 @@ class ProductCarousel extends React.Component {
   }
 
   updateOverview(card) {
+<<<<<<< HEAD
     window.location.pathname = card.id
+=======
+
+    window.location.pathname = 'product/' + card.id
+
+>>>>>>> master
   }
 
 
   render() {
     return (
       <>
-        <div>          
+        <div>
           { this.state.compare
-            ? <ComparisonModal 
-              show={this.state.compare} 
+            ? <ComparisonModal
+              show={this.state.compare}
               hide={() => this.setState({compare: false})}
               relatedInformation={this.state.cardInfo}
-              overviewProduct={this.props.overviewProduct}/> 
+              overviewProduct={this.props.overviewProduct}/>
             : <></>}
         </div>
         <h9 className='relatedTitle'>Related Products</h9>
@@ -152,7 +158,7 @@ class ProductCarousel extends React.Component {
             </div>
           </div>
           }
-          {!this.state.rightarrow ? 
+          {!this.state.rightarrow ?
           <button className='hidearrow right'></button> :
           <div>
             <div>
