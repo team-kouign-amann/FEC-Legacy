@@ -129,7 +129,8 @@ PRODUCT OVERVIEW
 .item5 { grid-area: bag;
          font-size: 1.25em;
         font-style: italic;
-        justify-content: space-around; }
+        justify-content: space-around;
+        align-items: flex-end }
 .item6 { grid-area: slogan;
          flex-direction: column;}
 .item7 { grid-area: guarantee;
