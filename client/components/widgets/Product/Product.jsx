@@ -16,7 +16,6 @@ const Product = ({expandedView, currentStyle, carouselPosition}) => {
   const server = 'http://3.139.94.92';
   const { productId } = useParams();
   const location = useLocation();
-  console.log("Location (from use location", location);
   useEffect(() => {
     store.dispatch(getProduct(productId))
     .then(() => {
