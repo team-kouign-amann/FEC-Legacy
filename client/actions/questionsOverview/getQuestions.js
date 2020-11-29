@@ -36,6 +36,17 @@ function getQuestions(productId) {
         console.log('IT WORKED');
         return questions;
       })
+      .then(() => {
+        return axios.get(`http://3.21.164.220/products/${productId}`);
+      })
+      .then(({ data }) => {
+        let productName = data.name;
+        console.log('productName', productName, data);
+        dispatch({
+          type: 'PRODUCT_NAME',
+          productName: productName,
+        });
+      })
       .catch((error) => {
         console.log('Error with GET questions: ', error);
       });

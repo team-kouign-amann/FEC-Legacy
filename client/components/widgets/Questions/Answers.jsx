@@ -45,10 +45,12 @@ const Answers = (props) => {
             <span><img src={photo} width="75" height="50"/></span>
             ))}
           </div>
-          {(() => {if (answer.answerer_name === 'Seller') {
-            return <div><span>by <b>{answer.answerer_name}</b>, {moment(answer.date).format('MMMM Do, YYYY')}</span> | Helpful? <span className="btn_words" onClick={() => props.answerHelpful(answer.id)}>Yes</ span>  ({answer.helpfulness}) | <span className="btn_words">Report</span> | <span className="btn_words">Add Answer</span></div>
+          {(() => {if (!props.reportedAnswer.includes(answer.id)) {
+            return (answer.answerer_name === 'Seller' 
+            ? <div><span>by <b>{answer.answerer_name}</b>, {moment(answer.date).format('MMMM Do, YYYY')}</span> | Helpful? <span className="btn_words" onClick={() => props.answerHelpful(answer.id)}>Yes</ span>  ({answer.helpfulness}) | <span className="btn_words" onClick={props.reportAnswer(answer.id)}>Report</span></div> 
+            : <div><span>by {answer.answerer_name}, {moment(answer.date).format('MMMM Do, YYYY')}</span> | Helpful? <span className="btn_words" onClick={() => props.answerHelpful(answer.id)}>Yes</ span>  ({answer.helpfulness}) | <span className="btn_words" onClick={props.reportAnswer(answer.id)}>Report</span></div>)
           } else {
-            return <div><span>by {answer.answerer_name}, {moment(answer.date).format('MMMM Do, YYYY')}</span> | Helpful? <span className="btn_words" onClick={() => props.answerHelpful(answer.id)}>Yes</ span>  ({answer.helpfulness}) | <span className="btn_words">Report</span> | <span className="btn_words">Add Answer</span></div>
+            return <div><span>by {answer.answerer_name}, {moment(answer.date).format('MMMM Do, YYYY')}</span> | Helpful? <span className="btn_words" onClick={() => props.answerHelpful(answer.id)}>Yes</ span>  ({answer.helpfulness}) | <span className="btn_words">Reported</span></div>
           }})()}
         </div> 
       ))}
@@ -60,7 +62,8 @@ const Answers = (props) => {
       return <div><button className="btn_words" onClick={() => props.moreAnswers(props.answerBoolean, props.question.question_id)}>Collapse ANSWERS</button></div>
     }
     })()} 
-  </div></div>
+  </div>
+  </div>
   )};
 
 

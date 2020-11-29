@@ -7,8 +7,10 @@ import moreQuestions from '../actions/questionsOverview/moreQuestions.js';
 import moreAnswers from '../actions/questionsOverview/moreAnswers.js';
 import questionHelpful from '../actions/questionsOverview/questionHelpful.js';
 import answerHelpful from '../actions/questionsOverview/answerHelpful.js';
+import reportAnswer from '../actions/questionsOverview/reportAnswer.js';
 import inputSearch from '../actions/questionsOverview/searchQuestions.js';
 import addQuestions from '../actions/questionsOverview/addQuestions.js';
+import addAnswers from '../actions/questionsOverview/addAnswers.js';
 
 const mapStateToProps = (state) => ({
   // data: state.currentQuestions.data,
@@ -19,10 +21,9 @@ const mapStateToProps = (state) => ({
   votedAnswer: state.currentQuestions.votedAnswer,
   votedAnswer: state.currentQuestions.votedAnswer,
   filterQs: state.currentQuestions.filterQs,
-  // allAnswers: state.currentQuestions.allAnswers,
   id: state.currentQuestions.id,
-  // count: state.currentQuestions.count,
-  // answers: state.currentQuestions.answers,
+  productName: state.currentQuestions.productName,
+  reportedAnswer: state.currentQuestions.reportedAnswer,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -34,8 +35,11 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(questionHelpful(questionId, votedAlready, id)),
   answerHelpful: (answerId, votedAlready, product_id) =>
     dispatch(answerHelpful(answerId, votedAlready, product_id)),
+  reportAnswer: (answerId, reportedAlready, product_id) =>
+    dispatch(reportAnswer(answerId, reportedAlready, product_id)),
   inputSearch: (input, questions) => dispatch(inputSearch(input, questions)),
   addQuestions: (params) => dispatch(addQuestions(params)),
+  addAnswers: (params, bodyParams) => dispatch(addAnswers(params, bodyParams)),
 });
 
 var QuestionsContainer = connect(

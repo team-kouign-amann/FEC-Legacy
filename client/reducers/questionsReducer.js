@@ -4,6 +4,7 @@ let initialState = {
   votedAlready: [],
   votedAnswer: [],
   questions: [],
+  reportedAnswer: [],
 };
 
 var questionsReducer = (state = initialState, action) => {
@@ -16,6 +17,11 @@ var questionsReducer = (state = initialState, action) => {
         numRender: action.numRender,
         id: action.id,
         answerBoolean: action.answerBoolean,
+      };
+    case 'PRODUCT_NAME':
+      return {
+        ...state,
+        productName: action.productName,
       };
     case 'NEW_NUM':
       return {
@@ -44,6 +50,14 @@ var questionsReducer = (state = initialState, action) => {
       };
     case 'ADD_QUESTION':
       return { ...state };
+    case 'ADD_ANSWER':
+      return { ...state };
+    case 'REPORT_ANSWER':
+      return {
+        ...state,
+        questions: action.questions,
+        reportedAnswer: action.reportedAnswer,
+      };
     default:
       return state;
   }
