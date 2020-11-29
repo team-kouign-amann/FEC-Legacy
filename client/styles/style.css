@@ -494,6 +494,12 @@ Website Header
   color: white;
 }
 
+.sale-annoucement-container {
+  font-size: 1.45em;
+  font-style: italic;
+  text-align: center;
+}
+
 /********
 
 Slogan
