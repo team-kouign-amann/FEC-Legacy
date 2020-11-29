@@ -46,8 +46,8 @@ class OutfitCarousel extends React.Component {
     let percentage = `${starPercentage}%`
 
     return (
-      <Card key={index} index={index} className='individualCard' onClick={() => this.updateOverview(card)}>
-
+      <Card key={index} index={index} className='individualCard' >
+        <div onClick={() => this.updateOverview(card)}>
         {card.styles[0].photos[0].thumbnail_url === null
         ? <Card.Img variant="top" src='https://whetstonefire.org/wp-content/uploads/2020/06/image-not-available.jpg' className='cardImg' alt=''/>
         : <Card.Img variant="top" src={card.styles[0].photos[0].thumbnail_url} className='cardImg' alt=''/> }
@@ -72,6 +72,7 @@ class OutfitCarousel extends React.Component {
             <AverageStars percentage={{width: percentage}} />
           </Card.Text>
         </Card.Body>
+        </div>
         <Button 
           variant="primary" 
           className='outfitDeleteButton'
@@ -177,6 +178,13 @@ class OutfitCarousel extends React.Component {
             <button className='hidearrow right'></button> :
             <button className='arrow right' onClick={() => this.nextClick()}></button>
             }
+          </div>
+          <div className='listGradient'>
+          {!this.state.leftarrow && <div className='hiddenLeftList'></div>}
+          {this.state.leftarrow && <div className='leftList'></div>}
+          {!this.state.rightarrow
+          ? <div className='hiddenRightList'></div>
+          : <div className='rightList'></div>}
           </div>
         </div>
       </>
