@@ -4,11 +4,10 @@ import { expandedViewAction } from '../actions/productOverview/expandedView.js';
 import clickTrackerWrapper from '../../util/clickTrackerWrapper.jsx';
 
 const mapStateToProps = (state) => ({
-  product: state.currentProduct,
   currentStyle: state.currentStyle,
-  styles: state.styles,
   carouselPosition: state.carouselPosition,
   expandedView: state.expandedView.toggleExpanded,
+  styles: state.styles,
 });
 
 const mapDispatchToProps = (dispatch) => ({

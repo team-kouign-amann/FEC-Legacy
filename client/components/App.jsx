@@ -10,7 +10,7 @@ import ProductContainer from '../containers/ProductContainer.js';
 const App = () => (
   <Router>
     <div>
-      <Route path={"/:productId"}>
+      <Route path={"/product/:productId"}>
 
         <ProductContainer />
 

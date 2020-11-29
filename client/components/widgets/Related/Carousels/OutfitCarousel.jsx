@@ -60,12 +60,12 @@ class OutfitCarousel extends React.Component {
               <b>{card.name}</b>
           </Card.Title>
           <Card.Text className='cardPrice'>
-            {card.styles[0].sale_price === '0' ? 
+            {card.styles[0].sale_price === '0' ?
               <div>${card.styles[0].original_price}</div> :
               <div className='priceLineUp'>
                 <div className='cutOriginalPrice'>${card.styles[0].original_price}</div>
                 <div className='salePrice'>${card.styles[0].sale_price}</div>
-              </div> 
+              </div>
             }
           </Card.Text>
           <Card.Text className='cardRating'>
@@ -73,8 +73,8 @@ class OutfitCarousel extends React.Component {
           </Card.Text>
         </Card.Body>
         </div>
-        <Button 
-          variant="primary" 
+        <Button
+          variant="primary"
           className='outfitDeleteButton'
           onClick={() => {this.deleteOutfit(card.id)}}
         >x</Button>
@@ -153,7 +153,7 @@ class OutfitCarousel extends React.Component {
   }
 
   updateOverview(card) {
-    window.location.pathname = card.id
+    window.location.pathname = 'product/' + card.id
   }
 
   render() {
@@ -170,11 +170,11 @@ class OutfitCarousel extends React.Component {
             {this.state.cardInfo.map(this.renderCard)}
           </div>
           <div className='arrows'>
-            {!this.state.leftarrow ? 
-            <button className='hidearrow left'></button> :  
-            <button className='arrow left' onClick={() => this.prevClick()}></button>          
+            {!this.state.leftarrow ?
+            <button className='hidearrow left'></button> :
+            <button className='arrow left' onClick={() => this.prevClick()}></button>
             }
-            {!this.state.rightarrow ? 
+            {!this.state.rightarrow ?
             <button className='hidearrow right'></button> :
             <button className='arrow right' onClick={() => this.nextClick()}></button>
             }

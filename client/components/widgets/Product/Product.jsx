@@ -10,11 +10,15 @@ import ExpandedViewContainer from '../../../containers/productContainers/expande
 import getProduct from '../../../actions/productOverview/getProduct.js';
 import store from '../../../store/store.js';
 import getStyles from '../../../actions/productOverview/getStyles.js';
-import clickTracker from '../../../../util/clickTracker.js';
+import defaultImg from '../../../../image-not-available.jpg';
+import findSaleStyle from '../../../../util/findSaleStyle.js';
 
-const Product = ({expandedView}) => {
+const Product = ({expandedView, currentStyle, carouselPosition, styles}) => {
+  const server = 'http://3.139.94.92';
   const { productId } = useParams();
   const location = useLocation();
+  const sale = findSaleStyle(styles);
+  console.log(sale);
   useEffect(() => {
     store.dispatch(getProduct(productId))
     .then(() => {
@@ -25,12 +29,11 @@ const Product = ({expandedView}) => {
     })
   }, []);
 
-
   return (
     <div>
       {expandedView ?
         <ExpandedViewContainer /> : null}
-      <div id="product" style={{"margin":"0px 150px"}}>
+      <div id="product" style={{"margin":"0px 100px"}}>
         <div className="header-container">
           <div className="header-logo">
             Daifuku X Donqueello Collab Official Store
@@ -39,22 +42,27 @@ const Product = ({expandedView}) => {
             <input className="header-search-bar" placeholder="____________" />
           </div>
         </div>
+        <div className="sale-annoucement-container">
+          {sale.length === 2 ? `This product is on sale! Save ${sale[1]}% on the ${sale[0]} style!` : 'Thank you for shopping with us!'}
+        </div>
         <div className="container">
           <div className="grid-container">
             <CarouselContainer />
             <ProductInfoContainer />
             <StyleSelectorContainer />
             <SelectSizeContainer />
-            <div className="item5">Size</div>
+            <div className="item5">
+              <div>Share on social media!</div>
+            </div>
             <SloganContainer />
-            <div className="item7">
-              <FacebookShareButton url={location.pathname}>
+            <div className="item7" onMouseDown={(e) => {e.preventDefault()}}>
+              <FacebookShareButton url={server + location.pathname} quote={'Wow! This would make a great gift'}>
                 <FacebookIcon size={50} round />
               </FacebookShareButton>
-              <TwitterShareButton url={location.pathname}>
+              <TwitterShareButton url={server + location.pathname}>
                 <TwitterIcon size={50} round />
               </TwitterShareButton>
-              <PinterestShareButton url={location.pathname} media="http://placecorgi.com/260/180">
+              <PinterestShareButton url={server + location.pathname} media= {currentStyle.photos === undefined ? defaultImg : currentStyle.photos[carouselPosition].thumbnail_url}>
                 <PinterestIcon size={50} round />
               </PinterestShareButton>
             </div>
