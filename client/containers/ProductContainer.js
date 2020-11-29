@@ -7,6 +7,7 @@ const mapStateToProps = (state) => ({
   currentStyle: state.currentStyle,
   carouselPosition: state.carouselPosition,
   expandedView: state.expandedView.toggleExpanded,
+  styles: state.styles,
 });
 
 const mapDispatchToProps = (dispatch) => ({
