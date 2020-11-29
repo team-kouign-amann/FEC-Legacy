@@ -13,13 +13,13 @@ const PreviewList = ({position}) => {
   }
 return (
     <div className="flex-preview-list">
-      <button className="arrow-carousel up-carousel" type="submit"></button>
+      <button className="arrow-carousel up-carousel hidden" type="submit"></button>
       <ul className="preview_list">
         {photoIndex.map((index) => (
           <PreviewListEntryContainer index={index} />
         ))}
       </ul>
-      <button className="arrow-carousel down-carousel" type="submit"></button>
+      <button className="arrow-carousel down-carousel hidden" type="submit"></button>
     </div>
   );
 };

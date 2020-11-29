@@ -6,12 +6,11 @@ const clickTracker = (element, widget, time) => (
     widget,
     time,
   })
-  .then((res) => {
-    console.log(res);
-  })
-  .catch((err) => {
-    console.log('Error in clickTracker! Error: ', err);
-  })
+    .then(() => {
+    })
+    .catch((err) => {
+      console.log('Error in clickTracker! Error: ', err);
+    })
 );
 
 export default clickTracker;

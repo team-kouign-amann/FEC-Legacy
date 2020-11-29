@@ -7,7 +7,7 @@ import metaReducer from './ratingReducers/metaReducer.js';
 import reviewsReducer from './ratingReducers/reviewsReducer.js';
 
 // import your other reducers:
-import relatedInfoReducer from './relatedProdReducer.js';
+import relatedInfoReducer from './Related Products/relatedProdReducer.js';
 import outfitInfoReducer from './Related Products/outfitCardReducer.js';
 import currentProductReducer from './productOverview/currentProductReducer.js';
 import currentStyleReducer from './productOverview/currentStyleReducer.js';

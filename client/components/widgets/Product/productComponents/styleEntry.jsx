@@ -12,8 +12,8 @@ const StyleEntry = ({style, handleClick, currentStyle}) => {
   }
   if (colors.length === 0) {
     return (
-      <div className={className} style={{'background':'grey'}} >
-        <button type="submit" onClick={() => { handleClick(style) }} />
+      <div className={className} style={{'background':'grey'}} onClick={() => { handleClick(style) }}  >
+        {style.name.split(' ')[0]}
       </div>
     )
   } else if (colors.length === 1) {
