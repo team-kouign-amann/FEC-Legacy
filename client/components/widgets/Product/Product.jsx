@@ -31,7 +31,7 @@ const Product = ({expandedView, currentStyle, carouselPosition}) => {
     <div>
       {expandedView ?
         <ExpandedViewContainer /> : null}
-      <div id="product" style={{"margin":"0px 150px"}}>
+      <div id="product" style={{"margin":"0px 100px"}}>
         <div className="header-container">
           <div className="header-logo">
             Daifuku X Donqueello Collab Official Store
