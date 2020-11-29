@@ -47,7 +47,7 @@ class ProductCarousel extends React.Component {
       <Card key={index} index={index} className='individualCard' >
       <div onClick={() => this.updateOverview(card)}>
         {card.image[0].photos[0].thumbnail_url === null
-        ? <Card.Img variant="top" src='https://whetstonefire.org/wp-content/uploads/2020/06/image-not-available.jpg' className='cardImg' alt=''/>
+        ? <Card.Img variant="top" src='https://www.agd-systems.com/wp-content/uploads/2017/02/photo-coming-soon.jpg' className='cardImg' alt=''/>
         : <Card.Img variant="top" src={card.image[0].photos[0].thumbnail_url} className='cardImg' alt=''/> }
         <Card.Body className='cardBody'>
           <Card.Text className='cardText'>
@@ -119,9 +119,13 @@ class ProductCarousel extends React.Component {
   }
 
   updateOverview(card) {
+<<<<<<< HEAD
+    window.location.pathname = card.id
+=======
 
     window.location.pathname = 'product/' + card.id
 
+>>>>>>> master
   }
 
 
