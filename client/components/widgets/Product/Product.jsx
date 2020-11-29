@@ -11,11 +11,14 @@ import getProduct from '../../../actions/productOverview/getProduct.js';
 import store from '../../../store/store.js';
 import getStyles from '../../../actions/productOverview/getStyles.js';
 import defaultImg from '../../../../image-not-available.jpg';
+import findSaleStyle from '../../../../util/findSaleStyle.js';
 
-const Product = ({expandedView, currentStyle, carouselPosition}) => {
+const Product = ({expandedView, currentStyle, carouselPosition, styles}) => {
   const server = 'http://3.139.94.92';
   const { productId } = useParams();
   const location = useLocation();
+  const sale = findSaleStyle(styles);
+  console.log(sale);
   useEffect(() => {
     store.dispatch(getProduct(productId))
     .then(() => {
@@ -25,7 +28,6 @@ const Product = ({expandedView, currentStyle, carouselPosition}) => {
       console.log("Error! Error: ", err);
     })
   }, []);
-
 
   return (
     <div>
@@ -39,6 +41,9 @@ const Product = ({expandedView, currentStyle, carouselPosition}) => {
           <div className="header-search-container">
             <input className="header-search-bar" placeholder="____________" />
           </div>
+        </div>
+        <div className="sale-annoucement-container">
+          {sale.length === 2 ? `This product is on sale! Save ${sale[1]}% on the ${sale[0]} style!` : 'Thank you for shopping with us!'}
         </div>
         <div className="container">
           <div className="grid-container">
