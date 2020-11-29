@@ -10,10 +10,13 @@ import ExpandedViewContainer from '../../../containers/productContainers/expande
 import getProduct from '../../../actions/productOverview/getProduct.js';
 import store from '../../../store/store.js';
 import getStyles from '../../../actions/productOverview/getStyles.js';
+import defaultImg from '../../../../image-not-available.jpg';
 
-const Product = ({expandedView}) => {
+const Product = ({expandedView, currentStyle, carouselPosition}) => {
+  const server = 'http://3.139.94.92';
   const { productId } = useParams();
-  //const location = useLocation();
+  const location = useLocation();
+  console.log("Location (from use location", location);
   useEffect(() => {
     store.dispatch(getProduct(productId))
     .then(() => {
@@ -44,16 +47,18 @@ const Product = ({expandedView}) => {
             <ProductInfoContainer />
             <StyleSelectorContainer />
             <SelectSizeContainer />
-            <div className="item5">Size</div>
+            <div className="item5">
+              <div>Share on social media!</div>
+            </div>
             <SloganContainer />
-            <div className="item7">
-              <FacebookShareButton url={location.pathname}>
+            <div className="item7" onMouseDown={(e) => {e.preventDefault()}}>
+              <FacebookShareButton url={server + location.pathname} quote={'Wow! This would make a great gift'}>
                 <FacebookIcon size={50} round />
               </FacebookShareButton>
-              <TwitterShareButton url={location.pathname}>
+              <TwitterShareButton url={server + location.pathname}>
                 <TwitterIcon size={50} round />
               </TwitterShareButton>
-              <PinterestShareButton url={location.pathname} media="http://placecorgi.com/260/180">
+              <PinterestShareButton url={server + location.pathname} media= {currentStyle.photos === undefined ? defaultImg : currentStyle.photos[carouselPosition].thumbnail_url}>
                 <PinterestIcon size={50} round />
               </PinterestShareButton>
             </div>
