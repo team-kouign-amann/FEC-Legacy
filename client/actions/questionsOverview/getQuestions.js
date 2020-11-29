@@ -15,28 +15,26 @@ function getQuestions(productId) {
         questions.sort(
           (a, b) => b.question_helpfulness - a.question_helpfulness
         );
+
+        console.log('allQuestions', questions);
+
+        let questionIds = {};
+
+        for (let i = 0; i < questions.length; i++) {
+          questionIds[questions[i].question_id] = true;
+        }
+
         dispatch({
           type: 'ALL_DATA',
           questions: questions,
           numRender: 4,
           id: product_id,
-          // votedAlready: [],
-          // votedAnswer: [],
-        });
-        return questions;
-      })
-      .then((data) => {
-        console.log('allQuestions', data);
-        let questionIds = {};
-        for (let i = 0; i < data.length; i++) {
-          questionIds[data[i].question_id] = true;
-        }
-        console.log('Questionids', questionIds);
-        dispatch({
-          type: 'SHOW_ANSWERS',
           answerBoolean: questionIds,
         });
-        return;
+
+        console.log('Questionids', questionIds);
+        console.log('IT WORKED');
+        return questions;
       })
       .catch((error) => {
         console.log('Error with GET questions: ', error);

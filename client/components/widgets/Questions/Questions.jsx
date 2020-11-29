@@ -1,25 +1,51 @@
 import React, {useEffect} from "react";
-import getQuestions from '../../../actions/questionsOverview/getQuestions.js'
+// import getQuestions from '../../../actions/questionsOverview/getQuestions.js'
 import Answers from './Answers.jsx';
-import { useParams } from 'react-router-dom';
-// import 'core-js';
-// import 'regenerator-runtime';
-import store from '../../../store/store.js';
+import { useParams, useLocation } from 'react-router-dom';
+import $ from 'jquery';
+import 'core-js';
+import 'regenerator-runtime';
+
+
 
 const Questions = (props) => {
-  
   const { productId } = useParams();
-  {console.log('props.id:', productId)}
+  {console.log('productId:', productId)}
+  const location = useLocation();
+  {console.log('location:', location)}
 
-  useEffect(() => {
-    console.log('hit')
-    store.dispatch(getQuestions(productId))
+
+  $('form').on('submit', function( event ) {
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    let params = { body: document.getElementById("body").value, 
+                  name: document.getElementById("name").value, 
+                  email: document.getElementById("email").value, 
+                  product_id: Number(document.getElementById("product_id").value) 
+                  }
+    console.log(params);
+    return props.addQuestions(params)
+    .then(() => {
+      window.location.href = location.pathname
+      document.getElementById("body").value = ''; 
+      document.getElementById("name").value = '';
+      document.getElementById("email").value = '';
+    })
     .catch((err) => {
-      console.log("Error! Error: ", err);
-    }) 
+      console.log('Error submitting', err)
+    })
+  });
+
+  useEffect(async () => {
+    console.log('hit')
+    await props.getQuestions(productId)
+    .catch((err) => {
+      console.log('Error getting initial questions', err)
+    })
   }, [])
   
   {console.log('props.questions:', props.questions)}
+  {console.log('props.answerBoolean:', props.answerBoolean)}
   {console.log('props.id:', props.id)}
     
   let questions;
@@ -72,17 +98,17 @@ const Questions = (props) => {
                   <a href="#close" title="Close" class="close">X</a>
                   <h2>Ask Your Question</h2>
                   <h3>About the (Product Name)</h3>
-                    <form method="post">
+                    <form>
                       <label for="body">* Your Question:</label><br />
-                      <input type="text" id="body" name="body"></input><br />
+                      <input type="text" maxlength="1000" id="body" size="100"></input><br />
                       <label for="name">* What is your nickname</label><br />
-                      <input type="text" id="name" name="name" placeholder="Example: jackson11!"></input>
+                      <input type="text" maxlength="60" id="name" size="60" placeholder="Example: jackson11!"></input>
                       <p>For privacy reasons, do not use your full name or email address</p>
                       <label for="email">* Your email</label><br />
-                      <input type="text" id="email" name="email" placeholder="Why did you like the product or not?"></input>
+                      <input type="text" maxlength="60" id="email" size="60" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  placeholder="Why did you like the product or not?"></input>
                       <p>For authentication reasons, you will not be emailed</p>
-                      <input type="hidden" name="product_id" value={props.id}></input>
-                      <input type="submit" value="Submit question"></input>
+                      <input type="number" id="product_id" value={props.id} style={{display: 'none'}}></input>
+                      <input type="submit" value="Submit question" onsubmit="return false"></input>
                     </form>
                 </div>
               </div>
@@ -94,6 +120,7 @@ const Questions = (props) => {
 }
 
 export default Questions;
+
 
 
 

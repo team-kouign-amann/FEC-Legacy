@@ -3,6 +3,7 @@ import Redux from 'redux';
 let initialState = {
   votedAlready: [],
   votedAnswer: [],
+  questions: [],
 };
 
 var questionsReducer = (state = initialState, action) => {
@@ -14,6 +15,7 @@ var questionsReducer = (state = initialState, action) => {
         questions: action.questions,
         numRender: action.numRender,
         id: action.id,
+        answerBoolean: action.answerBoolean,
       };
     case 'NEW_NUM':
       return {
@@ -40,6 +42,8 @@ var questionsReducer = (state = initialState, action) => {
         ...state,
         filterQs: action.filterQs,
       };
+    case 'ADD_QUESTION':
+      return { ...state };
     default:
       return state;
   }
