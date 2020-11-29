@@ -17,7 +17,7 @@ const postReview = (newReview) => {
   //console.log(requestReview);
   axios.post('http://3.21.164.220/reviews', requestReview)
     .then((resp) => {
-      console.log(resp);
+      //console.log(resp);
 
       // dispatch
       store.dispatch(getReview(3));
