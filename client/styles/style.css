@@ -26,7 +26,7 @@
 .star-ratings-css {
   unicode-bidi: bidi-override;
   color: #c5c5c5;
-  font-size: 25px;
+  font-size: 17px;
   height: 25px;
   width: 100px;
   position: relative;
@@ -550,19 +550,6 @@ Related Products
   z-index: 0;
 }
 
-/* .relatedContainer {
-  content  : "";
-  position : relative;
-  z-index  : 1;
-  bottom   : 0;
-  left     : 0;
-  pointer-events   : none;
-  background-image : linear-gradient(to right, 
-                    rgba(255,255,255, 0), 
-                    rgb(211, 35, 35) 90%);
-  width    : 100%;
-} */
-
 .relatedContainer::-webkit-scrollbar {
   display: none;
 }
@@ -649,7 +636,7 @@ Related Products
   background: transparent;
   box-shadow: 0px 0px 0px transparent;
   position: relative;
-  top: -245px;
+  top: -233px;
   transform: translateY(-50%);
   cursor: pointer;
   height: 20px;
@@ -677,31 +664,77 @@ Related Products
   -webkit-transform: rotate(-45deg);
   background: transparent;
   left: 900px;
+  outline:none;
 }
 
 .left {
   transform: rotate(135deg);
   -webkit-transform: rotate(135deg);
   background: transparent;
+  outline:none;
+  left: -30px;
 }
-/* 
+
 .listGradient {
-  background-color: grey;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0 auto;
+  max-width: 900px;
+  width: 100%;
+  z-index: 0;
+  position: absolute;
+}
+
+.leftList {
+  background-image: linear-gradient(to left, rgba(255, 255, 255, 0), rgb(255, 255, 255) 85%
+  );
   width: 7rem;
-  height: 25rem;
+  height: 26rem;
   position: relative;
   display: inline-block;
-  top: -245px;
   z-index: 1;
-} */
+  top: -450px;
+  left: 129px;
+}
 
-/* .gradLeft {
+.hiddenLeftList {
+  background-image: linear-gradient(to left, rgba(255, 255, 255, 0), rgb(255, 255, 255) 85%
+  );
+  width: 7rem;
+  height: 26rem;
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+  top: -450px;
+  left: 129px;
+  visibility: hidden;
+}
 
-} */
+.rightList {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgb(255, 255, 255) 85%
+  );
+  width: 7rem;
+  height: 26rem;
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+  top: -450px;
+  left: 850px;
+}
 
-/* .gradRight {
-
-} */
+.hiddenRightList {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgb(255, 255, 255) 85%
+  );
+  width: 7rem;
+  height: 26rem;
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+  top: -450px;
+  left: 850px;
+  visibility: hidden;
+}
 
 /* Related Products Compare and Delete Button */
 
@@ -719,9 +752,9 @@ Related Products
   font-weight: bold;
 }
 
-*:focus {
+/* *:focus {
   outline: 0 !important;
-}
+} */
 
 /* Related Products Outfit Styling */
 

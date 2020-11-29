@@ -19,7 +19,7 @@ class ProductCarousel extends React.Component {
     this.prevClick = this.prevClick.bind(this);
     this.updateScroll = this.updateScroll.bind(this);
     this.showComparison = this.showComparison.bind(this);
-    // this.updateOverview = this.updateOverview.bind(this);
+    this.updateOverview = this.updateOverview.bind(this);
   }
 
   myRef = React.createRef();
@@ -43,7 +43,8 @@ class ProductCarousel extends React.Component {
     let percentage = `${starPercentage}%`
     
     return (
-      <Card key={index} index={index} className='individualCard' onClick={() => this.updateOverview(card)}>
+      <Card key={index} index={index} className='individualCard' > 
+      <div onClick={() => this.updateOverview(card)}>
         {card.image[0].photos[0].thumbnail_url === null
         ? <Card.Img variant="top" src='https://whetstonefire.org/wp-content/uploads/2020/06/image-not-available.jpg' className='cardImg' alt=''/>
         : <Card.Img variant="top" src={card.image[0].photos[0].thumbnail_url} className='cardImg' alt=''/> }
@@ -67,6 +68,7 @@ class ProductCarousel extends React.Component {
             <AverageStars percentage={{width: percentage}} />
           </Card.Text>
         </Card.Body>
+        </div>
         <Button
           variant="primary" 
           className='productCompare'
@@ -101,11 +103,15 @@ class ProductCarousel extends React.Component {
 
   updateScroll() {
     const slide = this.myRef.current;
-    if (this.state.scroll === slide.scrollWidth) {
+
+    if (this.state.cardInfo.length <= 3) {
+      this.setState({rightarrow: false})
+    } else if (this.state.scroll === slide.scrollWidth) {
       this.setState({rightarrow: false})
     } else {
       this.setState({rightarrow: true})
     }
+
     if (this.state.scroll === 940) {
       this.setState({leftarrow: false})
     } else {
@@ -113,10 +119,10 @@ class ProductCarousel extends React.Component {
     }
   }
 
-  // updateOverview(card) {
-  //   // console.log('updating overview!')
-  //   // console.log('This is the card: ', card)
-  // }
+  updateOverview(card) {
+    // console.log(window.location.search)
+    window.location.search = card.id;
+  }
 
 
   render() {
@@ -143,17 +149,26 @@ class ProductCarousel extends React.Component {
           {!this.state.leftarrow ?
           <button className='hidearrow left'></button> :
           <div>
-            {/* <div className='listGradient gradLeft'>left</div> */}
-            <button className='arrow left' onClick={() => this.prevClick()}></button>
+            <div>
+              <button className='arrow left' onClick={() => this.prevClick()}></button>
+            </div>
           </div>
           }
           {!this.state.rightarrow ? 
           <button className='hidearrow right'></button> :
           <div>
-            {/* <div className='listGradient gradRight'>right</div> */}
-            <button className='arrow right' onClick={() => this.nextClick()}></button>
+            <div>
+              <button className='arrow right' onClick={() => this.nextClick()}></button>
+            </div>
           </div>
           }
+        </div>
+        <div className='listGradient'>
+          {!this.state.leftarrow && <div className='hiddenLeftList'></div>}
+          {this.state.leftarrow && <div className='leftList'></div>}
+          {!this.state.rightarrow
+          ? <div className='hiddenRightList'></div>
+          : <div className='rightList'></div>}
         </div>
       </>
     )

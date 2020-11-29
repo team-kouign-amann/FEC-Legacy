@@ -19,6 +19,8 @@ class OutfitCarousel extends React.Component {
     this.updateScroll = this.updateScroll.bind(this);
     this.addOutfit = this.addOutfit.bind(this);
     this.deleteOutfit = this.deleteOutfit.bind(this);
+    this.updateOverview = this.updateOverview.bind(this);
+
   }
 
   componentDidMount() {
@@ -44,8 +46,8 @@ class OutfitCarousel extends React.Component {
     let percentage = `${starPercentage}%`
 
     return (
-      <Card key={index} index={index} className='individualCard'>
-
+      <Card key={index} index={index} className='individualCard' >
+        <div onClick={() => this.updateOverview(card)}>
         {card.styles[0].photos[0].thumbnail_url === null
         ? <Card.Img variant="top" src='https://whetstonefire.org/wp-content/uploads/2020/06/image-not-available.jpg' className='cardImg' alt=''/>
         : <Card.Img variant="top" src={card.styles[0].photos[0].thumbnail_url} className='cardImg' alt=''/> }
@@ -70,6 +72,7 @@ class OutfitCarousel extends React.Component {
             <AverageStars percentage={{width: percentage}} />
           </Card.Text>
         </Card.Body>
+        </div>
         <Button 
           variant="primary" 
           className='outfitDeleteButton'
@@ -104,17 +107,18 @@ class OutfitCarousel extends React.Component {
 
   updateScroll() {
     const slide = this.outfitRef.current;
-    if (this.state.scroll === slide.scrollWidth) {
+
+    if (this.state.cardInfo.length <= 2) {
       this.setState({rightarrow: false})
-    } else if (this.state.cardInfo.length < 2) {
+    } else if (this.state.scroll === slide.scrollWidth) {
       this.setState({rightarrow: false})
     } else {
       this.setState({rightarrow: true})
     }
 
-    if (this.state.scroll === 940) {
+    if (this.state.cardInfo.length <= 2) {
       this.setState({leftarrow: false})
-    } else if (this.state.cardInfo.length < 2) {
+    } else if (this.state.scroll === 940) {
       this.setState({leftarrow: false})
     } else {
       this.setState({leftarrow: true})
@@ -125,7 +129,7 @@ class OutfitCarousel extends React.Component {
     let outfitInformation = this.state.cardInfo;
     if (outfitInformation.length === 0) {
       outfitInformation.push(this.props.outfitInfo)
-      this.setState({cardInfo: outfitInformation})
+      this.setState({cardInfo: outfitInformation}, this.updateScroll)
       ls.set('cardInfo', outfitInformation)
       return;
     }
@@ -134,7 +138,7 @@ class OutfitCarousel extends React.Component {
       return;
     } else {
       outfitInformation.push(this.props.outfitInfo)
-      this.setState({cardInfo: outfitInformation})
+      this.setState({cardInfo: outfitInformation}, this.updateScroll)
       ls.set('cardInfo', outfitInformation)
       return;
     }
@@ -143,8 +147,13 @@ class OutfitCarousel extends React.Component {
   deleteOutfit(identifier) {
     let updatedInformation = this.state.cardInfo.filter((card) => {
       return card.id !== identifier});
-    this.setState({cardInfo: updatedInformation})
+    this.setState({cardInfo: updatedInformation, scroll: 940}, this.updateScroll)
     ls.set('cardInfo', updatedInformation);
+    this.updateScroll()
+  }
+
+  updateOverview(card) {
+    window.location.search = card.id;
   }
 
   render() {
@@ -169,6 +178,13 @@ class OutfitCarousel extends React.Component {
             <button className='hidearrow right'></button> :
             <button className='arrow right' onClick={() => this.nextClick()}></button>
             }
+          </div>
+          <div className='listGradient'>
+          {!this.state.leftarrow && <div className='hiddenLeftList'></div>}
+          {this.state.leftarrow && <div className='leftList'></div>}
+          {!this.state.rightarrow
+          ? <div className='hiddenRightList'></div>
+          : <div className='rightList'></div>}
           </div>
         </div>
       </>
