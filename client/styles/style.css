@@ -126,7 +126,10 @@ PRODUCT OVERVIEW
         justify-content: space-around;}
 .item4 { grid-area: size;
          flex-wrap: wrap;}
-.item5 { grid-area: bag; }
+.item5 { grid-area: bag;
+         font-size: 1.25em;
+        font-style: italic;
+        justify-content: space-around; }
 .item6 { grid-area: slogan;
          flex-direction: column;}
 .item7 { grid-area: guarantee;
@@ -378,6 +381,7 @@ SELECT SIZE
   /*width: 150px;*/
   height: 60px;
   font-weight: bold;
+  z-index: 3;
 }
 
 .select-quantity-container {
@@ -387,6 +391,7 @@ SELECT SIZE
   height: 60px;
   font-weight: bold;
   padding-left: 50px;
+  z-index: 3;
 }
 
 .select-items-hidden {
