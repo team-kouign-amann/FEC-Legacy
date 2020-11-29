@@ -153,7 +153,7 @@ class OutfitCarousel extends React.Component {
   }
 
   updateOverview(card) {
-    window.location.search = card.id;
+    window.location.pathname = card.id
   }
 
   render() {

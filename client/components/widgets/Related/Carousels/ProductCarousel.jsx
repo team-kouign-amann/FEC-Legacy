@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, Button } from 'react-bootstrap';
 import ComparisonModal from '../ComparisonModal.jsx';
 import AverageStars from '../../Ratings/averageStars.jsx';
+import { Redirect } from 'react-router';
 
 class ProductCarousel extends React.Component {
   constructor(props) {
@@ -104,9 +105,7 @@ class ProductCarousel extends React.Component {
   updateScroll() {
     const slide = this.myRef.current;
 
-    if (this.state.cardInfo.length <= 3) {
-      this.setState({rightarrow: false})
-    } else if (this.state.scroll === slide.scrollWidth) {
+    if (this.state.scroll === slide.scrollWidth) {
       this.setState({rightarrow: false})
     } else {
       this.setState({rightarrow: true})
@@ -120,8 +119,8 @@ class ProductCarousel extends React.Component {
   }
 
   updateOverview(card) {
-    // console.log(window.location.search)
-    window.location.search = card.id;
+    window.location.pathname = card.id
+    // return <Redirect to={`/${card.id}`} />
   }
 
 
