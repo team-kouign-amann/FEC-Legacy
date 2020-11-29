@@ -1,5 +1,7 @@
 import React from 'react';
 import Review from './review.jsx';
+import getReview from '../../../actions/RatingsOverview/getReviews.js';
+import store from '../../../store/store.js';
 
 const Reviews = ({ showReviews }) => {
   if (showReviews[0] === undefined) {
@@ -23,8 +25,27 @@ const Reviews = ({ showReviews }) => {
       <br />
       <br />
       <div>
+        <form>
+          <label>
+            {`${showReviews.length} `}
+            reviews, sorted by
+            {' '}
+          </label>
+          <select
+            value="relevant"
+            onChange={(e) => {
+              // console.log('click');
+              // console.log(e.target.value);
+              store.dispatch(getReview(3, e.target.value, 100));
+            }}
+          >
+            <option value="relevant">Relevant</option>
+            <option value="helpful">Helpful</option>
+            <option value="newest">Newest</option>
+          </select>
+        </form>
         <h4>
-          {`${showReviews.length} `}
+
           reviews, sorted by relevance
         </h4>
       </div>
