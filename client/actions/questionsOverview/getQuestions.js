@@ -8,15 +8,15 @@ function getQuestions(productId) {
     return axios
       .get(`http://3.21.164.220/qa/questions?product_id=${productId}&count=50`)
       .then(({ data }) => {
-        console.log('grrr', data);
+        // console.log('grrr');
         let questions = data.results;
         let product_id = data.product_id;
-        console.log('unsortedTotalQuestions', questions);
+        // console.log('unsortedTotalQuestions', questions);
         questions.sort(
           (a, b) => b.question_helpfulness - a.question_helpfulness
         );
 
-        console.log('allQuestions', questions);
+        // console.log('allQuestions', questions);
 
         let questionIds = {};
 
@@ -32,8 +32,8 @@ function getQuestions(productId) {
           answerBoolean: questionIds,
         });
 
-        console.log('Questionids', questionIds);
-        console.log('IT WORKED');
+        // console.log('Questionids', questionIds);
+        // console.log('IT WORKED');
         return questions;
       })
       .then(() => {
@@ -41,7 +41,7 @@ function getQuestions(productId) {
       })
       .then(({ data }) => {
         let productName = data.name;
-        console.log('productName', productName, data);
+        // console.log('productName', productName, data);
         dispatch({
           type: 'PRODUCT_NAME',
           productName: productName,

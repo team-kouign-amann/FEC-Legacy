@@ -8,13 +8,15 @@ import 'regenerator-runtime';
 
 
 const Questions = (props) => {
+  console.log('lets see', props.underReview)
+
   const { productId } = useParams();
-  {console.log('productId:', productId)}
+  // {console.log('productId:', productId)}
   const location = useLocation();
-  {console.log('location:', location)}
+  // {console.log('location:', location)}
 
   useEffect(async () => {
-    console.log('hit')
+    // console.log('hit')
     await props.getQuestions(productId)
     .catch((err) => {
       console.log('Error getting initial questions', err)
@@ -22,8 +24,8 @@ const Questions = (props) => {
   }, [])
   
   {console.log('props.questions:', props.questions)}
-  {console.log('props.answerBoolean:', props.answerBoolean)}
-  {console.log('props.id:', props.id)}
+  // {console.log('props.answerBoolean:', props.answerBoolean)}
+  // {console.log('props.id:', props.id)}
 
   /////////////////This is where I am submitting Question form and sending it to API//////////////////
 
@@ -35,7 +37,7 @@ const Questions = (props) => {
                   email: document.getElementById("email").value, 
                   product_id: Number(document.getElementById("product_id").value) 
                   }
-    console.log(params);
+    // console.log(params);
     return props.addQuestions(params)
     .then(() => {
       window.location.href = location.pathname
@@ -58,7 +60,7 @@ const Questions = (props) => {
                       name: document.getElementById("nickname").value, 
                       email: document.getElementById("address").value, 
                       }
-    console.log(param, bodyParams);
+    // console.log(param, bodyParams);
     return props.addAnswers(param, bodyParams)
     .then(() => {
       window.location.href = location.pathname
@@ -165,10 +167,10 @@ const Questions = (props) => {
           <h3>QUESTIONS &amp; ANSWERS</h3>
         </div>
         <div>
-          <div class="search">
-            <input type="text" class="searchTerm" placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..." onChange={(e) => props.inputSearch(e.target.value, props.questions)}></input>
-            <button type="submit" class="searchButton">
-              <i class="fas fa-search"></i> 
+          <div className="search">
+            <input type="text" className="searchTerm" placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..." onChange={(e) => props.inputSearch(e.target.value, props.questions)}></input>
+            <button type="submit" className="searchButton">
+              <i className="fas fa-search"></i> 
             </button>
           </div>
         </div>
@@ -178,7 +180,7 @@ const Questions = (props) => {
           <div>
             <div className="question_column_one">
               <div><span>Q: {question.question_body}</span></div>
-              <Answers question={question} answerBoolean={props.answerBoolean} moreAnswers={props.moreAnswers} answerHelpful={(answerId) => props.answerHelpful(answerId, props.votedAnswer, props.id)} reportAnswer={(answerId) => props.reportAnswer(answerId, props.reportedAnswer, props.id)} reportedAnswer={props.reportedAnswer}/>
+              <Answers key={question.question_id.toString()} question={question} answerBoolean={props.answerBoolean} moreAnswers={props.moreAnswers} answerHelpful={(answerId) => props.answerHelpful(answerId, props.votedAnswer, props.id)} reportAnswer={(answerId, answer, questionID) => props.reportAnswer(answerId, answer, questionID, props.id)} reportedAnswer={props.reportedAnswer} underReview={props.underReview}/>
             </div>
               <div className="question_column_two">
                   <div>Helpful? <span className="btn_words" onClick={() => props.questionHelpful(question.question_id, props.votedAlready, props.id)}>Yes</span> ({question.question_helpfulness}) | <span><a href="#openModal-answers" className="btn_words" onClick={() => getId(question.question_id, question.question_body, props.productName)}>Add Answer</a></span></div>
@@ -189,48 +191,48 @@ const Questions = (props) => {
             <div className="question_column_one">
                 {(() => {
                   if (questions.length < props.questions.length) {
-                  return (<div><span><button onClick={() => props.moreQuestions(props.numRender + 2, props.questions)}>MORE ANSWERED QUESTION</button></span></div>)
+                  return (<div><span><button onClick={() => props.moreQuestions(props.numRender + 2)}>MORE ANSWERED QUESTION</button></span></div>)
                 } else {
                   return null;
                 }
               })()}
               <span><a href="#openModal-questions" onClick={() => getName(props.productName)}>ADD A QUESTION  +</a></span>
-              <div id="openModal-questions" class="modalDialog">
+              <div id="openModal-questions" className="modalForm">
                 <div>
-                  <a href="#close" title="Close" class="close">X</a>
+                  <a href="#leave" title="shut" className="shut">X</a>
                   <h2>Ask Your Question</h2>
                   <h3 id="aboutQuestion"></h3>
                     <form id="question_form">
-                      <label for="body">* Your Question:</label><br />
-                      <input type="text" maxlength="1000" id="body" name='body' size="100" required></input><br />
-                      <label for="name">* What is your nickname</label><br />
-                      <input type="text" maxlength="60" id="name" name='name' size="60" placeholder="Example: jackson11!" required></input>
+                      <label htmlFor="body">* Your Question:</label><br />
+                      <input type="text" maxLength="1000" id="body" name='body' size="100" required></input><br />
+                      <label htmlFor="name">* What is your nickname</label><br />
+                      <input type="text" maxLength="60" id="name" name='name' size="60" placeholder="Example: jackson11!" required></input>
                       <p>For privacy reasons, do not use your full name or email address</p>
-                      <label for="email">* Your email</label><br />
-                      <input type="email" maxlength="60" id="email" name='email' size="60" placeholder="Why did you like the product or not?" required></input>
+                      <label htmlFor="email">* Your email</label><br />
+                      <input type="email" maxLength="60" id="email" name='email' size="60" placeholder="Why did you like the product or not?" required></input>
                       <p>For authentication reasons, you will not be emailed</p>
                       <input type="number" id="product_id" value={props.id} style={{display: 'none'}}></input>
-                      <input type="submit" value="Submit question" onsubmit="return false"></input>
+                      <input type="submit" value="Submit question"></input>
                     </form>
                 </div>
               </div>
-              <div id="openModal-answers" class="modalDialog">
+              <div id="openModal-answers" className="modalForm">
               <div>
-                <a href="#exit" title="Close" class="close">X</a>
+                <a href="#exit" title="shut" className="shut">X</a>
                 <h2>Submit your Answer</h2>
                 <h3 id="aboutAnswer"></h3>
                   <form id="answer_form">
-                    <label for="answer">* Your Answer:</label><br />
-                    <input type="text" maxlength="1000" id="answer" name='answer' size="100" required></input><br />
-                    <label for="nickname">* What is your nickname</label><br />
-                    <input type="text" maxlength="60" id="nickname" name='nickname' size="60" placeholder="Example: jack543!" required></input>
+                    <label htmlFor="answer">* Your Answer:</label><br />
+                    <input type="text" maxLength="1000" id="answer" name='answer' size="100" required></input><br />
+                    <label htmlFor="nickname">* What is your nickname</label><br />
+                    <input type="text" maxLength="60" id="nickname" name='nickname' size="60" placeholder="Example: jack543!" required></input>
                     <p>For privacy reasons, do not use your full name or email address</p>
-                    <label for="address">* Your email</label><br />
-                    <input type="email" maxlength="60" id="address" name='address' size="60" placeholder="Example: jack@email.com" required></input>
+                    <label htmlFor="address">* Your email</label><br />
+                    <input type="email" maxLength="60" id="address" name='address' size="60" placeholder="Example: jack@email.com" required></input>
                     <p>For authentication reasons, you will not be emailed</p>
-                    <input type="file" id="fileToUpload" name='fileToUpload' muliple></input>
+                    <input type="file" id="fileToUpload" name='fileToUpload' muliple="true"></input>
                     <input type="number" id="productId" style={{display: 'none'}}></input>
-                    <input type="submit" value="Submit question" onsubmit="return false"></input>
+                    <input type="submit" value="Submit question"></input>
                   </form>
               </div>
             </div>

@@ -1,11 +1,14 @@
 import React from "react";
 import moment from 'moment';
+import ModalImage from "react-modal-image";
 
 const Answers = (props) => {
-  console.log('props.question:', props.question);
-  console.log('props.answerBoolean:', props.answerBoolean);
-
+  // console.log('props.question:', props.question);
+  
+  
   let answers = Object.values(props.question.answers)
+
+  console.log('answers', answers);
   
   answers.sort((a, b) => {
     return b.helpfulness - a.helpfulness
@@ -19,39 +22,47 @@ const Answers = (props) => {
       sellerFirst.push(answer);
     }
   })
+  // console.log('seller', sellerFirst)
   
-  console.log('Afteranswers', sellerFirst);
+  console.log('underReviewAnswers', props.underReview);
   
   let renderedAnswers;
 
-  let key = props.question.question_id;
+  let keyId = props.question.question_id;
 
-  console.log("ID", props.answerBoolean[key])
+  // console.log("ID", props.answerBoolean[keyId])
+  for (let i = 0; i < props.underReview.length; i++) {
+    for (let key in props.underReview[i]) {
+      if (key === keyId) {
+        sellerFirst.push(props.underReview[i][key])
+      }
+    }
+  }
+  console.log('lololol', sellerFirst)
   
-  if (props.answerBoolean[key]) {
-    renderedAnswers = answers.slice(0, 2);
+  if (props.answerBoolean[keyId]) {
+    renderedAnswers = sellerFirst.slice(0, 2);
   } else {
-    renderedAnswers = answers;
+    renderedAnswers = sellerFirst;
   }
 
-  console.log('lololol', renderedAnswers)
 
-  
   return (<div><span>A:</span><div>
         {renderedAnswers.map((answer) => (
-          <div className="itemconfiguration">
+          <div className="itemconfiguration" key={answer.id.toString()}>
           <div><span className="indiv_answers">{answer.body}</span></div>
           <div>{answer.photos.map((photo) => (
-            <span><img src={photo} width="75" height="50"/></span>
+            <ModalImage small={photo} medium={photo} className="thumbnail"/>
             ))}
           </div>
-          {(() => {if (!props.reportedAnswer.includes(answer.id)) {
-            return (answer.answerer_name === 'Seller' 
-            ? <div><span>by <b>{answer.answerer_name}</b>, {moment(answer.date).format('MMMM Do, YYYY')}</span> | Helpful? <span className="btn_words" onClick={() => props.answerHelpful(answer.id)}>Yes</ span>  ({answer.helpfulness}) | <span className="btn_words" onClick={props.reportAnswer(answer.id)}>Report</span></div> 
-            : <div><span>by {answer.answerer_name}, {moment(answer.date).format('MMMM Do, YYYY')}</span> | Helpful? <span className="btn_words" onClick={() => props.answerHelpful(answer.id)}>Yes</ span>  ({answer.helpfulness}) | <span className="btn_words" onClick={props.reportAnswer(answer.id)}>Report</span></div>)
+          {(() => {if (!answer.reported) {
+            return answer.answerer_name === 'Seller' 
+            ? <div><span>by <b>{answer.answerer_name}</b>, {moment(answer.date).format('MMMM Do, YYYY')}</span> | Helpful? <span className="btn_words" onClick={() => props.answerHelpful(answer.id)}>Yes</ span>  ({answer.helpfulness}) | <span className="btn_words" onClick={() => props.reportAnswer(answer.id, answer, keyId)}>Report</span></div> 
+            : <div><span>by {answer.answerer_name}, {moment(answer.date).format('MMMM Do, YYYY')}</span> | Helpful? <span className="btn_words" onClick={() => props.answerHelpful(answer.id)}>Yes</ span>  ({answer.helpfulness}) | <span className="btn_words" onClick={() => props.reportAnswer(answer.id, answer, keyId)}>Report</span></div>
           } else {
-            return <div><span>by {answer.answerer_name}, {moment(answer.date).format('MMMM Do, YYYY')}</span> | Helpful? <span className="btn_words" onClick={() => props.answerHelpful(answer.id)}>Yes</ span>  ({answer.helpfulness}) | <span className="btn_words">Reported</span></div>
-          }})()}
+            return <div><span>by {answer.answerer_name}, {moment(answer.date).format('MMMM Do, YYYY')}</span><span className="btn_words">Reported</span></div>
+          }
+          })()}
         </div> 
       ))}
     {(() => {if (answers.length <= 2) {
@@ -69,3 +80,8 @@ const Answers = (props) => {
 
 
 export default Answers;
+
+
+
+
+// width="75" height="50"

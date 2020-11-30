@@ -5,12 +5,13 @@ let initialState = {
   votedAnswer: [],
   questions: [],
   reportedAnswer: [],
+  underReview: [],
 };
 
 var questionsReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'ALL_DATA':
-      console.log('QuestionsREducer', action);
+      // console.log('QuestionsREducer', action);
       return {
         ...state,
         questions: action.questions,
@@ -31,7 +32,6 @@ var questionsReducer = (state = initialState, action) => {
     case 'SHOW_ANSWERS':
       return { ...state, answerBoolean: action.answerBoolean };
     case 'HELPFUL_CHANGE':
-      console.log('hihi');
       return {
         ...state,
         questions: action.questions,
@@ -53,10 +53,12 @@ var questionsReducer = (state = initialState, action) => {
     case 'ADD_ANSWER':
       return { ...state };
     case 'REPORT_ANSWER':
+      console.log('reported update');
       return {
         ...state,
         questions: action.questions,
-        reportedAnswer: action.reportedAnswer,
+        // reportedAnswer: action.reportedAnswer,
+        underReview: [...action.underReview],
       };
     default:
       return state;

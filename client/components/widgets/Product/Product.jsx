@@ -18,7 +18,7 @@ const Product = ({expandedView, currentStyle, carouselPosition, styles}) => {
   const { productId } = useParams();
   const location = useLocation();
   const sale = findSaleStyle(styles);
-  console.log(sale);
+  // console.log(sale);
   useEffect(() => {
     store.dispatch(getProduct(productId))
     .then(() => {

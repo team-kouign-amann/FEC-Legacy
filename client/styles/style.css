@@ -838,7 +838,7 @@ Related Products
   padding-top: 10px;
 }
 
-/* .modalDialog {
+.modalDialog {
   position: fixed;
   top: 0;
   right: 0;
@@ -885,7 +885,7 @@ Related Products
 }
 .close:hover {
   background: #fa3f6f;
-} */
+}
 
 .comparison-feature {
   text-align: center;
@@ -904,5 +904,139 @@ Related Products
 /********
 
 End of Related Products
+
+********/
+
+/********
+
+Start of Q and A
+
+********/
+
+.quest-wrap {
+  position: relative;
+}
+
+.search {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 3px solid #000000;
+  border-right: none;
+  padding: 5px;
+  height: 40px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  font-size: larger;
+}
+
+.searchButton {
+  width: 60px;
+  border: 3px solid #000000;
+  background: #ffffff;
+  text-align: center;
+  color: #000000;
+  border-radius: 0 5px 5px 0;
+  /* cursor: pointer; */
+  font-size: 18px;
+  border-left: none;
+}
+
+.question_column_one {
+  float: left;
+  width: 80%;
+  margin-top: 15px;
+}
+
+.question_column_two {
+  float: left;
+  width: 20%;
+}
+
+.btn_words {
+  border: none;
+  background-color: inherit;
+  font-size: 16px;
+  cursor: pointer;
+  /* display: inline-block; */
+}
+
+/* .itemconfiguration {
+  height: 50%;
+  width: 215px;
+  overflow: auto;
+  float: left;
+  position: relative;
+  margin-left: -5px;
+} */
+
+.answers_container {
+  position: relative;
+  display: inline-block;
+}
+
+.modalForm {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 99999;
+  opacity: 0;
+  -webkit-transition: opacity 100ms ease-in;
+  -moz-transition: opacity 100ms ease-in;
+  transition: opacity 100ms ease-in;
+  pointer-events: none;
+}
+.modalForm:target {
+  opacity: 1;
+  pointer-events: auto;
+}
+.modalForm > div {
+  max-width: 800px;
+  width: 90%;
+  position: relative;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 3px;
+  background: #fff;
+}
+.shut {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f26d7d;
+  color: #fff;
+  line-height: 25px;
+  position: absolute;
+  right: -12px;
+  text-align: center;
+  top: -10px;
+  width: 34px;
+  height: 34px;
+  text-decoration: none;
+  font-weight: bold;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  -moz-box-shadow: 1px 1px 3px #000;
+  -webkit-box-shadow: 1px 1px 3px #000;
+  box-shadow: 1px 1px 3px #000;
+  padding-top: 5px;
+}
+.shut:hover {
+  background: #fa3f6f;
+}
+
+.thumbnail {
+  width: 100px;
+}
+
+/********
+
+End of Q and A
 
 ********/

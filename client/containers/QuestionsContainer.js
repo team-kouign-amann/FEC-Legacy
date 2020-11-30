@@ -23,7 +23,8 @@ const mapStateToProps = (state) => ({
   filterQs: state.currentQuestions.filterQs,
   id: state.currentQuestions.id,
   productName: state.currentQuestions.productName,
-  reportedAnswer: state.currentQuestions.reportedAnswer,
+  // reportedAnswer: state.currentQuestions.reportedAnswer,
+  underReview: state.currentQuestions.underReview,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -35,11 +36,11 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(questionHelpful(questionId, votedAlready, id)),
   answerHelpful: (answerId, votedAlready, product_id) =>
     dispatch(answerHelpful(answerId, votedAlready, product_id)),
-  reportAnswer: (answerId, reportedAlready, product_id) =>
-    dispatch(reportAnswer(answerId, reportedAlready, product_id)),
   inputSearch: (input, questions) => dispatch(inputSearch(input, questions)),
   addQuestions: (params) => dispatch(addQuestions(params)),
   addAnswers: (params, bodyParams) => dispatch(addAnswers(params, bodyParams)),
+  reportAnswer: (answerId, answer, questionId, product_id) =>
+    dispatch(reportAnswer(answerId, answer, questionId, product_id)),
 });
 
 var QuestionsContainer = connect(
