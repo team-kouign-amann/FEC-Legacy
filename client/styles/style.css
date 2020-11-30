@@ -915,6 +915,11 @@ Start of Q and A
 
 .quest-wrap {
   position: relative;
+  padding: 0px 300px;
+}
+
+.title-font {
+  font-weight: 100px;
 }
 
 .search {
@@ -925,59 +930,159 @@ Start of Q and A
 
 .searchTerm {
   width: 100%;
-  border: 3px solid #000000;
+  border: 1px solid #000000;
   border-right: none;
   padding: 5px;
   height: 40px;
-  border-radius: 5px 0 0 5px;
+  /* border-radius: 5px 0 0 5px; */
   outline: none;
   font-size: larger;
 }
 
 .searchButton {
   width: 60px;
-  border: 3px solid #000000;
+  border: 1px solid #000000;
   background: #ffffff;
   text-align: center;
   color: #000000;
-  border-radius: 0 5px 5px 0;
   /* cursor: pointer; */
   font-size: 18px;
   border-left: none;
 }
 
+.full-answer {
+  float: left;
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+.question-text {
+  margin-bottom: 10px;
+}
+
+.full-question {
+  display: inline;
+  margin-right: 9px;
+  padding-top: 5px;
+  font-size: 20px;
+}
+
+.indiv_answers {
+  margin-bottom: 10px;
+}
+
+.body-font {
+  font-size: 13px;
+}
+
+.question-container {
+  display: inline;
+  padding-top: 5px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 19px;
+}
+
+.help-nav {
+  padding-top: 20px;
+}
+
+.yes-nav {
+  margin-left: 3px;
+  margin-right: 12px;
+}
+
+.rep-answer {
+  margin-left: 10px;
+}
+
+.add-answer {
+  margin-left: 10px;
+  color: inherit;
+}
+
+.answers-container {
+  float: left;
+  padding-top: 3px;
+}
+
+.answer-anchor {
+  color: #000000;
+}
+
 .question_column_one {
   float: left;
-  width: 80%;
+  width: 78%;
   margin-top: 15px;
 }
 
 .question_column_two {
   float: left;
-  width: 20%;
+  width: 22%;
 }
 
 .btn_words {
   border: none;
   background-color: inherit;
-  font-size: 16px;
+  /* font-size: 16px; */
   cursor: pointer;
   /* display: inline-block; */
 }
 
-/* .itemconfiguration {
-  height: 50%;
-  width: 215px;
-  overflow: auto;
-  float: left;
+.itemconfiguration {
+  max-height: 50vh;
+  overflow-y: auto;
   position: relative;
-  margin-left: -5px;
-} */
+}
 
-.answers_container {
+.question-configuration {
+  max-height: 100vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.under-line {
+  text-decoration: underline;
+}
+
+.more-questions {
+  width: 37%;
+  border: 1px solid #000000;
+  padding: 5px;
+  height: 61px;
+  outline: none;
+  font-size: unset;
+  background-color: Transparent;
+  float: left;
+  margin-right: 20px;
+}
+
+.add-quest {
+  text-decoration: none;
+  color: #000000;
+}
+
+.button-lineup {
+  float: left;
+  width: 24%;
+  border: 1px solid #000000;
+  padding: 5px;
+  height: 49px;
+  outline: none;
+  font-size: 17px;
+  background-color: Transparent;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.anchor-wrap {
+  margin-top: 14px;
+}
+
+/* .answers_container {
   position: relative;
   display: inline-block;
-}
+} */
 
 .modalForm {
   position: fixed;

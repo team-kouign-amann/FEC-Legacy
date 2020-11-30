@@ -164,7 +164,7 @@ const Questions = (props) => {
     <div className="quest-wrap">
       <div className="row">
         <div>
-          <h3>QUESTIONS &amp; ANSWERS</h3>
+          <h4 className="title-font">QUESTIONS &amp; ANSWERS</h4>
         </div>
         <div>
           <div className="search">
@@ -175,15 +175,15 @@ const Questions = (props) => {
           </div>
         </div>
       </div>
-    <div className="row">
+    <div className="row question-configuration">
         {questions.map((question) => (
           <div>
             <div className="question_column_one">
-              <div><span>Q: {question.question_body}</span></div>
+              <div className="question-text"><div className="full-question">Q:</div><div className="question-container">{question.question_body}</div></div>
               <Answers key={question.question_id.toString()} question={question} answerBoolean={props.answerBoolean} moreAnswers={props.moreAnswers} answerHelpful={(answerId) => props.answerHelpful(answerId, props.votedAnswer, props.id)} reportAnswer={(answerId, answer, questionID) => props.reportAnswer(answerId, answer, questionID, props.id)} reportedAnswer={props.reportedAnswer} underReview={props.underReview}/>
             </div>
               <div className="question_column_two">
-                  <div>Helpful? <span className="btn_words" onClick={() => props.questionHelpful(question.question_id, props.votedAlready, props.id)}>Yes</span> ({question.question_helpfulness}) | <span><a href="#openModal-answers" className="btn_words" onClick={() => getId(question.question_id, question.question_body, props.productName)}>Add Answer</a></span></div>
+                  <div className="help-nav">Helpful? <span className="btn_words yes-nav" onClick={() => props.questionHelpful(question.question_id, props.votedAlready, props.id)}>Yes ({question.question_helpfulness})</span>|<span className='add-answer'><a href="#openModal-answers" className="answer-anchor" onClick={() => getId(question.question_id, question.question_body, props.productName)}>Add Answer</a></span></div>
               </div>
           </div>
                 ))}
@@ -191,12 +191,12 @@ const Questions = (props) => {
             <div className="question_column_one">
                 {(() => {
                   if (questions.length < props.questions.length) {
-                  return (<div><span><button onClick={() => props.moreQuestions(props.numRender + 2)}>MORE ANSWERED QUESTION</button></span></div>)
+                  return (<div><span><button className="more-questions" onClick={() => props.moreQuestions(props.numRender + 2)}>MORE ANSWERED QUESTION</button></span></div>)
                 } else {
                   return null;
                 }
               })()}
-              <span><a href="#openModal-questions" onClick={() => getName(props.productName)}>ADD A QUESTION  +</a></span>
+              <div className="button-lineup"><div className="anchor-wrap"><a href="#openModal-questions" className="add-quest" onClick={() => getName(props.productName)}>ADD A QUESTION  +</a></div></div>
               <div id="openModal-questions" className="modalForm">
                 <div>
                   <a href="#leave" title="shut" className="shut">X</a>

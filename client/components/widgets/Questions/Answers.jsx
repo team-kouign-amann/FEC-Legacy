@@ -47,33 +47,34 @@ const Answers = (props) => {
   }
 
 
-  return (<div><span>A:</span><div>
-        {renderedAnswers.map((answer) => (
-          <div className="itemconfiguration" key={answer.id.toString()}>
-          <div><span className="indiv_answers">{answer.body}</span></div>
-          <div>{answer.photos.map((photo) => (
-            <ModalImage small={photo} medium={photo} className="thumbnail"/>
-            ))}
-          </div>
-          {(() => {if (!answer.reported) {
-            return answer.answerer_name === 'Seller' 
-            ? <div><span>by <b>{answer.answerer_name}</b>, {moment(answer.date).format('MMMM Do, YYYY')}</span> | Helpful? <span className="btn_words" onClick={() => props.answerHelpful(answer.id)}>Yes</ span>  ({answer.helpfulness}) | <span className="btn_words" onClick={() => props.reportAnswer(answer.id, answer, keyId)}>Report</span></div> 
-            : <div><span>by {answer.answerer_name}, {moment(answer.date).format('MMMM Do, YYYY')}</span> | Helpful? <span className="btn_words" onClick={() => props.answerHelpful(answer.id)}>Yes</ span>  ({answer.helpfulness}) | <span className="btn_words" onClick={() => props.reportAnswer(answer.id, answer, keyId)}>Report</span></div>
-          } else {
-            return <div><span>by {answer.answerer_name}, {moment(answer.date).format('MMMM Do, YYYY')}</span><span className="btn_words">Reported</span></div>
-          }
-          })()}
-        </div> 
-      ))}
-    {(() => {if (answers.length <= 2) {
-      return null;
-    } else if (renderedAnswers.length < answers.length) {
-      return <div><button className="btn_words" onClick={() => props.moreAnswers(props.answerBoolean, props.question.question_id)}>LOAD MORE ANSWERS</button></div>
-    } else {
-      return <div><button className="btn_words" onClick={() => props.moreAnswers(props.answerBoolean, props.question.question_id)}>Collapse ANSWERS</button></div>
-    }
-    })()} 
-  </div>
+  return (<div>
+    <div className="full-answer">A:</div><div className="answers-container itemconfiguration">
+          {renderedAnswers.map((answer) => (
+            <div key={answer.id.toString()}>
+            <div className="indiv_answers">{answer.body}</div>
+            <div className="indiv_answers">{answer.photos.map((photo) => (
+              <ModalImage small={photo} medium={photo} className="thumbnail"/>
+              ))}
+            </div>
+            {(() => {if (!answer.reported) {
+              return answer.answerer_name === 'Seller' 
+              ? <div className="indiv_answers body-font"><span>by <b>{answer.answerer_name}</b>, {moment(answer.date).format('MMMM Do, YYYY')}</span> | Helpful? <span className="btn_words under-line body-font" onClick={() => props.answerHelpful(answer.id)}>Yes</ span>  ({answer.helpfulness}) | <span className="btn_words under-line body-font rep-answer" onClick={() => props.reportAnswer(answer.id, answer, keyId)}>Report</span></div> 
+              : <div className="indiv_answers body-font"><span>by {answer.answerer_name}, {moment(answer.date).format('MMMM Do, YYYY')}</span> | Helpful? <span className="btn_words under-line body-font" onClick={() => props.answerHelpful(answer.id)}>Yes</ span>  ({answer.helpfulness}) | <span className="btn_words under-line body-font rep-answer" onClick={() => props.reportAnswer(answer.id, answer, keyId)}>Report</span></div>
+            } else {
+              return <div className="indiv_answers body-font"><span>by {answer.answerer_name}, {moment(answer.date).format('MMMM Do, YYYY')}</span><span className="btn_words under-line body-font">Reported</span></div>
+            }
+            })()}
+          </div> 
+        ))}
+      {(() => {if (answers.length <= 2) {
+        return null;
+      } else if (renderedAnswers.length < answers.length) {
+        return <div className="indiv_answers"><button className="btn_words" onClick={() => props.moreAnswers(props.answerBoolean, props.question.question_id)}>LOAD MORE ANSWERS</button></div>
+      } else {
+        return <div className="indiv_answers"><button className="btn_words" onClick={() => props.moreAnswers(props.answerBoolean, props.question.question_id)}>Collapse ANSWERS</button></div>
+      }
+      })()} 
+    </div>
   </div>
   )};
 

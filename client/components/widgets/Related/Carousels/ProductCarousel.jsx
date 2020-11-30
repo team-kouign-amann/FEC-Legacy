@@ -46,9 +46,9 @@ class ProductCarousel extends React.Component {
     return (
       <Card key={index} index={index} className='individualCard' >
       <div onClick={() => this.updateOverview(card)}>
-        {card.image[0].photos[0].thumbnail_url === null
+        {/* {card.image[0].photos[0].thumbnail_url === null
         ? <Card.Img variant="top" src='https://www.agd-systems.com/wp-content/uploads/2017/02/photo-coming-soon.jpg' className='cardImg' alt=''/>
-        : <Card.Img variant="top" src={card.image[0].photos[0].thumbnail_url} className='cardImg' alt=''/> }
+        : <Card.Img variant="top" src={card.image[0].photos[0].thumbnail_url} className='cardImg' alt=''/> } */}
         <Card.Body className='cardBody'>
           <Card.Text className='cardText'>
             {card.category}
@@ -56,7 +56,7 @@ class ProductCarousel extends React.Component {
           <Card.Title className='cardTitle'>
               <b>{card.name}</b>
           </Card.Title>
-          <Card.Text className='cardPrice'>
+          {/* <Card.Text className='cardPrice'>
             {card.image[0].sale_price === '0' ?
               <div>${card.image[0].original_price}</div> :
               <div className='priceLineUp'>
@@ -64,7 +64,7 @@ class ProductCarousel extends React.Component {
                 <div className='salePrice'>${card.image[0].sale_price}</div>
               </div>
             }
-          </Card.Text>
+          </Card.Text> */}
           <Card.Text className='cardRating'>
             <AverageStars percentage={{width: percentage}} />
           </Card.Text>
