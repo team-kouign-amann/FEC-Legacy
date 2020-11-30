@@ -838,7 +838,7 @@ Related Products
   padding-top: 10px;
 }
 
-.modalDialog {
+/* .modalDialog {
   position: fixed;
   top: 0;
   right: 0;
@@ -885,7 +885,7 @@ Related Products
 }
 .close:hover {
   background: #fa3f6f;
-}
+} */
 
 .comparison-feature {
   text-align: center;
