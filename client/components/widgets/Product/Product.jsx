@@ -36,7 +36,7 @@ const Product = ({expandedView, currentStyle, carouselPosition, styles}) => {
       <div id="product" style={{"margin":"0px 100px"}}>
         <div className="header-container">
           <div className="header-logo">
-            Daifuku X Donqueello Collab Official Store
+            Daifuku X Dacquoise Collab Official Store
           </div>
           <div className="header-search-container">
             <input className="header-search-bar" placeholder="____________" />
