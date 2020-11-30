@@ -1,4 +1,7 @@
 import { combineReducers } from 'redux';
+//import your other reducers:
+import questionsReducer from './questionsReducer.js';
+// import currentReviewsReducer from './ratingReducers/ratingReducer.js';
 
 import metaReducer from './ratingReducers/metaReducer.js';
 import reviewsReducer from './ratingReducers/reviewsReducer.js';
@@ -22,6 +25,7 @@ const rootReducer = combineReducers({
   currentStyle: currentStyleReducer,
   styles: allStylesReducer,
   carouselPosition: carouselPositionReducer,
+  currentQuestions: questionsReducer,
   previewListPosition: previewListReducer,
   selectSize: selectSizeReducer,
   selectQuantity: selectQuantityReducer,

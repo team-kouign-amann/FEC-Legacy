@@ -68,6 +68,6 @@ const currentStyleReducer = (state = {}, action) => {
   } else {
     return state;
   }
-}
+};
 
 export default currentStyleReducer;

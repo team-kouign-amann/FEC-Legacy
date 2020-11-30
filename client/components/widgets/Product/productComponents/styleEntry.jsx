@@ -1,7 +1,6 @@
 import React from 'react';
 import colorArray from '../../../../../util/colorArray.js';
 
-
 const StyleEntry = ({style, handleClick, currentStyle}) => {
   const colors = colorArray(style.name);
   // set class name here

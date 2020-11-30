@@ -14,6 +14,9 @@ const mapStateToProps = (state) => ({
 
 // });
 
-const RatingsContainer = connect(mapStateToProps, null)(clickTrackerWrapper(Ratings, 'Ratings'));
+const RatingsContainer = connect(
+  mapStateToProps,
+  null
+)(clickTrackerWrapper(Ratings, 'Ratings'));
 
 export default RatingsContainer;

@@ -9,12 +9,16 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  handleClick: (style) => { dispatch(currentStyleAction(style));
+  handleClick: (style) => {
+    dispatch(currentStyleAction(style));
     dispatch(carouselPositionAction(0));
     dispatch(previewListLastAction(style.photos.length - 1));
   },
 });
 
-const StyleEntryContainer = connect(mapStateToProps, mapDispatchToProps)(StyleEntry);
+const StyleEntryContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(StyleEntry);
 
 export default StyleEntryContainer;

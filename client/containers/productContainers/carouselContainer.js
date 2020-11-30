@@ -9,10 +9,17 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  handleCarouselChange: (position) => { dispatch(carouselPositionAction(position)); },
-  handleCenterImageClick: () => { dispatch(expandedViewAction()); },
+  handleCarouselChange: (position) => {
+    dispatch(carouselPositionAction(position));
+  },
+  handleCenterImageClick: () => {
+    dispatch(expandedViewAction());
+  },
 });
 
-const CarouselContainer = connect(mapStateToProps, mapDispatchToProps)(Carousel);
+const CarouselContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Carousel);
 
 export default CarouselContainer;

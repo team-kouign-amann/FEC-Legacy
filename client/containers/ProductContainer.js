@@ -11,9 +11,14 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  handleImageClick: () => { dispatch(expandedViewAction()); },
+  handleImageClick: () => {
+    dispatch(expandedViewAction());
+  },
 });
 
-const ProductContainer = connect(mapStateToProps, mapDispatchToProps)(clickTrackerWrapper(Product, 'Product'));
+const ProductContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(clickTrackerWrapper(Product, 'Product'));
 
 export default ProductContainer;

@@ -1,7 +1,13 @@
 import { connect } from 'react-redux';
 import Related from '../components/widgets/Related/Related.jsx';
-import { relatedInfo, getRelatedProducts } from '../actions/Related Products/RelatedInfo.js';
-import { outfitInfo, getOutfitInformation } from '../actions/Related Products/OutfitInfo.js';
+import {
+  relatedInfo,
+  getRelatedProducts,
+} from '../actions/Related Products/RelatedInfo.js';
+import {
+  outfitInfo,
+  getOutfitInformation,
+} from '../actions/Related Products/OutfitInfo.js';
 import clickTrackerWrapper from '../../util/clickTrackerWrapper.jsx';
 
 let mapStateToProps = (state) => ({
@@ -12,13 +18,16 @@ let mapStateToProps = (state) => ({
   overviewProduct: state.currentProduct,
 });
 
-let mapDispatchToProps = dispatch => {
+let mapDispatchToProps = (dispatch) => {
   return {
     getRelatedProducts: (id) => dispatch(getRelatedProducts(id)),
-    getOutfitInformation: (id) => dispatch(getOutfitInformation(id))
-  }
-}
+    getOutfitInformation: (id) => dispatch(getOutfitInformation(id)),
+  };
+};
 
-var RelatedContainer = connect(mapStateToProps, mapDispatchToProps)(clickTrackerWrapper(Related, 'Related'));
+var RelatedContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(clickTrackerWrapper(Related, 'Related'));
 
 export default RelatedContainer;

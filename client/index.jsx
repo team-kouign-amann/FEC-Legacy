@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import App from './components/App.jsx';
 import store from './store/store.js';
-
-import getMeta from './actions/RatingsOverview/getMeta.js';
-import getReview from './actions/RatingsOverview/getReviews.js';
-import getProduct from './actions/productOverview/getProduct.js';
-import getStyles from './actions/productOverview/getStyles.js';
+// import getProduct from './actions/productOverview/getProduct.js'
+// import getStyles from './actions/productOverview/getStyles.js';
+// import getQuestions from './actions/questionsOverview/getQuestions.js';
+// import moreQuestions from './actions/moreQuestions.js';
+// import moreAnswers from './actions/moreAnswers.js';
+// import getTotalQuestions from './actions/getTotal.js';
+// import getMeta from './actions/RatingsOverview/getMeta.js';
+// import getReview from './actions/RatingsOverview/getReviews.js';
 import './styles/style.css';
 
 ReactDOM.render(
@@ -28,10 +31,34 @@ store.dispatch(getProduct(3))
     store.dispatch(getReview(3));
     store.dispatch(getMeta(3));
   })
+  // .then((data) => {
+  //   console.log('allQuestions', data);
+  //   let questionIds = {};
+  //   for (let i = 0; i < data.length; i++) {
+  //     questionIds[data[i].question_id] = true;
+  //   }
+  //   console.log('Questionids', questionIds);
+  //   dispatch({
+  //     type: 'SHOW_ANSWERS',
+  //     answerBoolean: questionIds,
+  //   })
+  // })
+  // .then((data) => {
+  //   console.log('huol', data)
+  //   return [store.dispatch(moreQuestions(data[0], 4)), data[1]]
+  // })
+  // .then((data) => {
+  //   console.log('reducedQuestions', data[0])
+  //   console.log('allAnswers', data[1])
+  //   store.dispatch(moreAnswers(data[1], data[0], true))
+  // })
   .then(() => {
     ReactDOM.render(
       <Provider store={store}>
         <App />
+      </Provider>, document.getElementById('app'),
+        // () => getQuestions(5)(store.dispatch),
+        // () => getProduct(1)(store.dispatch)
       </Provider>, document.getElementById('app')
     );
   });
