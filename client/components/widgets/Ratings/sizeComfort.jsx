@@ -5,7 +5,7 @@ const SizeComfort = ({ characteristics }) => Object.keys(characteristics).map((k
   const percentage = `${temp}%`;
   return (
     <div className="bars-container">
-      <h4>{key}</h4>
+      <h5>{key}</h5>
       <div className="size-comfort-container">
         <div className="size-comfort-bar" style={{ width: percentage }}>
           <span className="size-comfort-point">▼</span>
