@@ -119,13 +119,9 @@ class ProductCarousel extends React.Component {
   }
 
   updateOverview(card) {
-<<<<<<< HEAD
-    window.location.pathname = card.id
-=======
 
     window.location.pathname = 'product/' + card.id
 
->>>>>>> master
   }
 
 
