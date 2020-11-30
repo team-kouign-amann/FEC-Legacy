@@ -1,13 +1,19 @@
 import { connect } from 'react-redux';
 import Product from '../components/widgets/Product/Product.jsx';
+import { expandedViewAction } from '../actions/productOverview/expandedView.js';
+import clickTrackerWrapper from '../../util/clickTrackerWrapper.jsx';
 
-
-var mapStateToProps = (state) => ({
-  product: state.currentProduct,
+const mapStateToProps = (state) => ({
   currentStyle: state.currentStyle,
-  styles: state.styles
+  carouselPosition: state.carouselPosition,
+  expandedView: state.expandedView.toggleExpanded,
+  styles: state.styles,
 });
 
-var ProductContainer = connect(mapStateToProps, null)(Product);
+const mapDispatchToProps = (dispatch) => ({
+  handleImageClick: () => { dispatch(expandedViewAction()); },
+});
+
+const ProductContainer = connect(mapStateToProps, mapDispatchToProps)(clickTrackerWrapper(Product, 'Product'));
 
 export default ProductContainer;

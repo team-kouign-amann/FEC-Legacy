@@ -1,20 +1,33 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import { useParams } from 'react-router-dom';
 import StartsBar from './startsBar.jsx';
-import AvarageStars from './avarageStars.jsx';
+import AverageStars from './averageStars.jsx';
 import SizeComfort from './sizeComfort.jsx';
 import Reviews from './reviews.jsx';
 import AddReview from './addReview.jsx';
+import getMeta from '../../../actions/RatingsOverview/getMeta.js';
+import getReview from '../../../actions/RatingsOverview/getReviews.js';
+import store from '../../../store/store.js';
 
 const Rating = ({ showReviews, metaRatings }) => {
-  console.log('showReviews');
-  console.log(showReviews);
-  // console.log('metaRatings');
-  // console.log(metaRatings);
+  // console.log('showReviews');
+  // console.log(showReviews);
+  const { productId } = useParams();
   const { characteristics } = metaRatings;
   const { recommended } = metaRatings;
   const sum = recommended[0] + recommended[1];
   const recommendPercentage = parseInt((recommended[1] / sum) * 100);
   const ratingsMeta = metaRatings.ratings;
+
+  useEffect(() => {
+    store.dispatch(getReview((productId)))
+      .then(() => {
+        store.dispatch(getMeta(productId));
+      })
+      .catch((err) => {
+        console.log("Error! Error: ", err);
+      });
+  }, []);
 
   let starSum = 0;
   let ratingSum = 0;
@@ -35,7 +48,7 @@ const Rating = ({ showReviews, metaRatings }) => {
           {' '}
         </div>
         <div className="star-ratings-css">
-          <AvarageStars percentage={{ width: avarageStarsPercentage }} />
+          <AverageStars percentage={{ width: avarageStarsPercentage }} />
         </div>
 
         <div>

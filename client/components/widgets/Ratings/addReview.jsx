@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { useParams } from 'react-router-dom';
 import Popup from './addReviewBox.jsx';
 import store from '../../../store/store.js';
 import getReview from '../../../actions/RatingsOverview/getReviews.js';
@@ -8,8 +9,14 @@ class AddReview extends Component {
     super(props);
     this.state = {
       showPopup: false,
+      //productId: useParams(),
     };
   }
+
+  // useEffect(() => {
+  //   props.getRelatedProducts(productId);
+  //   props.getOutfitInformation(productId);
+  // }, []);
 
   togglePopup() {
     this.setState({
@@ -22,7 +29,7 @@ class AddReview extends Component {
       <div className="popup-form">
 
         <button onClick={this.togglePopup.bind(this)}>ADD A REVIEW</button>
-        <button type='button' onClick={() => { store.dispatch(getReview(3, 'relevant', 100)); }}>MORE REVIEWS</button>
+        <button type="button" onClick={() => { store.dispatch(getReview(3, 'relevant', 100)); }}>MORE REVIEWS</button>
 
         {this.state.showPopup
           ? (

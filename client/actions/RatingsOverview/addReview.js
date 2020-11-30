@@ -14,7 +14,7 @@ const postReview = (newReview) => {
     photos: newReview.photos,
     characteristics: newReview.characteristics,
   };
-  //console.log(requestReview);
+  console.log(requestReview);
   axios.post('http://3.21.164.220/reviews', requestReview)
     .then((resp) => {
       //console.log(resp);

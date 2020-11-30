@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import postReview from '../../../actions/RatingsOverview/addReview.js';
 
 class Popup extends Component {
   constructor(props) {
     super(props);
+    console.log(props.match.params);
+    const { productId } = props.match.params;
     this.state = {
-      product_id: 3,
+      product_id: parseInt(productId, 10),
       rating: -1,
       summary: '',
       body: '',
-      recommend: true,
+      recommend: false,
       name: '',
       email: '',
       photos: [],
@@ -20,13 +23,20 @@ class Popup extends Component {
   }
 
   handleChange(e) {
-    this.setState({
-      [e.target.name]: e.target.value,
-    });
+    console.log(e.target.name);
+    if (e.target.name === 'recommend') {
+      this.setState({
+        recommend: e.target.checked,
+      });
+    } else {
+      this.setState({
+        [e.target.name]: e.target.value,
+      });
+    }
   }
 
   onSubmit() {
-    //console.log(this.state);
+    // console.log(this.state);
     postReview(this.state);
   }
 
@@ -50,7 +60,7 @@ class Popup extends Component {
           <br />
           <input
             className="recommend-input"
-            type="text"
+            type="checkbox"
             name="recommend"
             onChange={this.handleChange}
           />
@@ -107,7 +117,7 @@ class Popup extends Component {
               className="form-submit-button"
               type="button"
               onClick={() => {
-                //console.log('click');
+                // console.log('click');
                 this.onSubmit();
                 this.props.closePopup();
               }}
@@ -124,4 +134,4 @@ class Popup extends Component {
   }
 }
 
-export default Popup;
+export default withRouter(Popup);

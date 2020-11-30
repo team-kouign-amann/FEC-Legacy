@@ -32,7 +32,6 @@ const Reviews = ({ showReviews }) => {
             {' '}
           </label>
           <select
-            value="relevant"
             onChange={(e) => {
               // console.log('click');
               // console.log(e.target.value);
