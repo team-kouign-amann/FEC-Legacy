@@ -4,16 +4,14 @@ import ModalImage from "react-modal-image";
 
 const Answers = (props) => {
   // console.log('props.question:', props.question);
-  
-  
+
+
   let answers = Object.values(props.question.answers)
 
-  console.log('answers', answers);
-  
   answers.sort((a, b) => {
     return b.helpfulness - a.helpfulness
   })
-  
+
   let sellerFirst = [];
   answers.forEach((answer) => {
     if (answer.answerer_name === 'Seller') {
@@ -23,9 +21,8 @@ const Answers = (props) => {
     }
   })
   // console.log('seller', sellerFirst)
-  
-  console.log('underReviewAnswers', props.underReview);
-  
+
+
   let renderedAnswers;
 
   let keyId = props.question.question_id;
@@ -38,8 +35,7 @@ const Answers = (props) => {
       }
     }
   }
-  console.log('lololol', sellerFirst)
-  
+
   if (props.answerBoolean[keyId]) {
     renderedAnswers = sellerFirst.slice(0, 2);
   } else {
@@ -57,14 +53,14 @@ const Answers = (props) => {
               ))}
             </div>
             {(() => {if (!answer.reported) {
-              return answer.answerer_name === 'Seller' 
-              ? <div className="indiv_answers body-font"><span>by <b>{answer.answerer_name}</b>, {moment(answer.date).format('MMMM Do, YYYY')}</span> | Helpful? <span className="btn_words under-line body-font" onClick={() => props.answerHelpful(answer.id)}>Yes</ span>  ({answer.helpfulness}) | <span className="btn_words under-line body-font rep-answer" onClick={() => props.reportAnswer(answer.id, answer, keyId)}>Report</span></div> 
+              return answer.answerer_name === 'Seller'
+              ? <div className="indiv_answers body-font"><span>by <b>{answer.answerer_name}</b>, {moment(answer.date).format('MMMM Do, YYYY')}</span> | Helpful? <span className="btn_words under-line body-font" onClick={() => props.answerHelpful(answer.id)}>Yes</ span>  ({answer.helpfulness}) | <span className="btn_words under-line body-font rep-answer" onClick={() => props.reportAnswer(answer.id, answer, keyId)}>Report</span></div>
               : <div className="indiv_answers body-font"><span>by {answer.answerer_name}, {moment(answer.date).format('MMMM Do, YYYY')}</span> | Helpful? <span className="btn_words under-line body-font" onClick={() => props.answerHelpful(answer.id)}>Yes</ span>  ({answer.helpfulness}) | <span className="btn_words under-line body-font rep-answer" onClick={() => props.reportAnswer(answer.id, answer, keyId)}>Report</span></div>
             } else {
               return <div className="indiv_answers body-font"><span>by {answer.answerer_name}, {moment(answer.date).format('MMMM Do, YYYY')}</span><span className="btn_words under-line body-font">Reported</span></div>
             }
             })()}
-          </div> 
+          </div>
         ))}
       {(() => {if (answers.length <= 2) {
         return null;
@@ -73,7 +69,7 @@ const Answers = (props) => {
       } else {
         return <div className="indiv_answers"><button className="btn_words" onClick={() => props.moreAnswers(props.answerBoolean, props.question.question_id)}>Collapse ANSWERS</button></div>
       }
-      })()} 
+      })()}
     </div>
   </div>
   )};

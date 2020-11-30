@@ -1,19 +1,33 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import { useParams } from 'react-router-dom';
 import StartsBar from './startsBar.jsx';
 import AverageStars from './averageStars.jsx';
 import SizeComfort from './sizeComfort.jsx';
 import Reviews from './reviews.jsx';
+import AddReview from './addReview.jsx';
+import getMeta from '../../../actions/RatingsOverview/getMeta.js';
+import getReview from '../../../actions/RatingsOverview/getReviews.js';
+import store from '../../../store/store.js';
 
-const Rating = ({ showReviews, metaRatings}) => {
+const Rating = ({ showReviews, metaRatings }) => {
   // console.log('showReviews');
   // console.log(showReviews);
-  // console.log('metaRatings');
-  // console.log(metaRatings);
-  const characteristics = metaRatings.characteristics;
-  const recommended = metaRatings.recommended;
+  const { productId } = useParams();
+  const { characteristics } = metaRatings;
+  const { recommended } = metaRatings;
   const sum = recommended[0] + recommended[1];
   const recommendPercentage = parseInt((recommended[1] / sum) * 100);
   const ratingsMeta = metaRatings.ratings;
+
+  useEffect(() => {
+    store.dispatch(getReview((productId)))
+      .then(() => {
+        store.dispatch(getMeta(productId));
+      })
+      .catch((err) => {
+        console.log("Error! Error: ", err);
+      });
+  }, []);
 
   let starSum = 0;
   let ratingSum = 0;
@@ -22,13 +36,17 @@ const Rating = ({ showReviews, metaRatings}) => {
     starSum += ratingsMeta[i] * parseInt(i);
   }
   const temp = (starSum / ratingSum).toFixed(2);
-  const avarageStarsPercentage = `${(temp / 5) * 125}%`;
+  const avarageStarsPercentage = `${(temp / 5) * 87}%`;
 
   return (
     <div className="row">
       <div className="column_one">
-        <h3 id="ratings">RATING &amp; REVIEWS</h3>
-        <div className="rating"> {temp} </div>
+        <h3>RATING &amp; REVIEWS</h3>
+        <div className="rating">
+          {' '}
+          {temp}
+          {' '}
+        </div>
         <div className="star-ratings-css">
           <AverageStars percentage={{ width: avarageStarsPercentage }} />
         </div>
@@ -56,8 +74,8 @@ const Rating = ({ showReviews, metaRatings}) => {
         </div>
 
         <div>
-          <button type="button" className="more-reviews">MORE REVIEWS</button>
-          <button type="button" className="add-a-review">ADD A REVIEW</button>
+
+          <AddReview showReviews={showReviews} metaRatings={metaRatings} />
         </div>
       </div>
 

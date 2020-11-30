@@ -1,5 +1,4 @@
 const moreQuestions = (newNum) => {
-  console.log('hit');
   return (dispatch) => {
     dispatch({
       type: 'NEW_NUM',

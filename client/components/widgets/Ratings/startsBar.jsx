@@ -16,9 +16,7 @@ const StartsBar = ({ ratingsMeta }) => {
         </h5>
         <div className="ratings-container">
           <div className="rating-bar">
-            <div className="rating-bar-fill" style={{ width: percentage }}>
-              <span className="black"> </span>
-            </div>
+            <div className="rating-bar-fill" style={{ width: percentage }} />
           </div>
         </div>
       </div>

@@ -8,7 +8,6 @@ import 'regenerator-runtime';
 
 
 const Questions = (props) => {
-  console.log('lets see', props.underReview)
 
   const { productId } = useParams();
   // {console.log('productId:', productId)}
@@ -22,8 +21,7 @@ const Questions = (props) => {
       console.log('Error getting initial questions', err)
     })
   }, [])
-  
-  {console.log('props.questions:', props.questions)}
+
   // {console.log('props.answerBoolean:', props.answerBoolean)}
   // {console.log('props.id:', props.id)}
 
@@ -32,16 +30,16 @@ const Questions = (props) => {
   $('#question_form').on('submit', function( event ) {
     event.preventDefault();
     event.stopImmediatePropagation();
-    let params = { body: document.getElementById("body").value, 
-                  name: document.getElementById("name").value, 
-                  email: document.getElementById("email").value, 
-                  product_id: Number(document.getElementById("product_id").value) 
+    let params = { body: document.getElementById("body").value,
+                  name: document.getElementById("name").value,
+                  email: document.getElementById("email").value,
+                  product_id: Number(document.getElementById("product_id").value)
                   }
     // console.log(params);
     return props.addQuestions(params)
     .then(() => {
       window.location.href = location.pathname
-      document.getElementById("body").value = ''; 
+      document.getElementById("body").value = '';
       document.getElementById("name").value = '';
       document.getElementById("email").value = '';
     })
@@ -49,22 +47,22 @@ const Questions = (props) => {
       console.log('Error submitting', err)
     })
   });
-  
+
   /////////////////This is where I am submitting Answer form and sending it to API//////////////////
 
   $('#answer_form').on('submit', function( event ) {
     event.preventDefault();
     event.stopImmediatePropagation();
     let param = Number(document.getElementById("productId").value)
-    let bodyParams = {body: document.getElementById("answer").value, 
-                      name: document.getElementById("nickname").value, 
-                      email: document.getElementById("address").value, 
+    let bodyParams = {body: document.getElementById("answer").value,
+                      name: document.getElementById("nickname").value,
+                      email: document.getElementById("address").value,
                       }
     // console.log(param, bodyParams);
     return props.addAnswers(param, bodyParams)
     .then(() => {
       window.location.href = location.pathname
-      document.getElementById("answer").value = ''; 
+      document.getElementById("answer").value = '';
       document.getElementById("nickname").value = '';
       document.getElementById("address").value = '';
       document.getElementById("productId").value = '';
@@ -73,8 +71,8 @@ const Questions = (props) => {
       console.log('Error submitting', err)
     })
   });
-  
-  
+
+
   //////// This is where we are customizing the error message.../////////
   $(function(){
     $("input[name=body]")[0].oninvalid = function () {
@@ -142,7 +140,7 @@ const Questions = (props) => {
     $("#productId").val(questionId)
     $("#aboutAnswer").text(`About the ${name}: ${body}`)
   };
-  
+
   function getName(name){
     $("#aboutQuestion").text(`About the ${name}`)
   };
@@ -150,7 +148,7 @@ const Questions = (props) => {
 
 
   /////Deciding how many questions will be posted////
-  
+
 
   let questions;
   if (!props.filterQs) {
@@ -158,8 +156,8 @@ const Questions = (props) => {
   } else {
     questions = props.filterQs;
   }
-  
-  
+
+
   return(
     <div className="quest-wrap">
       <div className="row">
@@ -170,7 +168,7 @@ const Questions = (props) => {
           <div className="search">
             <input type="text" className="searchTerm" placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..." onChange={(e) => props.inputSearch(e.target.value, props.questions)}></input>
             <button type="submit" className="searchButton">
-              <i className="fas fa-search"></i> 
+              <i className="fas fa-search"></i>
             </button>
           </div>
         </div>
